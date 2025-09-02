@@ -2,118 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Birthing Plan Tool Design System - Warm, supportive, and nurturing */
+/* Editorial Interior Design Studio - Bold, confident, warm */
 
 @layer base {
   :root {
-    /* Warm, calming base colors */
-    --background: 25 50% 97%;
-    --foreground: 215 25% 20%;
+    /* Editorial color palette - warm cream background */
+    --background: 33 33% 93%; /* #F5F1EB warm cream */
+    --foreground: 0 0% 17%; /* #2C2C2C rich charcoal */
 
-    /* Card system with soft warmth */
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 20%;
+    /* Card system with editorial elegance */
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 0 0% 17%; /* Rich charcoal text */
 
     --popover: 0 0% 100%;  
-    --popover-foreground: 215 25% 20%;
+    --popover-foreground: 0 0% 17%;
 
-    /* Nurturing primary - soft sage green */
-    --primary: 145 40% 45%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 145 60% 65%;
+    /* Bold coral/orange primary - confident and warm */
+    --primary: 14 100% 57%; /* #FF5722 coral/orange */
+    --primary-foreground: 0 0% 100%; /* White text on coral */
+    --primary-glow: 14 85% 70%; /* Lighter coral glow */
 
-    /* Supportive secondary - warm peach */
-    --secondary: 25 65% 85%;
-    --secondary-foreground: 215 25% 20%;
-    --secondary-warm: 20 80% 70%;
+    /* Warm beige secondary tones */
+    --secondary: 33 25% 87%; /* #E8E2D8 soft beige */
+    --secondary-foreground: 0 0% 17%; /* Charcoal on beige */
+    --secondary-warm: 36 100% 65%; /* #FFB84D warm yellow */
 
-    /* Gentle muted tones */
-    --muted: 25 30% 92%;
-    --muted-foreground: 215 15% 50%;
+    /* Editorial muted tones */
+    --muted: 33 20% 90%; /* Lighter warm neutral */
+    --muted-foreground: 0 0% 45%; /* Medium charcoal */
 
-    /* Calming accent - soft blue */
-    --accent: 200 45% 75%;
-    --accent-foreground: 215 25% 20%;
-    --accent-deep: 200 60% 45%;
+    /* Ocean blue accent - sophisticated contrast */
+    --accent: 192 38% 47%; /* #4A90A4 ocean blue */
+    --accent-foreground: 0 0% 100%; /* White on blue */
+    --accent-deep: 192 50% 35%; /* Deeper ocean blue */
 
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Soft borders and inputs */
-    --border: 25 25% 88%;
-    --input: 25 25% 88%;
-    --ring: 145 40% 45%;
+    /* Clean editorial borders */
+    --border: 33 15% 85%; /* Subtle warm borders */
+    --input: 33 15% 85%; /* Matching input borders */
+    --ring: 14 100% 57%; /* Coral focus rings */
 
-    --radius: 0.75rem;
+    --radius: 12px; /* Rounded corners for warmth */
 
-    /* Beautiful gradients for warmth and trust */
-    --gradient-primary: linear-gradient(135deg, hsl(145 40% 45%), hsl(145 60% 65%));
-    --gradient-secondary: linear-gradient(135deg, hsl(20 80% 70%), hsl(25 65% 85%));
-    --gradient-hero: linear-gradient(135deg, hsl(145 40% 45%), hsl(200 60% 45%));
-    --gradient-calm: linear-gradient(180deg, hsl(25 50% 97%), hsl(200 30% 95%));
+    /* Bold editorial gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(14 100% 57%), hsl(14 85% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(36 100% 65%), hsl(33 25% 87%));
+    --gradient-hero: linear-gradient(135deg, hsl(14 100% 57%), hsl(192 38% 47%));
+    --gradient-editorial: linear-gradient(180deg, hsl(33 33% 93%), hsl(33 25% 87%));
 
-    /* Shadows for depth and comfort */
-    --shadow-gentle: 0 4px 20px -2px hsl(145 40% 45% / 0.1);
-    --shadow-warm: 0 8px 30px -5px hsl(20 80% 70% / 0.15);
-    --shadow-card: 0 2px 15px -3px hsl(215 25% 20% / 0.08);
+    /* Editorial shadows with confidence */
+    --shadow-editorial: 0 8px 40px -8px hsl(14 100% 57% / 0.15);
+    --shadow-confident: 0 12px 50px -10px hsl(0 0% 17% / 0.1);
+    --shadow-card: 0 4px 24px -6px hsl(0 0% 17% / 0.08);
 
-    /* Smooth transitions */
-    --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Smooth editorial transitions */
+    --transition-editorial: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-confident: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-foreground: 0 0% 17%;
+    --sidebar-primary: 14 100% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 33 25% 87%;
+    --sidebar-accent-foreground: 0 0% 17%;
+    --sidebar-border: 33 15% 85%;
+    --sidebar-ring: 14 100% 57%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode with editorial sophistication */
+    --background: 0 0% 10%; /* #1A1A1A deep black */
+    --foreground: 33 20% 92%; /* Light cream text */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 13%; /* Dark cards */
+    --card-foreground: 33 20% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 13%;
+    --popover-foreground: 33 20% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 14 100% 57%; /* Keep coral primary */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%; /* Dark secondary */
+    --secondary-foreground: 33 20% 92%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 192 38% 47%; /* Keep ocean blue */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 14 100% 57%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 33 20% 92%;
+    --sidebar-primary: 14 100% 57%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 33 20% 92%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 14 100% 57%;
   }
 }
 
@@ -123,11 +118,12 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-body;
   }
 }
 
 @layer components {
+  /* Editorial gradients for bold statements */
   .gradient-primary {
     background: var(--gradient-primary);
   }
@@ -140,28 +136,52 @@
     background: var(--gradient-hero);
   }
   
-  .gradient-calm {
-    background: var(--gradient-calm);
+  .gradient-editorial {
+    background: var(--gradient-editorial);
   }
   
-  .shadow-gentle {
-    box-shadow: var(--shadow-gentle);
+  /* Editorial shadows with confidence */
+  .shadow-editorial {
+    box-shadow: var(--shadow-editorial);
   }
   
-  .shadow-warm {
-    box-shadow: var(--shadow-warm);
+  .shadow-confident {
+    box-shadow: var(--shadow-confident);
   }
   
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
   
-  .transition-gentle {
-    transition: var(--transition-gentle);
+  /* Editorial transitions */
+  .transition-editorial {
+    transition: var(--transition-editorial);
   }
   
-  .transition-bounce {
-    transition: var(--transition-bounce);
+  .transition-confident {
+    transition: var(--transition-confident);
+  }
+
+  /* Typography system for editorial impact */
+  .text-editorial-headline {
+    @apply font-display font-bold text-primary text-4xl md:text-6xl xl:text-7xl leading-tight tracking-tight;
+  }
+
+  .text-editorial-subhead {
+    @apply font-display font-semibold text-2xl md:text-3xl xl:text-4xl text-foreground leading-tight;
+  }
+
+  .text-editorial-body {
+    @apply font-body text-lg md:text-xl leading-relaxed text-muted-foreground;
+  }
+
+  /* Editorial button styles */
+  .btn-editorial-primary {
+    @apply bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-2xl shadow-editorial hover:shadow-confident transition-confident;
+  }
+
+  .btn-editorial-secondary {
+    @apply bg-secondary text-secondary-foreground border-2 border-accent font-display font-semibold px-8 py-4 rounded-2xl shadow-card hover:shadow-confident transition-confident;
   }
 }
 
