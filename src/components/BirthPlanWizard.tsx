@@ -1,0 +1,142 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ProgressTracker } from "./ProgressTracker";
+import { LaborPreferencesStep } from "./steps/LaborPreferencesStep";
+import { PainManagementStep } from "./steps/PainManagementStep";
+import { SupportTeamStep } from "./steps/SupportTeamStep";
+import { SummaryStep } from "./steps/SummaryStep";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
+interface BirthPlanWizardProps {
+  onBack: () => void;
+}
+
+export interface BirthPlanData {
+  laborPreferences: {
+    environment: string;
+    positions: string[];
+    mobility: string;
+    atmosphere: string;
+  };
+  painManagement: {
+    approach: string;
+    specificPreferences: string[];
+    backupPlan: string;
+  };
+  supportTeam: {
+    primarySupport: string;
+    additionalSupport: string[];
+    communicationStyle: string;
+  };
+}
+
+const steps = [
+  { id: 'labor', title: 'Labor Preferences', component: LaborPreferencesStep },
+  { id: 'pain', title: 'Pain Management', component: PainManagementStep },
+  { id: 'support', title: 'Support Team', component: SupportTeamStep },
+  { id: 'summary', title: 'Your Birth Plan', component: SummaryStep },
+];
+
+export const BirthPlanWizard = ({ onBack }: BirthPlanWizardProps) => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [birthPlanData, setBirthPlanData] = useState<BirthPlanData>({
+    laborPreferences: {
+      environment: '',
+      positions: [],
+      mobility: '',
+      atmosphere: '',
+    },
+    painManagement: {
+      approach: '',
+      specificPreferences: [],
+      backupPlan: '',
+    },
+    supportTeam: {
+      primarySupport: '',
+      additionalSupport: [],
+      communicationStyle: '',
+    },
+  });
+
+  const updateStepData = (stepKey: keyof BirthPlanData, data: any) => {
+    setBirthPlanData(prev => ({
+      ...prev,
+      [stepKey]: { ...prev[stepKey], ...data }
+    }));
+  };
+
+  const handleNext = () => {
+    if (currentStep < steps.length - 1) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const CurrentStepComponent = steps[currentStep].component;
+  const isLastStep = currentStep === steps.length - 1;
+  const isFirstStep = currentStep === 0;
+
+  return (
+    <div className="min-h-screen gradient-calm">
+      <div className="container mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <Button 
+            variant="ghost" 
+            onClick={onBack}
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Button>
+          
+          <div className="text-center">
+            <h1 className="text-2xl font-semibold text-foreground">Create Your Birth Plan</h1>
+            <p className="text-muted-foreground">Step {currentStep + 1} of {steps.length}</p>
+          </div>
+          
+          <div className="w-24" /> {/* Spacer for centering */}
+        </div>
+
+        {/* Progress Tracker */}
+        <ProgressTracker steps={steps} currentStep={currentStep} />
+
+        {/* Step Content */}
+        <div className="max-w-4xl mx-auto mt-8">
+          <CurrentStepComponent 
+            data={birthPlanData}
+            updateData={updateStepData}
+          />
+        </div>
+
+        {/* Navigation */}
+        <div className="flex justify-between items-center mt-12 max-w-4xl mx-auto">
+          <Button
+            variant="outline"
+            onClick={handlePrevious}
+            disabled={isFirstStep}
+            className="flex items-center gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Previous
+          </Button>
+
+          {!isLastStep && (
+            <Button
+              onClick={handleNext}
+              className="gradient-primary text-white flex items-center gap-2 shadow-gentle hover:shadow-warm transition-gentle"
+            >
+              Next
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
