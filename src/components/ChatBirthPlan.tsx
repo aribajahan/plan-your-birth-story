@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { ArrowLeft, Send, Mic, MicOff, FileText, Volume2 } from "lucide-react";
 import { BirthPlanData } from "./BirthPlanWizard";
 import { RealityCheck } from "./RealityCheck";
-import { useConversation } from "@11labs/react";
+
 
 interface ChatBirthPlanProps {
   onBack: () => void;
@@ -57,7 +57,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
   const [isListening, setIsListening] = useState(false);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const conversation = useConversation();
+  
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -160,15 +160,9 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
 
   const toggleVoiceInput = async () => {
     if (!isListening) {
-      try {
-        await navigator.mediaDevices.getUserMedia({ audio: true });
-        setIsListening(true);
-        // Voice input functionality would be implemented here
-        // For now, just simulate the state
-        setTimeout(() => setIsListening(false), 3000);
-      } catch (error) {
-        console.error("Microphone access denied:", error);
-      }
+      setIsListening(true);
+      // Voice input functionality to be implemented later
+      setTimeout(() => setIsListening(false), 3000);
     } else {
       setIsListening(false);
     }
