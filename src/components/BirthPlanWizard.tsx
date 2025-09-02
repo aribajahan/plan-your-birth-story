@@ -5,10 +5,11 @@ import { LaborPreferencesStep } from "./steps/LaborPreferencesStep";
 import { PainManagementStep } from "./steps/PainManagementStep";
 import { SupportTeamStep } from "./steps/SupportTeamStep";
 import { SummaryStep } from "./steps/SummaryStep";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
 
 interface BirthPlanWizardProps {
   onBack: () => void;
+  onSwitchToChat?: () => void;
 }
 
 export interface BirthPlanData {
@@ -37,7 +38,7 @@ const steps = [
   { id: 'summary', title: 'Your Birth Plan', component: SummaryStep },
 ];
 
-export const BirthPlanWizard = ({ onBack }: BirthPlanWizardProps) => {
+export const BirthPlanWizard = ({ onBack, onSwitchToChat }: BirthPlanWizardProps) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [birthPlanData, setBirthPlanData] = useState<BirthPlanData>({
     laborPreferences: {
@@ -100,7 +101,18 @@ export const BirthPlanWizard = ({ onBack }: BirthPlanWizardProps) => {
             <p className="text-muted-foreground">Step {currentStep + 1} of {steps.length}</p>
           </div>
           
-          <div className="w-24" /> {/* Spacer for centering */}
+          {onSwitchToChat ? (
+            <Button 
+              variant="outline" 
+              onClick={onSwitchToChat}
+              className="flex items-center gap-2"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Switch to Chat
+            </Button>
+          ) : (
+            <div className="w-24" />
+          )}
         </div>
 
         {/* Progress Tracker */}

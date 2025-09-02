@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { BirthPlanWizard } from "@/components/BirthPlanWizard";
+import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
-import { Heart, Baby, Shield } from "lucide-react";
+import { Heart, Baby, Shield, MessageCircle, FileText } from "lucide-react";
 
 const Index = () => {
-  const [showWizard, setShowWizard] = useState(false);
+  const [mode, setMode] = useState<'home' | 'chat' | 'form'>('home');
 
-  if (showWizard) {
-    return <BirthPlanWizard onBack={() => setShowWizard(false)} />;
+  if (mode === 'chat') {
+    return <ChatBirthPlan onBack={() => setMode('home')} onSwitchToForm={() => setMode('form')} />;
+  }
+
+  if (mode === 'form') {
+    return <BirthPlanWizard onBack={() => setMode('home')} onSwitchToChat={() => setMode('chat')} />;
   }
 
   return (
@@ -28,13 +33,36 @@ const Index = () => {
             </p>
           </div>
 
-          <Button 
-            onClick={() => setShowWizard(true)}
-            size="lg"
-            className="gradient-hero text-white px-8 py-4 text-lg font-semibold shadow-warm hover:shadow-gentle transition-gentle mb-12"
-          >
-            Start Your Birth Plan
-          </Button>
+          {/* Primary Action - Chat Through It */}
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-4">
+            <Button 
+              onClick={() => setMode('chat')}
+              size="lg"
+              className="gradient-hero text-white px-8 py-4 text-lg font-semibold shadow-warm hover:shadow-gentle transition-gentle flex items-center gap-3"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Chat Through It
+            </Button>
+            
+            <span className="text-muted-foreground text-sm">or</span>
+            
+            <Button 
+              onClick={() => setMode('form')}
+              variant="outline"
+              size="lg"
+              className="px-8 py-4 text-lg font-semibold border-2 hover:bg-accent hover:text-accent-foreground transition-gentle flex items-center gap-3"
+            >
+              <FileText className="w-5 h-5" />
+              Fill Out Forms
+            </Button>
+          </div>
+          
+          <div className="text-center mb-12">
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+              <strong>Chat Through It:</strong> Have a natural conversation with gentle guidance and voice support.<br/>
+              <strong>Fill Out Forms:</strong> Traditional step-by-step forms for those who prefer structure.
+            </p>
+          </div>
 
           {/* Feature Cards */}
           <div className="grid md:grid-cols-3 gap-8 mt-16">
