@@ -2,55 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Editorial Interior Design Studio - Bold, confident, warm */
+/* Condesa Studio Inspired - Bold, warm, contemporary */
 
 @layer base {
   :root {
-    /* Editorial color palette - warm cream background */
-    --background: 33 33% 93%; /* #F5F1EB warm cream */
-    --foreground: 0 0% 17%; /* #2C2C2C rich charcoal */
+    /* Condesa color palette - warm cream background */
+    --background: 40 35% 96%; /* Warm off-white cream */
+    --foreground: 0 0% 13%; /* Deep charcoal */
 
-    /* Card system with editorial elegance */
+    /* Card system with contemporary warmth */
     --card: 0 0% 100%; /* Pure white cards */
-    --card-foreground: 0 0% 17%; /* Rich charcoal text */
+    --card-foreground: 0 0% 13%; /* Deep charcoal text */
 
     --popover: 0 0% 100%;  
-    --popover-foreground: 0 0% 17%;
+    --popover-foreground: 0 0% 13%;
 
-    /* Bold coral/orange primary - confident and warm */
-    --primary: 14 100% 57%; /* #FF5722 coral/orange */
+    /* Condesa coral/orange primary - bold and confident */
+    --primary: 12 85% 58%; /* Coral orange from Condesa brand */
     --primary-foreground: 0 0% 100%; /* White text on coral */
-    --primary-glow: 14 85% 70%; /* Lighter coral glow */
+    --primary-glow: 12 75% 68%; /* Softer coral glow */
 
-    /* Warm beige secondary tones */
-    --secondary: 33 25% 87%; /* #E8E2D8 soft beige */
-    --secondary-foreground: 0 0% 17%; /* Charcoal on beige */
-    --secondary-warm: 36 100% 65%; /* #FFB84D warm yellow */
+    /* Warm beige secondary with yellow accents */
+    --secondary: 207 55% 62%; /* Soft blue from testimonials */
+    --secondary-foreground: 0 0% 100%; /* White on blue */
+    --secondary-warm: 45 95% 68%; /* Warm yellow from "What I Do" */
 
-    /* Editorial muted tones */
-    --muted: 33 20% 90%; /* Lighter warm neutral */
-    --muted-foreground: 0 0% 45%; /* Medium charcoal */
+    /* Contemporary muted tones */
+    --muted: 40 25% 92%; /* Lighter warm neutral */
+    --muted-foreground: 0 0% 40%; /* Medium charcoal */
 
-    /* Ocean blue accent - sophisticated contrast */
-    --accent: 192 38% 47%; /* #4A90A4 ocean blue */
-    --accent-foreground: 0 0% 100%; /* White on blue */
-    --accent-deep: 192 50% 35%; /* Deeper ocean blue */
+    /* Bright yellow accent - cheerful and friendly */
+    --accent: 45 95% 68%; /* Bright yellow accent */
+    --accent-foreground: 0 0% 13%; /* Dark text on yellow */
+    --accent-deep: 207 65% 52%; /* Deeper blue variant */
 
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Clean editorial borders */
-    --border: 33 15% 85%; /* Subtle warm borders */
-    --input: 33 15% 85%; /* Matching input borders */
-    --ring: 14 100% 57%; /* Coral focus rings */
+    /* Warm contemporary borders */
+    --border: 40 20% 88%; /* Subtle warm borders */
+    --input: 40 20% 88%; /* Matching input borders */
+    --ring: 12 85% 58%; /* Coral focus rings */
 
-    --radius: 12px; /* Rounded corners for warmth */
+    --radius: 16px; /* More rounded for friendliness */
 
-    /* Bold editorial gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(14 100% 57%), hsl(14 85% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(36 100% 65%), hsl(33 25% 87%));
-    --gradient-hero: linear-gradient(135deg, hsl(14 100% 57%), hsl(192 38% 47%));
-    --gradient-editorial: linear-gradient(180deg, hsl(33 33% 93%), hsl(33 25% 87%));
+    /* Condesa inspired gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(12 85% 58%), hsl(12 75% 68%));
+    --gradient-secondary: linear-gradient(135deg, hsl(45 95% 68%), hsl(40 35% 96%));
+    --gradient-hero: linear-gradient(135deg, hsl(12 85% 58%), hsl(207 55% 62%));
+    --gradient-editorial: linear-gradient(180deg, hsl(40 35% 96%), hsl(40 25% 92%));
 
     /* Editorial shadows with confidence */
     --shadow-editorial: 0 8px 40px -8px hsl(14 100% 57% / 0.15);
