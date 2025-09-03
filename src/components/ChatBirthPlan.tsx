@@ -19,6 +19,14 @@ interface UserPreferences {
   previousExperience?: 'first-time' | 'experienced' | 'mixed';
 }
 
+interface DiscussedTopics {
+  painManagement: boolean;
+  environment: boolean;
+  positions: boolean;
+  support: boolean;
+  expectations: boolean;
+}
+
 interface ChatMessage {
   id: string;
   role: 'user' | 'assistant';
@@ -71,6 +79,13 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
   const [isListening, setIsListening] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 5;
+  const [discussedTopics, setDiscussedTopics] = useState<DiscussedTopics>({
+    painManagement: false,
+    environment: false,
+    positions: false,
+    support: false,
+    expectations: false,
+  });
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -165,6 +180,28 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     return scripts[scriptKey as keyof typeof scripts];
   };
 
+  const markTopicDiscussed = (topic: keyof DiscussedTopics) => {
+    setDiscussedTopics(prev => ({ ...prev, [topic]: true }));
+  };
+
+  const getNextUndiscussedTopic = (): string => {
+    const topics = [
+      { key: 'environment', prompt: 'What kind of birth environment would help you feel most comfortable and confident?' },
+      { key: 'painManagement', prompt: 'How are you thinking about pain management during labor?' },
+      { key: 'positions', prompt: 'Have you thought about movement and positioning during labor?' },
+      { key: 'support', prompt: 'What kind of support team would make you feel strongest?' },
+      { key: 'expectations', prompt: 'What hopes or concerns do you have about your birth experience?' }
+    ];
+
+    for (const topic of topics) {
+      if (!discussedTopics[topic.key as keyof DiscussedTopics]) {
+        return topic.prompt;
+      }
+    }
+
+    return "You've shared so much thoughtful information with me. What else would you like to explore or discuss?";
+  };
+
   const generateResponse = (userMessage: string) => {
     const lowerMessage = userMessage.toLowerCase();
     
@@ -223,6 +260,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     
     if (lowerMessage.includes('pain') || lowerMessage.includes('epidural') || lowerMessage.includes('natural') || lowerMessage.includes('medication')) {
       category = 'pain';
+      markTopicDiscussed('painManagement');
       if (conversationPhase === 'introduction') {
         setConversationPhase('pain');
         setCurrentStep(2);
@@ -230,6 +268,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
       }
     } else if (lowerMessage.includes('environment') || lowerMessage.includes('room') || lowerMessage.includes('atmosphere') || lowerMessage.includes('lighting')) {
       category = 'environment';
+      markTopicDiscussed('environment');
       if (conversationPhase === 'introduction') {
         setConversationPhase('labor');
         setCurrentStep(2);
@@ -237,10 +276,19 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
       }
     } else if (lowerMessage.includes('position') || lowerMessage.includes('move') || lowerMessage.includes('walk') || lowerMessage.includes('birth ball')) {
       category = 'positions';
+      markTopicDiscussed('positions');
       if (conversationPhase === 'introduction') {
         setConversationPhase('labor');
         setCurrentStep(2);
         phase = 'labor';
+      }
+    } else if (lowerMessage.includes('support') || lowerMessage.includes('partner') || lowerMessage.includes('doula') || lowerMessage.includes('family')) {
+      category = 'support';
+      markTopicDiscussed('support');
+      if (conversationPhase === 'introduction') {
+        setConversationPhase('support');
+        setCurrentStep(3);
+        phase = 'support';
       }
     }
 
@@ -251,17 +299,20 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
       return categoryResponses[Math.floor(Math.random() * categoryResponses.length)];
     }
 
-    // Fallback responses based on phase
+    // Fallback responses - try to move to next undiscussed topic or provide contextual response
+    if (conversationPhase === 'introduction') {
+      return getNextUndiscussedTopic();
+    }
+
     const fallbacks = {
-      introduction: "I'm here to help you think through whatever feels most important right now. What's on your heart?",
-      labor: "That's a thoughtful consideration about your labor preferences. Tell me more about what matters most to you.",
-      pain: "Pain management is such a personal journey. What feels right for your situation?",
-      support: "Your support team can make all the difference. What kind of support helps you feel strongest?",
-      scripts: "I'm working on some communication scripts based on what you've shared. What else would be helpful?",
+      labor: "That's a thoughtful consideration about your labor preferences. " + getNextUndiscussedTopic(),
+      pain: "Pain management is such a personal journey. " + getNextUndiscussedTopic(),
+      support: "Your support team can make all the difference. " + getNextUndiscussedTopic(),
+      scripts: "I'm working on some communication scripts based on what you've shared. What else would be helpful to discuss?",
       complete: "You've shared so much thoughtful information. Is there anything else you'd like to explore together?"
     };
 
-    return fallbacks[conversationPhase] || "Tell me more about what's on your mind.";
+    return fallbacks[conversationPhase] || getNextUndiscussedTopic();
   };
 
   const shouldAddRealityCheck = (message: string, phase: string): boolean => {
