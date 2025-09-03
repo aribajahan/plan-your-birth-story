@@ -52,14 +52,17 @@
     --gradient-hero: linear-gradient(135deg, hsl(12 85% 58%), hsl(207 55% 62%));
     --gradient-editorial: linear-gradient(180deg, hsl(40 35% 96%), hsl(40 25% 92%));
 
-    /* Editorial shadows with confidence */
-    --shadow-editorial: 0 8px 40px -8px hsl(14 100% 57% / 0.15);
-    --shadow-confident: 0 12px 50px -10px hsl(0 0% 17% / 0.1);
-    --shadow-card: 0 4px 24px -6px hsl(0 0% 17% / 0.08);
+/* Editorial shadows with confidence */
+--shadow-editorial: 0 8px 40px -8px hsl(12 85% 58% / 0.15);
+--shadow-confident: 0 20px 80px -12px hsl(12 85% 58% / 0.25);
+--shadow-card: 0 4px 30px -4px hsl(40 25% 92% / 0.4);
+--shadow-dramatic: 0 32px 120px -16px hsl(12 85% 58% / 0.3);
+--shadow-glow: 0 0 60px hsl(12 75% 68% / 0.3);
 
-    /* Smooth editorial transitions */
-    --transition-editorial: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-confident: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+/* Smooth editorial transitions */
+--transition-editorial: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+--transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+--transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 17%;
@@ -139,6 +142,10 @@
   .gradient-editorial {
     background: var(--gradient-editorial);
   }
+
+  .gradient-radial {
+    background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.15), transparent 70%);
+  }
   
   /* Editorial shadows with confidence */
   .shadow-editorial {
@@ -152,36 +159,83 @@
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
+
+  .shadow-dramatic {
+    box-shadow: var(--shadow-dramatic);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
   
   /* Editorial transitions */
   .transition-editorial {
     transition: var(--transition-editorial);
   }
   
-  .transition-confident {
-    transition: var(--transition-confident);
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
   }
 
   /* Typography system for editorial impact */
   .text-editorial-headline {
-    @apply font-display font-bold text-primary text-4xl md:text-6xl xl:text-7xl leading-tight tracking-tight;
+    @apply text-7xl lg:text-9xl xl:text-[10rem] font-display font-black leading-[0.8] tracking-tight;
+  }
+
+  .text-editorial-hero {
+    @apply text-5xl lg:text-7xl xl:text-8xl font-display font-bold leading-[0.9] tracking-tight;
   }
 
   .text-editorial-subhead {
-    @apply font-display font-semibold text-2xl md:text-3xl xl:text-4xl text-foreground leading-tight;
+    @apply text-3xl lg:text-5xl font-display font-semibold leading-tight;
   }
 
   .text-editorial-body {
-    @apply font-body text-lg md:text-xl leading-relaxed text-muted-foreground;
+    @apply text-xl lg:text-2xl text-muted-foreground leading-relaxed font-body;
+  }
+
+  .text-editorial-large {
+    @apply text-2xl lg:text-3xl font-display font-medium leading-tight;
   }
 
   /* Editorial button styles */
   .btn-editorial-primary {
-    @apply bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-2xl shadow-editorial hover:shadow-confident transition-confident;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-editorial hover:shadow-dramatic hover:scale-[1.02] transition-bounce font-display font-bold transform;
   }
 
   .btn-editorial-secondary {
-    @apply bg-secondary text-secondary-foreground border-2 border-accent font-display font-semibold px-8 py-4 rounded-2xl shadow-card hover:shadow-confident transition-confident;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-card hover:shadow-confident hover:scale-[1.02] transition-bounce font-display font-bold transform;
+  }
+
+  .btn-editorial-ghost {
+    @apply bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-none hover:shadow-glow transition-bounce font-display font-bold transform hover:scale-105;
+  }
+
+  /* Interactive Elements */
+  .hover-lift {
+    @apply transition-smooth hover:-translate-y-2 hover:shadow-dramatic;
+  }
+
+  .hover-glow {
+    @apply transition-smooth hover:shadow-glow;
+  }
+
+  .text-shimmer {
+    background: linear-gradient(90deg, hsl(var(--foreground)), hsl(var(--primary)), hsl(var(--foreground)));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 200% 0; }
+    50% { background-position: -200% 0; }
   }
 }
 
