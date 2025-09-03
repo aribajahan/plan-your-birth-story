@@ -28,7 +28,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     {
       id: '1',
       role: 'assistant',
-      content: "Hi there! I'm here to help you create a thoughtful birth plan. Think of me as a supportive friend who's been through this journey before. We'll talk through your hopes, concerns, and preferences at your own pace. What would you like to start with - how you envision your ideal birth environment, pain management thoughts, or maybe you have some specific questions?",
+      content: "Hi! I'm here to help you shape a birth plan that's warm, clear, and at your pace. Start with environment, pain options, or a question?",
       timestamp: new Date(),
       type: 'text'
     }
@@ -72,22 +72,22 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     const responses = {
       labor: {
         environment: [
-          "That sounds like a lovely vision. Many women find that thinking about lighting, music, and who they want present helps create that atmosphere. What feels most important to you - having familiar people around, or having the space to move freely?",
-          "It's wonderful that you're thinking about the environment. Some women want a quiet, dimly lit space, while others prefer more activity. What helps you feel most calm and safe?"
+          "Lovely vision. Think lighting, music, and who's present. What matters most - familiar faces or freedom to move?",
+          "Great to consider the vibe. Quiet and dim or lively and supportive - what helps you feel calm and safe?"
         ],
         positions: [
-          "Movement and positioning can be so helpful during labor. Some women love being upright and walking, others prefer being able to change positions frequently. Have you thought about what feels natural to your body?",
-          "Great question about positions! Many women find that being able to move freely - whether that's walking, using a birthing ball, or changing positions in bed - helps them cope. What sounds appealing to you?"
+          "Movement helps. Upright, walking, or changing positions - what feels natural to your body?",
+          "Positions can ease labor - walking, birthing ball, or shifting in bed. What sounds good to you?"
         ]
       },
       pain: {
         natural: [
-          "I hear you wanting to try natural methods first. That's completely valid. Many women find breathing techniques, water therapy, or massage helpful. At the same time, it's wise to think about what you'd want if labor is more intense than expected. How do you feel about having options available?",
-          "Natural pain management can be really effective. Some women love water birth or movement, others find guided breathing or massage most helpful. It might be worth thinking about your 'backup plan' - what would you want to try if your first choice isn't enough?"
+          "Trying natural first makes sense. Breathing, water, and massage help; if it's intense, what backup would you want?",
+          "Natural tools can work well - water, movement, guided breathing. What's your backup if that isn't enough?"
         ],
         medical: [
-          "Epidurals can be a wonderful tool when you need them. It's smart to think through the timing - some women want it early, others prefer to labor naturally as long as possible. What feels right for you?",
-          "Medical pain relief is there when you need it. Many women appreciate having a plan but also flexibility. Have you thought about what would help you feel confident in making decisions in the moment?"
+          "Epidurals can be helpful. Early, later, or wait-and-see - what timing feels right?",
+          "It's smart to have options. How would you like to decide in the moment?"
         ]
       }
     };
@@ -103,7 +103,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     } else if (lowerMessage.includes('position') || lowerMessage.includes('move') || lowerMessage.includes('walk')) {
       return responses.labor.positions[Math.floor(Math.random() * responses.labor.positions.length)];
     } else {
-      return "I can hear how important this is to you. Tell me more about what you're feeling - there's no wrong answer here.";
+      return "Got it. Tell me what matters most to you here.";
     }
   };
 
@@ -147,7 +147,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
             type: 'reality-check',
             realityCheck: {
               title: "Gentle Reality Check",
-              content: "Remember, birth plans are wonderful guides, but births can be unpredictable. The most important thing is you and your baby's safety and health."
+              content: "Birth plans guide you, but birth can be unpredictable. Your and your baby's safety comes first."
             }
           };
           setMessages(prev => [...prev, realityCheckMessage]);
