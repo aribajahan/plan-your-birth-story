@@ -525,65 +525,69 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 bg-card border-t border-border">
+      <footer className="py-12 bg-card border-t border-border">
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
               
               {/* Brand & Mission */}
-              <div className="lg:col-span-2 space-y-6">
+              <div className="lg:col-span-2 space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-primary-foreground" />
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                    <Heart className="w-5 h-5 text-primary-foreground" />
                   </div>
-                  <span className="text-2xl font-display font-bold">Your Birth, Your Way</span>
+                  <span className="text-xl font-display font-bold">Your Birth, Your Way</span>
                 </div>
-                <p className="text-muted-foreground max-w-md">
+                <p className="text-muted-foreground text-sm max-w-sm">
                   Empowering families to create thoughtful, professional birth plans 
                   with confidence and clarity.
                 </p>
-                
-                {/* Social Proof */}
-                <div className="space-y-3 pt-4">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Award className="w-4 h-4 text-primary" />
-                    <span>Recommended by doulas nationwide</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Star className="w-4 h-4 text-primary" />
-                    <span>Featured in relevant publications</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Shield className="w-4 h-4 text-primary" />
-                    <span>Trusted by birthing centers</span>
-                  </div>
+              </div>
+
+              {/* Resources Links */}
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-sm">Resources</h4>
+                <div className="space-y-2">
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">About Us</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">Privacy Policy</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">Contact</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">Resources</a>
                 </div>
               </div>
 
-              {/* Links */}
-              <div className="space-y-4">
-                <h4 className="font-display font-semibold">Resources</h4>
-                <div className="space-y-3">
-                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">About Us</a>
-                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
-                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">Contact</a>
-                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">Resources</a>
+              {/* Professionals Links */}
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-sm">Professionals</h4>
+                <div className="space-y-2">
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">For Healthcare Providers</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">For Doulas</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">Birthing Centers</a>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h4 className="font-display font-semibold">Professionals</h4>
-                <div className="space-y-3">
-                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">For Healthcare Providers</a>
-                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">For Doulas</a>
-                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">Birthing Centers</a>
+              {/* Social Proof */}
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-sm">Trusted By</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <Award className="w-3 h-3 text-primary" />
+                    <span>Doulas nationwide</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <Star className="w-3 h-3 text-primary" />
+                    <span>Featured in publications</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <Shield className="w-3 h-3 text-primary" />
+                    <span>Birthing centers</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Copyright */}
-            <div className="border-t border-border mt-12 pt-8 text-center">
-              <p className="text-muted-foreground text-sm">
+            <div className="border-t border-border mt-8 pt-6 text-center">
+              <p className="text-muted-foreground text-xs">
                 © 2024 Your Birth, Your Way. All rights reserved.
               </p>
             </div>
