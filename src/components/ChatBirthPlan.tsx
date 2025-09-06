@@ -439,12 +439,12 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
   };
 
   const quickReplies = [
-    "Tell me about pain management options",
-    "I want a natural birth experience",
     "What should I know about epidurals?",
-    "How do I create a calm environment?",
-    "I'm feeling anxious about labor",
-    "This is my first baby"
+    "Help me decide on pain management options",
+    "What newborn procedures should I plan for?",
+    "I'm not sure what to include in my birth plan",
+    "How do I create a calm environment for delivery?",
+    "This is my first baby, where do I begin?"
   ];
 
   return (
