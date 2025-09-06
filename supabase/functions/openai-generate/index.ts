@@ -23,7 +23,7 @@ serve(async (req) => {
       );
     }
 
-    const { prompt, messages, model, maxTokens } = await req.json().catch(() => ({ }));
+    const { prompt, messages, model, maxTokens, promptId, promptVersion } = await req.json().catch(() => ({ }));
 
     const selectedModel: string = model || "gpt-4o-mini"; // default to a legacy model for broad compatibility
 
@@ -33,30 +33,66 @@ serve(async (req) => {
     // Safe upper bound to prevent runaway costs
     const tokensCap = Math.max(1, Math.min(Number(maxTokens) || 800, 2000));
 
-    const payload: Record<string, unknown> = {
-      model: selectedModel,
-      messages: Array.isArray(messages) && messages.length
-        ? messages
-        : [{ role: "user", content: String(prompt ?? "") }],
-    };
+    // Determine if we should use the Responses API with a saved Prompt
+    const promptRefId: string | undefined = (prompt && typeof prompt === 'object' && (prompt as any).id) || promptId;
+    const promptRefVersion: string | number | undefined = (prompt && typeof prompt === 'object' && (prompt as any).version) || promptVersion;
+    const useResponsesApi = Boolean(promptRefId);
 
-    if (isNewModel) {
-      // Newer models require max_completion_tokens and do not support temperature
-      (payload as any).max_completion_tokens = tokensCap;
+    let response: Response;
+
+    if (useResponsesApi) {
+      // Build payload for Responses API
+      const payload: Record<string, unknown> = {
+        // Only include model if the client explicitly provided it; otherwise let the Prompt control model
+        ...(model ? { model: selectedModel } : {}),
+        // Provide the saved Prompt reference
+        prompt: { id: promptRefId, version: promptRefVersion ?? "latest" },
+        // Also pass conversation context so the Prompt can use it
+        messages: Array.isArray(messages) && messages.length
+          ? messages
+          : [{ role: "user", content: String(prompt ?? "") }],
+      };
+
+      if (isNewModel) {
+        (payload as any).max_completion_tokens = tokensCap;
+      } else {
+        (payload as any).max_tokens = tokensCap;
+        (payload as any).temperature = 0.7;
+      }
+
+      response = await fetch("https://api.openai.com/v1/responses", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${openAIApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
     } else {
-      // Legacy models use max_tokens
-      (payload as any).max_tokens = tokensCap;
-      (payload as any).temperature = 0.7; // supported by legacy models
-    }
+      // Fallback to Chat Completions API
+      const payload: Record<string, unknown> = {
+        model: selectedModel,
+        messages: Array.isArray(messages) && messages.length
+          ? messages
+          : [{ role: "user", content: String(prompt ?? "") }],
+      };
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${openAIApiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+      if (isNewModel) {
+        (payload as any).max_completion_tokens = tokensCap;
+      } else {
+        (payload as any).max_tokens = tokensCap;
+        (payload as any).temperature = 0.7;
+      }
+
+      response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${openAIApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+    }
 
     if (!response.ok) {
       const errText = await response.text().catch(() => "");
@@ -68,7 +104,24 @@ serve(async (req) => {
     }
 
     const data = await response.json();
-    const content = data?.choices?.[0]?.message?.content ?? "";
+
+    let content = "";
+    if (useResponsesApi) {
+      content = data?.output_text ?? "";
+      if (!content) {
+        try {
+          // Try alternative shapes
+          content = data?.output?.[0]?.content?.[0]?.text?.value
+            || data?.content?.[0]?.text
+            || data?.data?.[0]?.text
+            || "";
+        } catch (_) {
+          content = "";
+        }
+      }
+    } else {
+      content = data?.choices?.[0]?.message?.content ?? "";
+    }
 
     return new Response(
       JSON.stringify({

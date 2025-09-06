@@ -203,6 +203,8 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     return "You've shared so much thoughtful information with me. What else would you like to explore or discuss?";
   };
 
+  const OPENAI_PROMPT_ID = 'pmpt_68bc35edac94819693e152156cd6cb1d0b7ef2b03f6ea265';
+
   const generateResponse = async (userMessage: string): Promise<string> => {
     const lowerMessage = userMessage.toLowerCase();
     
@@ -249,7 +251,9 @@ Keep responses conversational, supportive, and focused on helping them think thr
             { role: 'system', content: systemContext },
             ...conversationMessages
           ],
-          model: 'gpt-4o-mini',
+          // Use saved Prompt for orchestration
+          promptId: OPENAI_PROMPT_ID,
+          promptVersion: 5,
           maxTokens: 300
         }
       });
