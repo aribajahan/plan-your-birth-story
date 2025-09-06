@@ -50,7 +50,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     {
       id: '1',
       role: 'assistant',
-      content: "Hello! I'm here to help you create a thoughtful, personalized birth plan. I'll guide you through the important decisions at your own pace and help you prepare for conversations with your care team. What would you like to discuss first?",
+      content: "Hi! I'm here to help you create a birth plan that truly reflects what matters to you. Think of this as having a conversation with a supportive friend who's been through this before and wants to help you feel prepared and confident. Let's start with something that many people feel conflicted about - how are you thinking about pain management during labor? There's no right answer here, just what feels right for you.",
       timestamp: new Date(),
       type: 'text'
     }
