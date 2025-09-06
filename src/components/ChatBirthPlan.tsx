@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { ArrowLeft, Send, Mic, MicOff, FileText, MessageCircle, Sparkles } from "lucide-react";
 import { BirthPlanData } from "./BirthPlanWizard";
 import { RealityCheck } from "./RealityCheck";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ChatBirthPlanProps {
   onBack: () => void;
@@ -202,117 +203,67 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     return "You've shared so much thoughtful information with me. What else would you like to explore or discuss?";
   };
 
-  const generateResponse = (userMessage: string) => {
+  const generateResponse = async (userMessage: string): Promise<string> => {
     const lowerMessage = userMessage.toLowerCase();
     
     // Update user preferences based on their responses
     updateUserPreferences(lowerMessage);
     
-    // Generate contextual responses based on phase and preferences
-    const responses = {
-      introduction: {
-        environment: [
-          "I love that you're thinking about your birth environment! Creating the right atmosphere can really help you feel grounded. Are you picturing something calm and intimate, or do you thrive with more energy and activity around you?",
-          "The environment you birth in can make such a difference. Some women want dimmed lights and soft music, others prefer things brighter and more bustling. What feels like 'home' to you?"
-        ],
-        pain: [
-          "Pain management is such a personal choice, and there's no 'right' way to approach it. Are you leaning toward trying natural methods first, or are you thinking medical options might be helpful from the start?",
-          "Let's talk about pain management - this is where I see so many women get anxious, but you have options! Are you curious about natural comfort measures, or would you like to explore medical pain relief?"
-        ],
-        general: [
-          "That's a great question. I'm here to help you think through all of it. What aspect feels most important or overwhelming to you right now?",
-          "I can hear how thoughtful you're being about this. What would help you feel most prepared and confident?"
-        ]
-      },
-      labor: {
-        environment: [
-          userPreferences.communicationStyle === 'gentle' 
-            ? "Creating your perfect birth space sounds wonderful. Many women find that thinking about lighting, who they want present, and how they want to move helps them feel more in control. What draws you in - having your favorite people close by, or having space to move freely?"
-            : "Great thinking about your birth environment. Key things to consider: lighting, music, who's present, and mobility. What matters most - familiar faces or freedom to move?",
-          userPreferences.environmentStyle === 'quiet'
-            ? "I can tell you value a peaceful atmosphere. Many women with similar preferences love dimmed lights, soft music, and minimal interruptions. How do you envision managing visitors or medical checks in your calm space?"
-            : "It sounds like you might enjoy a more dynamic environment. Some women love having their support team actively involved and don't mind more activity. What would make you feel most supported?"
-        ],
-        positions: [
-          "Movement and positioning can be incredibly helpful during labor. Your body will tell you what it needs, but it's good to know your options. Do you see yourself wanting to walk around, use different positions, or maybe try water birth?",
-          "Great question about positioning! Your comfort and your baby's position both matter. Are you drawn to staying upright and mobile, or do you think you might want more supported positions?"
-        ]
-      },
-      pain: {
-        natural: [
-          userPreferences.painManagementApproach === 'natural'
-            ? "I love that you want to try natural methods. Water, movement, breathing, and massage can be incredibly effective. Since this feels important to you, let's think about your backup plan - what would you want if labor is more intense than expected?"
-            : "Natural pain management has so many wonderful tools - breathing, positioning, water, massage. It's smart to also think about what you'd want if you need more support. How do you feel about keeping medical options open just in case?",
-          "There are amazing natural comfort measures available. Some women love water birth, others swear by movement and massage. What resonates with you, and how would you want to handle it if those methods aren't quite enough?"
-        ],
-        medical: [
-          userPreferences.painManagementApproach === 'medical'
-            ? "Medical pain relief can be such a gift when you need it. Since you're open to this, let's think about timing - some women want it early to stay relaxed, others prefer to try natural methods first. What feels right for your situation?"
-            : "Epidurals and other medical options are there when you need them. Many women like having a plan but staying flexible. What would help you feel confident making decisions in the moment?",
-          "Medical pain management can really help you stay present and focused. Are you thinking about timing - like having it available early, or trying other methods first and having it as backup?"
-        ]
-      }
-    };
+    // Create context for the AI based on current conversation and preferences
+    const systemContext = `You are Maya, a supportive birth plan companion. You help expectant parents create thoughtful, personalized birth plans through natural conversation. 
 
-    // Select appropriate response category
-    let category = 'general';
-    let phase = conversationPhase;
-    
-    if (lowerMessage.includes('pain') || lowerMessage.includes('epidural') || lowerMessage.includes('natural') || lowerMessage.includes('medication')) {
-      category = 'pain';
-      markTopicDiscussed('painManagement');
-      if (conversationPhase === 'introduction') {
-        setConversationPhase('pain');
-        setCurrentStep(2);
-        phase = 'pain';
+Your role:
+- Be warm, supportive, and knowledgeable but not medical advice
+- Help users think through their preferences for labor, pain management, environment, and support
+- Provide gentle reality checks when appropriate
+- Generate personalized communication scripts
+- Ask follow-up questions to understand their needs better
+
+Current user preferences detected:
+- Communication style: ${userPreferences.communicationStyle || 'not yet determined'}
+- Pain management approach: ${userPreferences.painManagementApproach || 'not yet determined'}
+- Environment style: ${userPreferences.environmentStyle || 'not yet determined'}
+- Experience level: ${userPreferences.previousExperience || 'not yet determined'}
+
+Conversation phase: ${conversationPhase}
+Topics discussed: ${Object.entries(discussedTopics).filter(([_, discussed]) => discussed).map(([topic, _]) => topic).join(', ') || 'none yet'}
+
+Keep responses conversational, supportive, and focused on helping them think through their birth preferences. Ask follow-up questions to understand their needs better.`;
+
+    try {
+      // Build messages array for context
+      const conversationMessages = messages.slice(-6).map(msg => ({
+        role: msg.role === 'assistant' ? 'assistant' : 'user',
+        content: msg.content
+      }));
+
+      // Add the new user message
+      conversationMessages.push({
+        role: 'user',
+        content: userMessage
+      });
+
+      const { data, error } = await supabase.functions.invoke('openai-generate', {
+        body: {
+          messages: [
+            { role: 'system', content: systemContext },
+            ...conversationMessages
+          ],
+          model: 'gpt-4o-mini',
+          maxTokens: 300
+        }
+      });
+
+      if (error) {
+        console.error('Error calling OpenAI:', error);
+        return "I'm having trouble connecting right now. Could you try asking that again?";
       }
-    } else if (lowerMessage.includes('environment') || lowerMessage.includes('room') || lowerMessage.includes('atmosphere') || lowerMessage.includes('lighting')) {
-      category = 'environment';
-      markTopicDiscussed('environment');
-      if (conversationPhase === 'introduction') {
-        setConversationPhase('labor');
-        setCurrentStep(2);
-        phase = 'labor';
-      }
-    } else if (lowerMessage.includes('position') || lowerMessage.includes('move') || lowerMessage.includes('walk') || lowerMessage.includes('birth ball')) {
-      category = 'positions';
-      markTopicDiscussed('positions');
-      if (conversationPhase === 'introduction') {
-        setConversationPhase('labor');
-        setCurrentStep(2);
-        phase = 'labor';
-      }
-    } else if (lowerMessage.includes('support') || lowerMessage.includes('partner') || lowerMessage.includes('doula') || lowerMessage.includes('family')) {
-      category = 'support';
-      markTopicDiscussed('support');
-      if (conversationPhase === 'introduction') {
-        setConversationPhase('support');
-        setCurrentStep(3);
-        phase = 'support';
-      }
+
+      return data.generatedText || "I'm here to help you with your birth plan. What would you like to discuss?";
+    } catch (error) {
+      console.error('Error generating response:', error);
+      return "I'm having a moment of difficulty - could you rephrase your question?";
     }
-
-    // Get responses for current phase and category
-    const phaseResponses = responses[phase as keyof typeof responses];
-    if (phaseResponses && phaseResponses[category as keyof typeof phaseResponses]) {
-      const categoryResponses = phaseResponses[category as keyof typeof phaseResponses] as string[];
-      return categoryResponses[Math.floor(Math.random() * categoryResponses.length)];
-    }
-
-    // Fallback responses - try to move to next undiscussed topic or provide contextual response
-    if (conversationPhase === 'introduction') {
-      return getNextUndiscussedTopic();
-    }
-
-    const fallbacks = {
-      labor: "That's a thoughtful consideration about your labor preferences. " + getNextUndiscussedTopic(),
-      pain: "Pain management is such a personal journey. " + getNextUndiscussedTopic(),
-      support: "Your support team can make all the difference. " + getNextUndiscussedTopic(),
-      scripts: "I'm working on some communication scripts based on what you've shared. What else would be helpful to discuss?",
-      complete: "You've shared so much thoughtful information. Is there anything else you'd like to explore together?"
-    };
-
-    return fallbacks[conversationPhase] || getNextUndiscussedTopic();
   };
 
   const shouldAddRealityCheck = (message: string, phase: string): boolean => {
@@ -362,12 +313,12 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
   };
 
   const sendMessage = async () => {
-    if (!inputMessage.trim()) return;
+    if (!inputMessage.trim() || isLoading) return;
 
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
       role: 'user',
-      content: inputMessage,
+      content: inputMessage.trim(),
       timestamp: new Date(),
       type: 'text'
     };
@@ -376,9 +327,9 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     setInputMessage("");
     setIsLoading(true);
 
-    // Simulate AI processing delay with typing indicator
-    setTimeout(() => {
-      const response = generateResponse(inputMessage);
+    try {
+      // Generate response using OpenAI
+      const response = await generateResponse(userMessage.content);
       
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
@@ -389,7 +340,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
       };
 
       setMessages(prev => [...prev, assistantMessage]);
-      
+
       // Generate script preview if user has shared preferences
       if (Object.keys(userPreferences).length > 0 && conversationPhase !== 'introduction') {
         setTimeout(() => {
@@ -409,7 +360,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
       }
       
       // Add contextual reality checks
-      if (shouldAddRealityCheck(inputMessage, conversationPhase)) {
+      if (shouldAddRealityCheck(userMessage.content, conversationPhase)) {
         setTimeout(() => {
           const realityCheck = generateRealityCheck(conversationPhase, userPreferences);
           const realityCheckMessage: ChatMessage = {
@@ -423,9 +374,19 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
           setMessages(prev => [...prev, realityCheckMessage]);
         }, 2500);
       }
-      
+    } catch (error) {
+      console.error('Error sending message:', error);
+      const errorMessage: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: "I'm having trouble responding right now. Please try again in a moment.",
+        timestamp: new Date(),
+        type: 'text'
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1200);
+    }
   };
 
   const toggleVoiceInput = async () => {
