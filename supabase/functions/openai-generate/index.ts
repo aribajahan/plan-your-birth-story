@@ -97,6 +97,49 @@ serve(async (req) => {
     if (!response.ok) {
       const errText = await response.text().catch(() => "");
       console.error("OpenAI API error:", response.status, errText);
+
+      // Fallback: if Responses API fails (e.g., due to Prompt settings), try Chat Completions
+      if (useResponsesApi) {
+        try {
+          const fallbackPayload: Record<string, unknown> = {
+            model: selectedModel,
+            messages: Array.isArray(messages) && messages.length
+              ? messages
+              : [{ role: "user", content: String(prompt ?? "") }],
+          };
+
+          if (isNewModel) {
+            (fallbackPayload as any).max_completion_tokens = tokensCap;
+          } else {
+            (fallbackPayload as any).max_tokens = tokensCap;
+            (fallbackPayload as any).temperature = 0.7;
+          }
+
+          const fb = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${openAIApiKey}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(fallbackPayload),
+          });
+
+          if (fb.ok) {
+            const fbData = await fb.json();
+            const fbContent = fbData?.choices?.[0]?.message?.content ?? "";
+            return new Response(
+              JSON.stringify({ model: selectedModel, generatedText: fbContent, usedFallback: true }),
+              { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+            );
+          } else {
+            const fbErr = await fb.text().catch(() => "");
+            console.error("Fallback Chat Completions also failed:", fb.status, fbErr);
+          }
+        } catch (e) {
+          console.error("Fallback attempt error:", e);
+        }
+      }
+
       return new Response(
         JSON.stringify({ error: "OpenAI request failed", status: response.status, details: errText }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
