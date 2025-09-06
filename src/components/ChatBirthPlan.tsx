@@ -50,7 +50,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     {
       id: '1',
       role: 'assistant',
-      content: "Hi there! I'm Maya, your birth plan companion. Think of me as a supportive friend who's been through this journey many times before - here to help you create a plan that feels right for YOU.\n\nI'll guide you through the important decisions at your own pace, share gentle reality checks when helpful, and even generate personalized scripts for talking with your care team. Ready to start? What's on your mind - your ideal birth environment, pain management thoughts, or maybe you have specific questions?",
+      content: "Hello! I'm here to help you create a thoughtful, personalized birth plan. I'll guide you through the important decisions at your own pace and help you prepare for conversations with your care team. What would you like to discuss first?",
       timestamp: new Date(),
       type: 'text'
     }
@@ -407,7 +407,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-5 h-5 text-primary" />
-                <h1 className="text-xl font-semibold text-foreground">Chat with Maya</h1>
+                <h1 className="text-xl font-semibold text-foreground">Birth Plan Chat</h1>
               </div>
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
             </div>
@@ -501,7 +501,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
                         <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-100"></div>
                         <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-200"></div>
                       </div>
-                      <span className="text-sm text-muted-foreground">Maya is thinking...</span>
+                      <span className="text-sm text-muted-foreground">Thinking...</span>
                     </div>
                   </div>
                 </div>
@@ -548,7 +548,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
               <Input
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Share your thoughts, questions, or concerns with Maya..."
+                placeholder="Share your thoughts, questions, or concerns..."
                 onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
                 disabled={isLoading}
                 className="border-border transition-smooth focus:shadow-glow"
