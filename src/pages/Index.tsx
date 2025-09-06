@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BirthPlanWizard } from "@/components/BirthPlanWizard";
 import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
-import { Heart, Baby, Shield, MessageCircle, FileText, Star, Sparkles, Award, Users, CheckCircle, Quote, ArrowRight, Plus, Minus } from "lucide-react";
+import { Heart, Baby, Shield, MessageCircle, FileText, Star, Sparkles, Award, Users, CheckCircle, Quote, ArrowRight, Plus, Minus, MessageSquare, Lightbulb, Megaphone } from "lucide-react";
 
 const Index = () => {
   const [mode, setMode] = useState<'home' | 'chat' | 'form'>('home');
@@ -120,14 +120,9 @@ const Index = () => {
                 {/* Main Floating Card */}
                 <div className="bg-card/90 backdrop-blur-sm rounded-3xl p-8 shadow-dramatic hover-lift">
                   <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                        <Heart className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <h3 className="font-display font-bold text-lg">Quick Preview</h3>
-                        <p className="text-muted-foreground text-sm">What you'll create</p>
-                      </div>
+                    <div>
+                      <h3 className="font-display font-bold text-2xl mb-2">What you'll create</h3>
+                      <p className="text-muted-foreground text-sm">Your complete birth planning toolkit</p>
                     </div>
                     
                     <div className="space-y-4">
@@ -146,6 +141,14 @@ const Index = () => {
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-primary mt-1" />
                         <p className="text-sm">Professional document ready to share</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                        <p className="text-sm">Communication scripts for medical team</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                        <p className="text-sm">Partner advocacy guidance</p>
                       </div>
                     </div>
                   </div>
@@ -167,15 +170,23 @@ const Index = () => {
           <div className="max-w-7xl mx-auto">
             
             {/* Section Header */}
-            <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8">
-                4 Ways We Make 
-                <span className="text-primary block">Birth Planning Better</span>
-              </h2>
-              <p className="text-editorial-body max-w-3xl mx-auto">
-                We combine professional expertise with warm, supportive guidance 
-                to help you navigate one of life's most important moments.
-              </p>
+            <div className="grid lg:grid-cols-3 gap-16 mb-24">
+              <div className="lg:col-span-2">
+                <h2 className="text-editorial-subhead mb-8">
+                  Why families choose our 
+                  <span className="text-primary block">birth planning approach</span>
+                </h2>
+                <p className="text-editorial-large text-muted-foreground">
+                  We combine professional expertise with warm, supportive guidance 
+                  to help you navigate one of life's most important moments.
+                </p>
+              </div>
+              <div className="flex items-end">
+                <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 hover-lift">
+                  <div className="text-3xl font-bold text-primary mb-2">95%</div>
+                  <div className="text-sm text-muted-foreground">Feel more prepared for birth</div>
+                </div>
+              </div>
             </div>
 
             {/* Features Grid */}
@@ -185,14 +196,20 @@ const Index = () => {
               <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
                   <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <Baby className="w-10 h-10 text-primary-foreground" />
+                    <MessageSquare className="w-10 h-10 text-primary-foreground" />
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-card-foreground">Guided Questions That Actually Help</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
                       Our thoughtfully crafted questions help you explore your preferences 
-                      without overwhelming medical jargon. Clear, supportive, and comprehensive.
+                      without overwhelming medical jargon. We guide you through topics like 
+                      pain management, birthing positions, and immediate postpartum care 
+                      with warmth and clarity.
                     </p>
+                    <div className="flex gap-3">
+                      <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Personalized</span>
+                      <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">No Jargon</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -201,13 +218,14 @@ const Index = () => {
               <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
                   <div className="w-20 h-20 rounded-3xl bg-accent flex items-center justify-center shadow-glow flex-shrink-0">
-                    <Shield className="w-10 h-10 text-accent-foreground" />
+                    <Lightbulb className="w-10 h-10 text-accent-foreground" />
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-card-foreground">Reality Checks</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
                       Gentle, honest insights about what labor might really be like, 
-                      so you can plan with realistic expectations and flexibility.
+                      so you can plan with realistic expectations. We share what many 
+                      first-time parents don't realize, without being scary or discouraging.
                     </p>
                   </div>
                 </div>
@@ -223,7 +241,8 @@ const Index = () => {
                     <h3 className="text-editorial-large text-card-foreground">Professional Output</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
                       Generate a clean, professional birth plan that medical staff 
-                      will respect and can quickly reference during your labor.
+                      will respect and can quickly reference during your labor. No more 
+                      wondering if your preferences will be taken seriously.
                     </p>
                   </div>
                 </div>
@@ -233,13 +252,13 @@ const Index = () => {
               <div className="bg-primary/5 backdrop-blur-sm rounded-3xl p-12 border border-primary/20 hover-lift">
                 <div className="flex items-start gap-8">
                   <div className="w-20 h-20 rounded-3xl gradient-primary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <MessageCircle className="w-10 h-10 text-primary-foreground" />
+                    <Megaphone className="w-10 h-10 text-primary-foreground" />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="text-editorial-large text-primary">Supportive Guidance</h3>
+                    <h3 className="text-editorial-large text-primary">Communication Confidence</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                      Feel like you have an experienced friend by your side, 
-                      offering encouragement and practical wisdom throughout the process.
+                      Learn how to advocate for yourself and communicate with your medical team, 
+                      even in challenging moments. We provide scripts and guidance for difficult conversations.
                     </p>
                   </div>
                 </div>
