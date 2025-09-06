@@ -210,27 +210,6 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     
     // Update user preferences based on their responses
     updateUserPreferences(lowerMessage);
-    
-    // Create context for the AI based on current conversation and preferences
-    const systemContext = `You are Maya, a supportive birth plan companion. You help expectant parents create thoughtful, personalized birth plans through natural conversation. 
-
-Your role:
-- Be warm, supportive, and knowledgeable but not medical advice
-- Help users think through their preferences for labor, pain management, environment, and support
-- Provide gentle reality checks when appropriate
-- Generate personalized communication scripts
-- Ask follow-up questions to understand their needs better
-
-Current user preferences detected:
-- Communication style: ${userPreferences.communicationStyle || 'not yet determined'}
-- Pain management approach: ${userPreferences.painManagementApproach || 'not yet determined'}
-- Environment style: ${userPreferences.environmentStyle || 'not yet determined'}
-- Experience level: ${userPreferences.previousExperience || 'not yet determined'}
-
-Conversation phase: ${conversationPhase}
-Topics discussed: ${Object.entries(discussedTopics).filter(([_, discussed]) => discussed).map(([topic, _]) => topic).join(', ') || 'none yet'}
-
-Keep responses conversational, supportive, and focused on helping them think through their birth preferences. Ask follow-up questions to understand their needs better.`;
 
     try {
       // Build messages array for context
@@ -247,10 +226,8 @@ Keep responses conversational, supportive, and focused on helping them think thr
 
       const { data, error } = await supabase.functions.invoke('openai-generate', {
         body: {
-          messages: [
-            { role: 'system', content: systemContext },
-            ...conversationMessages
-          ],
+          // Don't send system context when using saved prompt - let the prompt handle it
+          messages: conversationMessages,
           // Use saved Prompt for orchestration
           promptId: OPENAI_PROMPT_ID,
           promptVersion: 5,
