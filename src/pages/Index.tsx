@@ -18,20 +18,24 @@ const Index = () => {
 
   const faqs = [
     {
-      question: "How long does it take to create a birth plan?",
-      answer: "Most people complete their birth plan in 15-30 minutes. The chat approach feels like a natural conversation, while the form takes a more structured approach."
+      question: "Is this medical advice?",
+      answer: "No, we're a planning tool that helps you organize your preferences and communicate with your medical team. Always work with your healthcare providers for medical decisions."
     },
     {
-      question: "Can I change my birth plan after creating it?",
-      answer: "Absolutely! Birth preferences can evolve throughout pregnancy. You can return anytime to update your plan as your thoughts and circumstances change."
+      question: "What if I change my mind during labor?",
+      answer: "That's completely normal! Birth plans are starting points, not contracts. We help you plan for flexibility and changing circumstances."
     },
     {
-      question: "Will my doctor/midwife respect this birth plan?",
-      answer: "Yes! Our plans are written in professional language that healthcare providers understand and appreciate. They're concise, clear, and focus on your key preferences."
+      question: "How long does it take?",
+      answer: "Most people complete their birth plan in 20-30 minutes, but you can save and return anytime. The chat approach tends to be faster, while forms allow more detailed reflection."
     },
     {
-      question: "What if I don't know what I want yet?",
-      answer: "That's completely normal! Our guided questions help you explore your options and preferences. You don't need to have everything figured out before you start."
+      question: "Can my partner use this too?",
+      answer: "Absolutely! We include specific guidance for partners and support people throughout the process."
+    },
+    {
+      question: "What format do I get?",
+      answer: "You'll receive a professional PDF birth plan plus a communication toolkit with personalized scripts. Both can be printed or shared digitally."
     }
   ];
 
@@ -275,7 +279,7 @@ const Index = () => {
             
             <div className="text-center mb-20">
               <h2 className="text-editorial-hero mb-8">
-                How It Works
+                Two ways to create your plan
               </h2>
               <p className="text-editorial-body max-w-3xl mx-auto">
                 Choose the approach that feels right for you. Both paths lead to the same professional birth plan.
@@ -297,24 +301,27 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mt-1">
-                        <span className="text-primary font-bold text-sm">1</span>
-                      </div>
-                      <p>Start a conversation with Maya, your AI birth planning companion</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Have a guided conversation with our AI that feels like talking to a supportive friend. 
+                    Ask questions, share concerns, and get personalized guidance as you work through your preferences.
+                  </p>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary" />
+                      <span className="text-sm">Personalized follow-up questions</span>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mt-1">
-                        <span className="text-primary font-bold text-sm">2</span>
-                      </div>
-                      <p>Share your thoughts, concerns, and preferences naturally</p>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary" />
+                      <span className="text-sm">Real-time script generation</span>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mt-1">
-                        <span className="text-primary font-bold text-sm">3</span>
-                      </div>
-                      <p>Get your personalized birth plan instantly</p>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary" />
+                      <span className="text-sm">Flexible, conversational flow</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary" />
+                      <span className="text-sm">Perfect for processing complex feelings</span>
                     </div>
                   </div>
                   
@@ -337,28 +344,31 @@ const Index = () => {
                     </div>
                     <div>
                       <h3 className="text-2xl font-display font-bold">Fill Out Forms</h3>
-                      <p className="text-muted-foreground">Step-by-step structured approach</p>
+                      <p className="text-muted-foreground">Structured step-by-step</p>
                     </div>
                   </div>
                   
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mt-1">
-                        <span className="text-accent font-bold text-sm">1</span>
-                      </div>
-                      <p>Work through organized sections at your own pace</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Work through organized sections at your own pace. Each section includes guidance, 
+                    reality checks, and communication scripts tailored to your choices.
+                  </p>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <span className="text-sm">Clear progress tracking</span>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mt-1">
-                        <span className="text-accent font-bold text-sm">2</span>
-                      </div>
-                      <p>Answer specific questions about each aspect of birth</p>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <span className="text-sm">Organized by topic</span>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mt-1">
-                        <span className="text-accent font-bold text-sm">3</span>
-                      </div>
-                      <p>Review and refine your complete birth plan</p>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <span className="text-sm">Save and return anytime</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <span className="text-sm">Great for methodical planners</span>
                     </div>
                   </div>
                   
@@ -383,7 +393,7 @@ const Index = () => {
             
             <div className="text-center mb-20">
               <h2 className="text-editorial-hero mb-8">
-                What Families Say
+                What families are saying
               </h2>
             </div>
 
@@ -393,14 +403,13 @@ const Index = () => {
                 <div className="space-y-6">
                   <Quote className="w-8 h-8 text-primary" />
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    "This made birth planning feel manageable instead of overwhelming. 
-                    The questions helped me think through things I hadn't even considered."
+                    "This made me feel so much more confident about advocating for myself. 
+                    I wish every pregnant person had this tool."
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary/20"></div>
                     <div>
                       <p className="font-semibold">Sarah M.</p>
-                      <p className="text-sm text-muted-foreground">First-time mom</p>
                     </div>
                   </div>
                 </div>
@@ -410,14 +419,13 @@ const Index = () => {
                 <div className="space-y-6">
                   <Quote className="w-8 h-8 text-primary" />
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    "My midwife loved how clear and organized my birth plan was. 
-                    It made our conversations so much more focused and productive."
+                    "Finally, a birth plan tool that doesn't make me feel like I'm just checking boxes. 
+                    This actually helped me think through what I really wanted."
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-accent/20"></div>
                     <div>
-                      <p className="font-semibold">Jessica R.</p>
-                      <p className="text-sm text-muted-foreground">Second baby</p>
+                      <p className="font-semibold">Jessica K.</p>
                     </div>
                   </div>
                 </div>
@@ -427,14 +435,13 @@ const Index = () => {
                 <div className="space-y-6">
                   <Quote className="w-8 h-8 text-primary" />
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    "I recommend this to all my clients. It helps them articulate 
-                    their preferences in a way that's both personal and professional."
+                    "The communication scripts were game-changing. I felt prepared for 
+                    conversations I didn't even know I needed to have."
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-secondary/20"></div>
                     <div>
                       <p className="font-semibold">Maria L.</p>
-                      <p className="text-sm text-muted-foreground">Birth doula</p>
                     </div>
                   </div>
                 </div>
@@ -451,7 +458,7 @@ const Index = () => {
             
             <div className="text-center mb-20">
               <h2 className="text-editorial-hero mb-8">
-                Common Questions
+                Common questions
               </h2>
             </div>
 
@@ -487,13 +494,13 @@ const Index = () => {
         <div className="container mx-auto px-8 relative z-10">
           <div className="max-w-5xl mx-auto text-center space-y-12">
             <h2 className="text-editorial-hero text-primary-foreground">
-              Ready to create your 
-              <span className="block">birth plan?</span>
+              Ready to feel empowered 
+              <span className="block">about your birth?</span>
             </h2>
             
             <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
               Join thousands of families who've created thoughtful, 
-              professional birth plans with confidence and clarity.
+              professional birth plans that actually get used.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
@@ -503,20 +510,86 @@ const Index = () => {
                 size="lg"
               >
                 <MessageCircle className="w-6 h-6 mr-3" />
-                Start Your Birth Plan
+                Start Your Birth Plan - It's Free
               </Button>
               <Button 
                 onClick={() => setMode('form')}
                 className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-xl px-12 py-6 rounded-2xl font-display font-bold"
                 size="lg"
               >
-                <FileText className="w-6 h-6 mr-3" />
-                Explore Options
+                See a Sample Birth Plan
               </Button>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-16 bg-card border-t border-border">
+        <div className="container mx-auto px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-4 gap-8">
+              
+              {/* Brand & Mission */}
+              <div className="lg:col-span-2 space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                    <Heart className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <span className="text-2xl font-display font-bold">Your Birth, Your Way</span>
+                </div>
+                <p className="text-muted-foreground max-w-md">
+                  Empowering families to create thoughtful, professional birth plans 
+                  with confidence and clarity.
+                </p>
+                
+                {/* Social Proof */}
+                <div className="space-y-3 pt-4">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Award className="w-4 h-4 text-primary" />
+                    <span>Recommended by doulas nationwide</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Star className="w-4 h-4 text-primary" />
+                    <span>Featured in relevant publications</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Shield className="w-4 h-4 text-primary" />
+                    <span>Trusted by birthing centers</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Links */}
+              <div className="space-y-4">
+                <h4 className="font-display font-semibold">Resources</h4>
+                <div className="space-y-3">
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">About Us</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">Contact</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">Resources</a>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h4 className="font-display font-semibold">Professionals</h4>
+                <div className="space-y-3">
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">For Healthcare Providers</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">For Doulas</a>
+                  <a href="#" className="block text-muted-foreground hover:text-primary transition-colors">Birthing Centers</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Copyright */}
+            <div className="border-t border-border mt-12 pt-8 text-center">
+              <p className="text-muted-foreground text-sm">
+                © 2024 Your Birth, Your Way. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
