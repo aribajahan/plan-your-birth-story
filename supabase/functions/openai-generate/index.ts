@@ -48,7 +48,7 @@ serve(async (req) => {
         // Provide the saved Prompt reference
         prompt: { id: promptRefId, version: promptRefVersion ?? "latest" },
         // Also pass conversation context so the Prompt can use it
-        messages: Array.isArray(messages) && messages.length
+        input: Array.isArray(messages) && messages.length
           ? messages
           : [{ role: "user", content: String(prompt ?? "") }],
       };
