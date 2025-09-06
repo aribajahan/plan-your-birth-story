@@ -46,7 +46,7 @@ serve(async (req) => {
         // Only include model if the client explicitly provided it; otherwise let the Prompt control model
         ...(model ? { model: selectedModel } : {}),
         // Provide the saved Prompt reference
-        prompt: { id: promptRefId, version: promptRefVersion ?? "latest" },
+        prompt: { id: promptRefId, version: (promptRefVersion != null ? String(promptRefVersion) : "latest") },
         // Also pass conversation context so the Prompt can use it
         input: Array.isArray(messages) && messages.length
           ? messages
