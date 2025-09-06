@@ -53,10 +53,10 @@ serve(async (req) => {
           : [{ role: "user", content: String(prompt ?? "") }],
       };
 
-      if (isNewModel) {
-        (payload as any).max_completion_tokens = tokensCap;
-      } else {
-        (payload as any).max_tokens = tokensCap;
+      // Use Responses API parameter name
+      (payload as any).max_output_tokens = tokensCap;
+      // Only set temperature for legacy models
+      if (!isNewModel) {
         (payload as any).temperature = 0.7;
       }
 
