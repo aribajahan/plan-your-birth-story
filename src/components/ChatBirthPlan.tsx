@@ -230,7 +230,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
           messages: conversationMessages,
           // Use saved Prompt for orchestration
           promptId: OPENAI_PROMPT_ID,
-          promptVersion: 5,
+          promptVersion: 'latest',
           maxTokens: 300
         }
       });
