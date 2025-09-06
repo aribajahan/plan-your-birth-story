@@ -7,50 +7,50 @@
 @layer base {
   :root {
     /* Condesa color palette - warm cream background */
-    --background: 40 35% 96%; /* Warm off-white cream */
-    --foreground: 0 0% 13%; /* Deep charcoal */
+    --background: 32 25% 96%; /* Warm cream #F5F1EB */
+    --foreground: 15 15% 15%; /* Deep charcoal */
 
     /* Card system with contemporary warmth */
     --card: 0 0% 100%; /* Pure white cards */
-    --card-foreground: 0 0% 13%; /* Deep charcoal text */
+    --card-foreground: 15 15% 15%; /* Deep charcoal text */
 
     --popover: 0 0% 100%;  
-    --popover-foreground: 0 0% 13%;
+    --popover-foreground: 15 15% 15%;
 
-    /* Condesa coral/orange primary - bold and confident */
-    --primary: 12 85% 58%; /* Coral orange from Condesa brand */
+    /* Coral/orange primary - bold and confident */
+    --primary: 14 100% 57%; /* Coral orange #FF5722 */
     --primary-foreground: 0 0% 100%; /* White text on coral */
-    --primary-glow: 12 75% 68%; /* Softer coral glow */
+    --primary-glow: 14 90% 67%; /* Softer coral glow */
 
     /* Warm beige secondary with yellow accents */
-    --secondary: 207 55% 62%; /* Soft blue from testimonials */
-    --secondary-foreground: 0 0% 100%; /* White on blue */
-    --secondary-warm: 45 95% 68%; /* Warm yellow from "What I Do" */
+    --secondary: 32 25% 88%; /* Soft warm secondary */
+    --secondary-foreground: 15 15% 15%; /* Dark on light */
+    --secondary-warm: 25 90% 65%; /* Warm orange accent */
 
     /* Contemporary muted tones */
-    --muted: 40 25% 92%; /* Lighter warm neutral */
-    --muted-foreground: 0 0% 40%; /* Medium charcoal */
+    --muted: 32 25% 88%; /* Lighter warm neutral */
+    --muted-foreground: 15 10% 50%; /* Medium charcoal */
 
-    /* Bright yellow accent - cheerful and friendly */
-    --accent: 45 95% 68%; /* Bright yellow accent */
-    --accent-foreground: 0 0% 13%; /* Dark text on yellow */
-    --accent-deep: 207 65% 52%; /* Deeper blue variant */
+    /* Bright orange accent - cheerful and friendly */
+    --accent: 25 90% 65%; /* Bright orange accent */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --accent-deep: 25 80% 55%; /* Deeper orange variant */
 
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
 
     /* Warm contemporary borders */
-    --border: 40 20% 88%; /* Subtle warm borders */
-    --input: 40 20% 88%; /* Matching input borders */
-    --ring: 12 85% 58%; /* Coral focus rings */
+    --border: 32 25% 85%; /* Subtle warm borders */
+    --input: 32 25% 85%; /* Matching input borders */
+    --ring: 14 100% 57%; /* Coral focus rings */
 
     --radius: 16px; /* More rounded for friendliness */
 
     /* Condesa inspired gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(12 85% 58%), hsl(12 75% 68%));
-    --gradient-secondary: linear-gradient(135deg, hsl(45 95% 68%), hsl(40 35% 96%));
-    --gradient-hero: linear-gradient(135deg, hsl(12 85% 58%), hsl(207 55% 62%));
-    --gradient-editorial: linear-gradient(180deg, hsl(40 35% 96%), hsl(40 25% 92%));
+    --gradient-primary: linear-gradient(135deg, hsl(14 100% 57%), hsl(14 90% 67%));
+    --gradient-secondary: linear-gradient(135deg, hsl(25 90% 65%), hsl(32 25% 96%));
+    --gradient-hero: linear-gradient(135deg, hsl(14 100% 57%), hsl(25 90% 65%));
+    --gradient-editorial: linear-gradient(180deg, hsl(32 25% 96%), hsl(32 25% 88%));
 
 /* Editorial shadows with confidence */
 --shadow-editorial: 0 8px 40px -8px hsl(12 85% 58% / 0.15);
@@ -76,32 +76,32 @@
 
   .dark {
     /* Dark mode with editorial sophistication */
-    --background: 0 0% 10%; /* #1A1A1A deep black */
-    --foreground: 33 20% 92%; /* Light cream text */
+    --background: 15 15% 8%; /* Deep warm black */
+    --foreground: 32 25% 96%; /* Light cream text */
 
-    --card: 0 0% 13%; /* Dark cards */
-    --card-foreground: 33 20% 92%;
+    --card: 15 15% 10%; /* Dark cards */
+    --card-foreground: 32 25% 96%;
 
-    --popover: 0 0% 13%;
-    --popover-foreground: 33 20% 92%;
+    --popover: 15 15% 10%;
+    --popover-foreground: 32 25% 96%;
 
     --primary: 14 100% 57%; /* Keep coral primary */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%; /* Dark secondary */
-    --secondary-foreground: 33 20% 92%;
+    --secondary: 15 15% 15%; /* Dark secondary */
+    --secondary-foreground: 32 25% 96%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 15 15% 15%;
+    --muted-foreground: 32 15% 65%;
 
-    --accent: 192 38% 47%; /* Keep ocean blue */
+    --accent: 25 90% 65%; /* Keep warm orange accent */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
+    --border: 15 15% 20%;
+    --input: 15 15% 20%;
     --ring: 14 100% 57%;
 
     --sidebar-background: 0 0% 8%;
