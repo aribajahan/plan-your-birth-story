@@ -11,76 +11,65 @@ export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectio
     <section className="min-h-screen flex items-center bg-cream-base">
       <div className="w-full px-4 lg:px-8">
         
-        {/* Rounded Blue Container */}
+        {/* Rounded Blue Container - Modern Clean Design */}
         <div className="rounded-3xl p-8 lg:p-16" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
           
-          {/* Bold asymmetrical layout */}
-          <div className="grid lg:grid-cols-3 gap-16 items-start">
+          {/* Clean centered layout */}
+          <div className="text-center mb-12">
+            <h2 className="text-7xl font-bold leading-none text-white mb-4" style={{ 
+              fontFamily: 'Crimson Text, serif'
+            }}>
+              Two Ways
+            </h2>
+            <p className="text-xl text-white/80 font-medium">Choose the approach that feels right for you</p>
+          </div>
+
+          {/* Two clean cards side by side */}
+          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
-            {/* Large title taking up left column */}
-            <div className="lg:col-span-1">
-              <h2 className="text-7xl font-bold leading-none text-white" style={{ 
-                fontFamily: 'Crimson Text, serif'
-              }}>
-                Two Ways
-              </h2>
+            {/* Chat Approach - Clean minimal card */}
+            <div className="bg-white/95 backdrop-blur-sm p-8 lg:p-12 rounded-2xl hover:bg-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
+              <div className="text-center space-y-6">
+                <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                  <MessageCircle className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>Chat Through It</h3>
+                <p className="text-lg leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>
+                  Natural conversation that feels like talking to a supportive friend who knows birth plans inside out.
+                </p>
+                <Button 
+                  onClick={onStartChat}
+                  className="w-full text-lg font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105"
+                  style={{ 
+                    backgroundColor: 'hsl(var(--vibrant-coral))',
+                    color: 'white'
+                  }}
+                >
+                  Start Chatting
+                </Button>
+              </div>
             </div>
 
-            {/* Two approaches side by side */}
-            <div className="lg:col-span-2 space-y-8">
-              
-              {/* Chat Approach */}
-              <div className="p-12 rounded-3xl" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
-                <div className="flex items-start gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                      <MessageCircle className="w-10 h-10 text-white" />
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className="text-4xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>Chat Through It</h3>
-                    <p className="text-xl" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Natural conversation that feels like talking to a supportive friend.
-                    </p>
-                    <Button 
-                      onClick={onStartChat}
-                      className="text-xl font-bold px-8 py-4 rounded-full"
-                      style={{ 
-                        backgroundColor: 'hsl(var(--vibrant-coral))',
-                        color: 'white'
-                      }}
-                    >
-                      Start Chatting
-                    </Button>
-                  </div>
+            {/* Form Approach - Clean minimal card */}
+            <div className="bg-white/95 backdrop-blur-sm p-8 lg:p-12 rounded-2xl hover:bg-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
+              <div className="text-center space-y-6">
+                <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
+                  <FileText className="w-8 h-8 text-white" />
                 </div>
-              </div>
-
-              {/* Form Approach */}
-              <div className="p-12 rounded-3xl" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
-                <div className="flex items-start gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--deep-black))' }}>
-                      <FileText className="w-10 h-10 text-white" />
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className="text-4xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>Fill Out Forms</h3>
-                    <p className="text-xl" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Structured sections at your own pace with clear progress tracking.
-                    </p>
-                    <Button 
-                      onClick={onStartForm}
-                      className="text-xl font-bold px-8 py-4 rounded-full"
-                      style={{ 
-                        backgroundColor: 'hsl(var(--deep-black))',
-                        color: 'white'
-                      }}
-                    >
-                      Start Forms
-                    </Button>
-                  </div>
-                </div>
+                <h3 className="text-3xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>Fill Out Forms</h3>
+                <p className="text-lg leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>
+                  Structured sections at your own pace with clear progress tracking and thoughtful prompts.
+                </p>
+                <Button 
+                  onClick={onStartForm}
+                  className="w-full text-lg font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105"
+                  style={{ 
+                    backgroundColor: 'hsl(var(--rich-blue))',
+                    color: 'white'
+                  }}
+                >
+                  Start Forms
+                </Button>
               </div>
             </div>
           </div>

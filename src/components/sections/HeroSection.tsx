@@ -21,15 +21,19 @@ export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
         </div>
         
         {/* New Headline */}
-        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-helvetica font-medium mb-12 text-vibrant-coral leading-relaxed max-w-4xl">
+        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-helvetica font-medium mb-12 leading-relaxed max-w-4xl" style={{ color: 'hsl(var(--vibrant-coral))' }}>
           You've already mastered pregnancy. Now let's prepare you for birth with confidence.
         </h1>
         
         {/* CTA Button */}
-        <Button 
-          onClick={onGetStarted}
-          className="text-lg lg:text-xl font-helvetica font-bold px-12 lg:px-16 py-6 lg:py-8 rounded-none bg-deep-black text-cream-base hover:scale-105 transition-all duration-300"
-        >
+          <Button 
+            onClick={onGetStarted}
+            className="text-lg lg:text-xl font-helvetica font-bold px-12 lg:px-16 py-6 lg:py-8 rounded-none hover:scale-105 transition-all duration-300"
+            style={{
+              backgroundColor: 'hsl(var(--deep-black))',
+              color: 'hsl(var(--cream-base))'
+            }}
+          >
           Get Started
         </Button>
         

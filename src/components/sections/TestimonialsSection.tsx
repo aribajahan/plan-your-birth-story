@@ -6,15 +6,16 @@ export const TestimonialsSection = () => {
       <div className="w-full px-4 lg:px-8">
         
         {/* Rounded Green Container */}
-        <div className="rounded-3xl p-8 lg:p-16" style={{ backgroundColor: 'hsl(var(--forest-green))' }}>
+        <div className="rounded-3xl p-8 lg:p-16" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
           
           {/* Asymmetrical testimonials layout */}
           <div className="space-y-16">
             
             {/* Title and Illustration */}
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-              <h2 className="text-6xl lg:text-8xl font-bold leading-none text-white" style={{ 
-                fontFamily: 'Crimson Text, serif'
+              <h2 className="text-6xl lg:text-8xl font-bold leading-none" style={{ 
+                fontFamily: 'Crimson Text, serif',
+                color: 'hsl(var(--vibrant-coral))'
               }}>
                 What families are saying
               </h2>
