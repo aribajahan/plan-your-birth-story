@@ -4,7 +4,7 @@ import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
 import { GeneratedImage } from "@/components/GeneratedImage";
 
-import { Heart, Baby, Shield, MessageCircle, FileText, Star, Sparkles, Award, Users, CheckCircle, Quote, ArrowRight, Plus, Minus, MessageSquare, Lightbulb, Megaphone } from "lucide-react";
+import { Heart, MessageCircle, FileText, Quote, Plus, Minus } from "lucide-react";
 
 const Index = () => {
   const [mode, setMode] = useState<'home' | 'chat' | 'form'>('home');
@@ -58,15 +58,15 @@ const Index = () => {
               {/* Trust Indicators */}
               <div className="flex flex-wrap items-center gap-6 bg-card/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-card hover-glow transition-smooth text-sm font-medium">
                 <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-primary" />
+                  <div className="w-2 h-2 rounded-full bg-primary"></div>
                   <span>Trusted by 1000+ families</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Star className="w-4 h-4 fill-primary text-primary" />
+                  <div className="w-2 h-2 rounded-full bg-primary"></div>
                   <span>4.9/5 rating</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-primary" />
+                  <div className="w-2 h-2 rounded-full bg-primary"></div>
                   <span>Used by doulas & birth professionals</span>
                 </div>
               </div>
@@ -140,27 +140,27 @@ const Index = () => {
                     
                     <div className="space-y-4">
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
                         <p className="text-sm">Personalized birth preferences</p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
                         <p className="text-sm">Pain management options</p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
                         <p className="text-sm">Support team preferences</p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
                         <p className="text-sm">Professional document ready to share</p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
                         <p className="text-sm">Communication scripts for medical team</p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
                         <p className="text-sm">Partner advocacy guidance</p>
                       </div>
                     </div>
@@ -168,8 +168,8 @@ const Index = () => {
                 </div>
                 
                 {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-accent flex items-center justify-center shadow-glow hover:rotate-12 transition-transform cursor-pointer">
-                  <Sparkles className="w-8 h-8 text-accent-foreground" />
+                <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-gradient-primary shadow-glow hover:scale-110 transition-transform cursor-pointer flex items-center justify-center">
+                  <Heart className="w-8 h-8 text-white" />
                 </div>
               </div>
             </div>
@@ -208,8 +208,8 @@ const Index = () => {
               {/* Feature 1 */}
               <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <MessageSquare className="w-10 h-10 text-primary-foreground" />
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-primary flex items-center justify-center shadow-glow flex-shrink-0">
+                    <MessageCircle className="w-10 h-10 text-white" />
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-foreground">Guided Questions That Actually Help</h3>
@@ -230,8 +230,8 @@ const Index = () => {
               {/* Feature 2 */}
               <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-secondary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <Lightbulb className="w-10 h-10 text-secondary-foreground" />
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-secondary flex items-center justify-center shadow-glow flex-shrink-0">
+                    <span className="text-3xl font-bold text-white">✓</span>
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-foreground">Reality Checks</h3>
@@ -247,8 +247,8 @@ const Index = () => {
               {/* Feature 3 */}
               <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <Heart className="w-10 h-10 text-primary-foreground" />
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-primary flex items-center justify-center shadow-glow flex-shrink-0">
+                    <FileText className="w-10 h-10 text-white" />
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-foreground">Professional Output</h3>
@@ -265,7 +265,7 @@ const Index = () => {
               <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-12 border border-white/30 hover-lift">
                 <div className="flex items-start gap-8">
                   <div className="w-20 h-20 rounded-3xl bg-white flex items-center justify-center shadow-glow flex-shrink-0">
-                    <Megaphone className="w-10 h-10 text-accent" />
+                    <span className="text-3xl font-bold text-accent">💬</span>
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-white">Communication Confidence</h3>
@@ -317,19 +317,19 @@ const Index = () => {
                   
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <div className="w-2 h-2 rounded-full bg-accent"></div>
                       <span className="text-sm text-foreground">Personalized follow-up questions</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <div className="w-2 h-2 rounded-full bg-accent"></div>
                       <span className="text-sm text-foreground">Real-time script generation</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <div className="w-2 h-2 rounded-full bg-accent"></div>
                       <span className="text-sm text-foreground">Flexible, conversational flow</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <div className="w-2 h-2 rounded-full bg-accent"></div>
                       <span className="text-sm text-foreground">Perfect for processing complex feelings</span>
                     </div>
                   </div>
@@ -338,8 +338,7 @@ const Index = () => {
                     onClick={() => setMode('chat')}
                     className="btn-editorial-primary w-full"
                   >
-                    Start Chatting
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    Start Chatting →
                   </Button>
                 </div>
               </div>
@@ -362,32 +361,31 @@ const Index = () => {
                      reality checks, and communication scripts tailored to your choices.
                    </p>
                    
-                   <div className="space-y-3">
-                     <div className="flex items-center gap-3">
-                       <CheckCircle className="w-5 h-5 text-accent" />
-                       <span className="text-sm text-foreground">Clear progress tracking</span>
-                     </div>
-                     <div className="flex items-center gap-3">
-                       <CheckCircle className="w-5 h-5 text-accent" />
-                       <span className="text-sm text-foreground">Organized by topic</span>
-                     </div>
-                     <div className="flex items-center gap-3">
-                       <CheckCircle className="w-5 h-5 text-accent" />
-                       <span className="text-sm text-foreground">Save and return anytime</span>
-                     </div>
-                     <div className="flex items-center gap-3">
-                       <CheckCircle className="w-5 h-5 text-accent" />
-                       <span className="text-sm text-foreground">Great for methodical planners</span>
-                     </div>
-                   </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-accent"></div>
+                        <span className="text-sm text-foreground">Clear progress tracking</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-accent"></div>
+                        <span className="text-sm text-foreground">Organized by topic</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-accent"></div>
+                        <span className="text-sm text-foreground">Save and return anytime</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-accent"></div>
+                        <span className="text-sm text-foreground">Great for methodical planners</span>
+                      </div>
+                    </div>
                   
-                  <Button 
-                    onClick={() => setMode('form')}
-                    className="btn-editorial-ghost w-full"
-                  >
-                    Start Forms
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
+                   <Button 
+                     onClick={() => setMode('form')}
+                     className="btn-editorial-ghost w-full"
+                   >
+                     Start Forms →
+                   </Button>
                 </div>
               </div>
             </div>
@@ -595,20 +593,20 @@ const Index = () => {
               {/* Social Proof */}
               <div className="space-y-3">
                 <h4 className="font-display font-semibold text-sm">Trusted By</h4>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Award className="w-3 h-3 text-primary" />
-                    <span>Doulas nationwide</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Star className="w-3 h-3 text-primary" />
-                    <span>Featured in publications</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Shield className="w-3 h-3 text-primary" />
-                    <span>Birthing centers</span>
-                  </div>
-                </div>
+                 <div className="space-y-2">
+                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                     <div className="w-1 h-1 rounded-full bg-primary"></div>
+                     <span>Doulas nationwide</span>
+                   </div>
+                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                     <div className="w-1 h-1 rounded-full bg-primary"></div>
+                     <span>Featured in publications</span>
+                   </div>
+                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                     <div className="w-1 h-1 rounded-full bg-primary"></div>
+                     <span>Birthing centers</span>
+                   </div>
+                 </div>
               </div>
             </div>
 
