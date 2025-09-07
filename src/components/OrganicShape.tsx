@@ -12,8 +12,8 @@ export const OrganicShape = ({
   position = 'top-right'
 }: OrganicShapeProps) => {
   const colors = {
-    primary: 'hsl(14 100% 57%)',
-    secondary: 'hsl(25 90% 65%)', 
+    primary: '#3176b5',  // Blue
+    secondary: '#eb4f26', // Red
     accent: 'hsl(32 25% 88%)',
     muted: 'hsl(32 25% 92%)'
   };
@@ -33,8 +33,8 @@ export const OrganicShape = ({
     'center': 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
   };
 
-  // Simpler organic blob shape
-  const blobPath = "M60,20 C80,20 90,40 90,60 C90,80 70,90 50,90 C30,90 10,80 10,60 C10,40 30,20 50,20 C55,20 60,20 60,20 Z";
+  // Flower-like organic shape based on the reference images
+  const blobPath = "M50,10 C60,10 70,15 75,25 C80,35 85,40 90,50 C85,60 80,65 75,75 C70,85 60,90 50,90 C40,90 30,85 25,75 C20,65 15,60 10,50 C15,40 20,35 25,25 C30,15 40,10 50,10 Z";
 
   console.log('OrganicShape rendering:', { variant, size, position });
 

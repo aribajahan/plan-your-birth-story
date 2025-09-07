@@ -43,7 +43,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-hidden relative">
-      <OrganicShape variant="accent" size="xl" position="top-right" className="opacity-10" />
+      <OrganicShape variant="primary" size="lg" position="top-right" className="opacity-20" />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         {/* Background Elements */}
@@ -124,15 +124,6 @@ const Index = () => {
             {/* Right Column - Quick Preview */}
             <div className="lg:col-span-5">
               <div className="relative">
-                {/* Hero Image Placeholder */}
-                <div className="mb-8">
-                  <div className="w-full h-80 bg-gradient-primary rounded-3xl shadow-dramatic flex items-center justify-center">
-                    <div className="text-primary-foreground text-center">
-                      <Baby className="w-16 h-16 mx-auto mb-4 opacity-60" />
-                      <p className="text-sm opacity-80">Hero image placeholder</p>
-                    </div>
-                  </div>
-                </div>
                 
                 {/* Main Floating Card */}
                 <div className="bg-card/90 backdrop-blur-sm rounded-3xl p-8 shadow-dramatic hover-lift">
@@ -183,7 +174,6 @@ const Index = () => {
 
       {/* Features Section */}
       <section className="py-32 bg-gradient-editorial relative">
-        <OrganicShape variant="secondary" size="lg" position="bottom-left" className="opacity-15" />
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
@@ -287,7 +277,8 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-32">
+      <section className="py-32 relative">
+        <OrganicShape variant="secondary" size="xl" position="bottom-left" className="opacity-15" />
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
