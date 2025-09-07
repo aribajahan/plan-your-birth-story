@@ -62,15 +62,17 @@ const Index = () => {
         
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto flex flex-col items-center lg:items-start">
+            {/* High-Resolution Asha Wordmark */}
             <div className="mb-16">
               <img 
-                src="/lovable-uploads/adba3b7b-b015-4501-a4db-edc56e44d7f3.png" 
-                alt="Asha" 
+                src="/lovable-uploads/f93c1dfb-c269-439a-b28b-28807b671e5c.png" 
+                alt="Asha - Birth Plans Built with Hope" 
                 className="w-auto mx-auto lg:mx-0"
                 style={{ 
-                  height: 'clamp(20rem, 40vw, 32rem)', /* ENORMOUS - up to 512px */
+                  height: 'clamp(16rem, 35vw, 28rem)', /* Back to massive size */
                   maxWidth: '100%',
-                  filter: 'drop-shadow(0 8px 40px rgba(0,0,0,0.2))'
+                  filter: 'drop-shadow(0 6px 30px rgba(233, 90, 61, 0.15))', /* Asha coral shadow */
+                  imageRendering: 'high-quality' as any
                 }}
               />
             </div>
