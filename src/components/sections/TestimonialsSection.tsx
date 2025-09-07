@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import { BackgroundRemovedImage } from "@/components/BackgroundRemovedImage";
 
 export const TestimonialsSection = () => {
   return (
@@ -11,12 +12,23 @@ export const TestimonialsSection = () => {
           {/* Asymmetrical testimonials layout */}
           <div className="space-y-16">
             
-            {/* Bold title */}
-            <h2 className="text-8xl font-bold leading-none text-white max-w-4xl" style={{ 
-              fontFamily: 'Crimson Text, serif'
-            }}>
-              What families are saying
-            </h2>
+            {/* Title and Illustration */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+              <h2 className="text-6xl lg:text-8xl font-bold leading-none text-white" style={{ 
+                fontFamily: 'Crimson Text, serif'
+              }}>
+                What families are saying
+              </h2>
+              
+              {/* Three Women Illustration */}
+              <div className="flex justify-center lg:justify-end">
+                <BackgroundRemovedImage
+                  src="/lovable-uploads/51033687-6d82-4ab4-901b-99836103578f.png"
+                  alt="Three pregnant women with a stroller - representing community support"
+                  className="w-full h-auto max-w-sm lg:max-w-md"
+                />
+              </div>
+            </div>
             
             {/* Testimonials in bold blocks */}
             <div className="grid lg:grid-cols-2 gap-8">
