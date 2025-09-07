@@ -563,9 +563,9 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
   const quickReplies = getDynamicQuickReplies(discussedTopics, completion);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="h-screen bg-background flex flex-col overflow-hidden">
       {/* Header with Progress */}
-      <div className="bg-card shadow-card border-b border-border">
+      <div className="bg-card shadow-card border-b border-border flex-shrink-0">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between mb-4">
             <Button 
@@ -605,10 +605,10 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
       </div>
 
       {/* Two-Column Layout: Chat + Live Birth Plan */}
-      <div className="flex-1 overflow-hidden flex h-full">
+      <div className="flex-1 overflow-hidden flex">
         {/* Chat Column */}
-        <div className="flex-1 flex flex-col lg:w-3/5 h-full overflow-hidden">
-          <div className="flex-1 overflow-y-auto px-4 py-6">
+        <div className="flex-1 flex flex-col lg:w-3/5 overflow-hidden">
+          <div className="flex-1 overflow-y-auto px-4 py-6 min-h-0">
             <div className="max-w-3xl mx-auto space-y-6">
               {messages.map((message) => (
                 <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
