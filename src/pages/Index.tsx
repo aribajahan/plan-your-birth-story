@@ -122,12 +122,10 @@ const Index = () => {
 
             {/* Right Column - Quick Preview */}
             <div className="lg:col-span-5 relative">
-              {/* Shape Container - positioned to not interfere with content */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="relative w-full h-full">
-                  <div className="absolute bottom-0 right-0 w-80 h-80 overflow-hidden">
-                    <OrganicShape variant="flower" size="lg" position="center" className="opacity-20" />
-                  </div>
+              {/* Shape Container - properly contained and positioned */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute bottom-4 right-4 w-48 h-48">
+                  <OrganicShape variant="flower" size="sm" position="center" className="opacity-15" />
                 </div>
               </div>
               
@@ -285,15 +283,15 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-32 bg-primary relative">
+      <section className="py-32 bg-accent relative">
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
             <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8 text-white">
+              <h2 className="text-editorial-hero mb-8 text-accent-foreground">
                 Two ways to create your plan
               </h2>
-              <p className="text-editorial-body max-w-3xl mx-auto text-white/80">
+              <p className="text-editorial-body max-w-3xl mx-auto text-accent-foreground/80">
                 Choose the approach that feels right for you. Both paths lead to the same professional birth plan.
               </p>
             </div>
@@ -400,10 +398,10 @@ const Index = () => {
 
       {/* Testimonials Section */}
       <section className="py-32 bg-secondary relative">
-        {/* Shape Container - anchored to section */}
+        {/* Shape Container - properly positioned to not cover text */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-8 left-8 w-64 h-64">
-            <OrganicShape variant="accent" size="md" position="center" className="opacity-10" />
+          <div className="absolute top-16 left-16 w-32 h-32">
+            <OrganicShape variant="primary" size="sm" position="center" className="opacity-8" />
           </div>
         </div>
         <div className="container mx-auto px-8">

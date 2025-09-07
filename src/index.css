@@ -31,10 +31,11 @@
     --muted: 32 25% 88%; /* Lighter warm neutral */
     --muted-foreground: 15 10% 50%; /* Medium charcoal */
 
-    /* Bright orange accent - cheerful and friendly */
-    --accent: 25 90% 65%; /* Bright orange accent */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
-    --accent-deep: 25 80% 55%; /* Deeper orange variant */
+    /* Blue accent for requested blue sections */
+    --accent: 210 85% 58%; /* Blue accent #3176b5 */
+    --accent-foreground: 0 0% 100%; /* White text on blue */
+    --accent-light: 210 75% 70%; /* Lighter blue variant */
+    --accent-deep: 210 90% 45%; /* Deeper blue variant */
 
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
@@ -94,8 +95,10 @@
     --muted: 15 15% 15%;
     --muted-foreground: 32 15% 65%;
 
-    --accent: 25 90% 65%; /* Keep warm orange accent */
+    --accent: 210 85% 58%; /* Keep blue accent in dark mode */
     --accent-foreground: 0 0% 100%;
+    --accent-light: 210 75% 70%;
+    --accent-deep: 210 90% 45%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
