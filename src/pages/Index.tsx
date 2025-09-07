@@ -49,11 +49,9 @@ const Index = () => {
       <Header onGetStarted={() => setMode('chat')} />
       {/* Hero Section - Condesa-Style with Asha Wordmark */}
       <section className="relative min-h-screen flex items-center pt-24">
-        {/* Large vibrant organic shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <OrganicShape variant="primary" size="xl" position="top-right-offset" className="opacity-30" />
-          <OrganicShape variant="primary" size="lg" position="bottom-left-offset" className="opacity-25" />
-          <OrganicShape variant="primary" size="xl" position="center-right" className="opacity-20" />
+        {/* Single vibrant organic shape - positioned to not overlap text */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <OrganicShape variant="primary" size="lg" position="top-right" className="opacity-40" />
         </div>
         
         <div className="container mx-auto px-8">
