@@ -46,83 +46,55 @@ const Index = () => {
     <div className="min-h-screen overflow-hidden relative" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
       {/* Header */}
       <Header onGetStarted={() => setMode('chat')} />
-      {/* Hero Section - Logo Takeover Design */}
-      <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center pt-24">
         {/* Bold Organic Background Shapes */}
-        <div className="absolute inset-0">
-          {/* Organic framing shapes */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Subtle organic blob in --bold-yellow behind text */}
           <div 
-            className="absolute top-20 right-10 w-[300px] h-[200px] opacity-20" 
+            className="absolute top-20 -left-32 w-[800px] h-[600px] opacity-15" 
             style={{ 
               backgroundColor: 'hsl(var(--bold-yellow))',
               borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
-              transform: 'rotate(15deg)'
+              transform: 'rotate(-15deg)'
             }}
           ></div>
           
+          {/* Smaller organic shape in --vibrant-coral bottom right */}
           <div 
-            className="absolute bottom-32 right-20 w-[200px] h-[150px] opacity-25" 
+            className="absolute bottom-20 right-20 w-[400px] h-[300px] opacity-30" 
             style={{ 
-              backgroundColor: 'hsl(var(--rich-blue))',
+              backgroundColor: 'hsl(var(--vibrant-coral))',
               borderRadius: '40% 60% 60% 40% / 70% 40% 60% 30%',
-              transform: 'rotate(-20deg)'
+              transform: 'rotate(25deg)'
             }}
           ></div>
         </div>
         
         <div className="container mx-auto px-8 relative z-10">
-          <div className="grid lg:grid-cols-5 gap-8 items-center min-h-screen py-20">
+          <div className="flex items-center justify-center min-h-screen py-20">
             
-            {/* LEFT: Massive Logo Block - 60% */}
-            <div className="lg:col-span-3 flex items-center justify-center lg:justify-start">
-              <div className="relative">
-                {/* Bold Color Block behind Logo */}
-                <div 
-                  className="absolute -inset-8 lg:-inset-16 rounded-3xl"
-                  style={{ 
-                    backgroundColor: 'hsl(var(--vibrant-coral))',
-                    transform: 'rotate(-2deg)',
-                    opacity: '0.9'
-                  }}
-                ></div>
-                
-                {/* Massive Hero Logo */}
-                <div className="relative z-10">
-                  <img 
-                    src="/lovable-uploads/adba3b7b-b015-4501-a4db-edc56e44d7f3.png" 
-                    alt="Asha - Birth Plans Built with Hope" 
-                    className="w-auto"
-                    style={{ 
-                      height: '10rem', /* 160px - massive logo */
-                      transform: 'rotate(3deg)',
-                      filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.1))'
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT: Content - 40% */}
-            <div className="lg:col-span-2 space-y-6 text-center lg:text-left">
-              {/* Confident Headline - Smaller to complement logo */}
+            {/* Centered Content */}
+            <div className="max-w-4xl text-center space-y-8">
+              {/* Clean, Confident Headline */}
               <h1 className="leading-tight">
-                <div style={{ fontSize: '2.5rem', fontWeight: '600', color: 'hsl(var(--deep-black))' }} className="lg:text-4xl">
+                <div style={{ fontSize: '4rem', fontWeight: '600', color: 'hsl(var(--deep-black))' }}>
                   You've Got Pregnancy Down.
                 </div>
-                <div style={{ fontSize: '2.5rem', fontWeight: '600', color: 'hsl(var(--vibrant-coral))' }} className="lg:text-4xl">
+                <div style={{ fontSize: '4rem', fontWeight: '600', color: 'hsl(var(--vibrant-coral))' }}>
                   Now Birth.
                 </div>
               </h1>
               
               {/* Supportive Subtext */}
-              <p style={{ fontSize: '1.1rem', fontWeight: '400', color: 'hsl(var(--deep-black))', lineHeight: '1.6' }} className="max-w-md lg:max-w-none">
-                You're already doing the very best. Let's just add one more layer of preparation with a birth plan that you actually understand and feel good about.
+              <p className="max-w-3xl mx-auto" style={{ fontSize: '1.25rem', fontWeight: '400', color: 'hsl(var(--deep-black))', lineHeight: '1.6' }}>
+                You're already doing the very best. Let's just add one more layer of preparation with a birth plan that you actually understand and feel good about, that prepares you for the real thing.
               </p>
 
               {/* Collaborative CTA Button */}
               <Button 
                 onClick={() => setMode('chat')}
-                className="rounded-full px-10 py-4 text-white font-semibold text-lg hover:scale-105 transition-transform duration-300 mt-8"
+                className="rounded-full px-12 py-4 text-white font-semibold text-lg hover:scale-105 transition-transform duration-300 mt-12"
                 style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}
                 size="lg"
               >
