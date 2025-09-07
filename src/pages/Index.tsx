@@ -73,10 +73,10 @@ const Index = () => {
               
               {/* Headline */}
               <div className="space-y-6">
-                <h1 className="text-editorial-headline">
-                  <span className="block text-shimmer">Your Birth,</span>
+                <h1 className="hero-title">
+                  <span className="block text-shimmer">Asha,</span>
                   <span className="block text-primary relative">
-                    Your Way
+                    Your Birth Guide
                     <div className="absolute -right-16 top-0 w-24 h-24 rounded-full bg-secondary/20 blur-2xl"></div>
                   </span>
                 </h1>
@@ -84,10 +84,11 @@ const Index = () => {
                 <div className="w-32 h-2 bg-gradient-primary rounded-full shadow-glow"></div>
               </div>
               
-              <p className="text-editorial-body max-w-2xl">
-                Create a thoughtful birth plan with guidance that feels like having 
-                a supportive, experienced friend by your side. 
-                <span className="text-primary font-semibold">Professional, empowering, and realistic.</span>
+              <p className="big-text max-w-2xl text-muted-foreground">
+                Your supportive birth planning companion that helps you create 
+                a thoughtful birth plan with guidance that feels like having 
+                a trusted friend by your side. 
+                <span className="text-primary font-semibold">Hopeful, confident, and empowering.</span>
               </p>
 
               {/* CTAs */}

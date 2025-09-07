@@ -2,44 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Condesa Studio Inspired - Bold, warm, contemporary */
+/* Asha - Bold, vibrant, hopeful foundation */
 
 @layer base {
   :root {
-    /* Condesa color palette - warm cream background */
-    --background: 32 25% 96%; /* Warm cream #F5F1EB */
-    --foreground: 15 15% 15%; /* Deep charcoal */
+    /* Asha vibrant color palette */
+    --cream-base: 48 30% 95%; /* #F5F3ED - hopeful foundation */
+    --bold-yellow: 50 89% 63%; /* #F5D547 - optimistic energy */
+    --vibrant-coral: 8 78% 58%; /* #E85A3D - confident warmth */
+    --rich-blue: 213 71% 59%; /* #4A90E2 - calm assurance */
+    --deep-black: 0 0% 10%; /* #1A1A1A - grounding contrast */
 
-    /* Card system with contemporary warmth */
+    /* Semantic color mapping */
+    --background: var(--cream-base); /* Hopeful cream foundation */
+    --foreground: var(--deep-black); /* Deep black text */
+
+    /* Card system with vibrant warmth */
     --card: 0 0% 100%; /* Pure white cards */
-    --card-foreground: 15 15% 15%; /* Deep charcoal text */
+    --card-foreground: var(--deep-black); /* Deep black text */
 
     --popover: 0 0% 100%;  
-    --popover-foreground: 15 15% 15%;
+    --popover-foreground: var(--deep-black);
 
-    /* Coral/orange primary - bold and confident */
-    --primary: 14 100% 57%; /* Coral orange #FF5722 */
+    /* Primary - vibrant coral for confidence */
+    --primary: var(--vibrant-coral); /* Vibrant coral for action */
     --primary-foreground: 0 0% 100%; /* White text on coral */
-    --primary-glow: 14 90% 67%; /* Softer coral glow */
+    --primary-glow: 8 68% 68%; /* Softer coral glow */
 
-    /* Warm beige secondary with yellow accents */
-    --secondary: 32 25% 88%; /* Soft warm secondary */
-    --secondary-foreground: 15 15% 15%; /* Dark on light */
-    --secondary-warm: 25 90% 65%; /* Warm orange accent */
+    /* Secondary - bold yellow for optimism */
+    --secondary: var(--bold-yellow); /* Bold yellow secondary */
+    --secondary-foreground: var(--deep-black); /* Dark text on yellow */
+    --secondary-warm: var(--bold-yellow); /* Yellow accent */
 
     /* Contemporary muted tones */
-    --muted: 32 25% 88%; /* Lighter warm neutral */
-    --muted-foreground: 15 10% 50%; /* Medium charcoal */
+    --muted: 48 20% 90%; /* Lighter cream neutral */
+    --muted-foreground: 0 0% 40%; /* Medium grey */
 
-    /* Bright orange accent - cheerful and friendly */
-    --accent: 25 90% 65%; /* Bright orange accent */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
-    --accent-deep: 25 80% 55%; /* Deeper orange variant */
+    /* Accent - rich blue for calm confidence */
+    --accent: var(--rich-blue); /* Rich blue accent */
+    --accent-foreground: 0 0% 100%; /* White text on blue */
+    --accent-deep: 213 81% 49%; /* Deeper blue variant */
 
-    /* Contemporary blue - calm and professional */
-    --blue: 210 85% 58%; /* Contemporary blue */
+    /* Blue variations for sections */
+    --blue: var(--rich-blue); /* Rich blue */
     --blue-foreground: 0 0% 100%; /* White text on blue */
-    --blue-light: 210 75% 68%; /* Lighter blue variant */
+    --blue-light: 213 61% 69%; /* Lighter blue variant */
 
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
@@ -80,32 +87,32 @@
   }
 
   .dark {
-    /* Dark mode with editorial sophistication */
-    --background: 15 15% 8%; /* Deep warm black */
-    --foreground: 32 25% 96%; /* Light cream text */
+    /* Dark mode with Asha vibrant sophistication */
+    --background: var(--deep-black); /* Deep black background */
+    --foreground: var(--cream-base); /* Cream text */
 
-    --card: 15 15% 10%; /* Dark cards */
-    --card-foreground: 32 25% 96%;
+    --card: 0 0% 12%; /* Dark cards */
+    --card-foreground: var(--cream-base);
 
-    --popover: 15 15% 10%;
-    --popover-foreground: 32 25% 96%;
+    --popover: 0 0% 12%;
+    --popover-foreground: var(--cream-base);
 
-    --primary: 14 100% 57%; /* Keep coral primary */
+    --primary: var(--vibrant-coral); /* Keep vibrant coral */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 15 15% 15%; /* Dark secondary */
-    --secondary-foreground: 32 25% 96%;
+    --secondary: var(--bold-yellow); /* Keep bold yellow */
+    --secondary-foreground: var(--deep-black);
 
-    --muted: 15 15% 15%;
-    --muted-foreground: 32 15% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 48 20% 75%;
 
-    --accent: 25 90% 65%; /* Keep warm orange accent */
+    --accent: var(--rich-blue); /* Keep rich blue */
     --accent-foreground: 0 0% 100%;
 
-    /* Contemporary blue for dark mode */
-    --blue: 210 85% 58%; /* Keep same blue */
+    /* Blue for dark mode */
+    --blue: var(--rich-blue); /* Keep same blue */
     --blue-foreground: 0 0% 100%;
-    --blue-light: 210 75% 68%;
+    --blue-light: 213 61% 69%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
@@ -131,7 +138,8 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply text-foreground font-body;
+    background-color: hsl(var(--cream-base));
   }
 }
 
@@ -191,25 +199,55 @@
     transition: var(--transition-bounce);
   }
 
-  /* Typography system for editorial impact */
+  /* Asha Typography System - Hopeful and Confident */
+  .hero-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 0.95;
+    color: hsl(var(--deep-black));
+  }
+
+  .big-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .body-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .brand-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  /* Legacy editorial classes for backward compatibility */
   .text-editorial-headline {
-    @apply text-7xl lg:text-9xl xl:text-[10rem] font-display font-black leading-[0.8] tracking-tight;
+    @apply hero-title;
   }
 
   .text-editorial-hero {
-    @apply text-5xl lg:text-7xl xl:text-8xl font-display font-bold leading-[0.9] tracking-tight;
+    @apply hero-title text-6xl lg:text-7xl xl:text-8xl;
   }
 
   .text-editorial-subhead {
-    @apply text-3xl lg:text-5xl font-display font-semibold leading-tight;
+    @apply big-text text-3xl lg:text-4xl font-semibold;
   }
 
   .text-editorial-body {
-    @apply text-xl lg:text-2xl text-muted-foreground leading-relaxed font-body;
+    @apply body-text text-xl lg:text-2xl text-muted-foreground;
   }
 
   .text-editorial-large {
-    @apply text-2xl lg:text-3xl font-display font-medium leading-tight;
+    @apply big-text text-2xl lg:text-3xl;
   }
 
   /* Editorial button styles */

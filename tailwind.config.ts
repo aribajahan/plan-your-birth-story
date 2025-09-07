@@ -19,8 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'display': ['Poppins', 'sans-serif'],
+				'display': ['Inter', 'sans-serif'],
 				'body': ['Inter', 'sans-serif'],
+				'brand': ['Crimson Text', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -28,6 +29,11 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				'cream-base': 'hsl(var(--cream-base))',
+				'bold-yellow': 'hsl(var(--bold-yellow))',
+				'vibrant-coral': 'hsl(var(--vibrant-coral))',
+				'rich-blue': 'hsl(var(--rich-blue))',
+				'deep-black': 'hsl(var(--deep-black))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
