@@ -4,7 +4,7 @@ import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
 import { GeneratedImage } from "@/components/GeneratedImage";
 import { Header } from "@/components/Header";
-import whyAshaWorksIllustration from "@/assets/why-asha-works-illustration.jpg";
+import { BackgroundRemovedImage } from "@/components/BackgroundRemovedImage";
 
 import { Heart, MessageCircle, FileText, Quote, Plus, Minus } from "lucide-react";
 
@@ -130,10 +130,10 @@ const Index = () => {
               
               {/* Left: Large Illustration (40%) */}
               <div className="lg:col-span-2 flex justify-center">
-                <img 
+                <BackgroundRemovedImage 
                   src="/lovable-uploads/51033687-6d82-4ab4-901b-99836103578f.png"
                   alt="Creative woman painting while pregnant - representing personalized birth planning"
-                  className="w-full h-auto max-w-lg rounded-2xl shadow-dramatic"
+                  className="w-full h-auto max-w-lg"
                 />
               </div>
 
