@@ -1,11 +1,16 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, Send, Mic, MicOff, FileText, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowLeft, Send, Mic, MicOff, FileText, MessageCircle, Sparkles, Download } from "lucide-react";
 import { BirthPlanData } from "./BirthPlanWizard";
 import { RealityCheck } from "./RealityCheck";
 import { supabase } from "@/integrations/supabase/client";
-
+import { useToast } from "@/components/ui/use-toast";
+import { BirthPlanProgress } from "@/components/BirthPlanProgress";
+import { useBirthPlanProgress } from "@/hooks/useBirthPlanProgress";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 interface ChatBirthPlanProps {
   onBack: () => void;
   onSwitchToForm: () => void;
@@ -46,6 +51,8 @@ interface ChatMessage {
 }
 
 export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: '1',
@@ -87,6 +94,14 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     support: false,
     expectations: false,
   });
+  // New state for progress, auth prompting, and resume
+  const [showAuthPrompt, setShowAuthPrompt] = useState(false);
+  const [showResumePrompt, setShowResumePrompt] = useState(false);
+  const [isAuthed, setIsAuthed] = useState(false);
+  const [promptedAuth, setPromptedAuth] = useState(false);
+  const [guestId, setGuestId] = useState<string | null>(null);
+
+  const { completion, capturedPrefs } = useBirthPlanProgress(userPreferences, discussedTopics);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
