@@ -4,6 +4,7 @@ import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
 import { GeneratedImage } from "@/components/GeneratedImage";
 import { Header } from "@/components/Header";
+import { OrganicShape } from "@/components/OrganicShape";
 
 import { Heart, MessageCircle, FileText, Quote, Plus, Minus } from "lucide-react";
 
@@ -48,26 +49,21 @@ const Index = () => {
       <Header onGetStarted={() => setMode('chat')} />
       {/* Hero Section - Condesa-Style with Asha Wordmark */}
       <section className="relative min-h-screen flex items-center pt-24">
-        {/* Minimal organic shapes for texture */}
+        {/* Large vibrant organic shapes */}
         <div className="absolute inset-0 overflow-hidden">
-          <div 
-            className="absolute bottom-20 right-20 w-[200px] h-[150px] opacity-15" 
-            style={{ 
-              backgroundColor: 'hsl(var(--bold-yellow))',
-              borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
-              transform: 'rotate(25deg)'
-            }}
-          ></div>
+          <OrganicShape variant="primary" size="xl" position="top-right-offset" className="opacity-30" />
+          <OrganicShape variant="primary" size="lg" position="bottom-left-offset" className="opacity-25" />
+          <OrganicShape variant="primary" size="xl" position="center-right" className="opacity-20" />
         </div>
         
         <div className="container mx-auto px-8">
-          <div className="max-w-7xl mx-auto flex flex-col items-center lg:items-start">
-            {/* High-Resolution Asha Wordmark */}
-            <div className="mb-16">
+          <div className="max-w-7xl mx-auto flex flex-col items-center">
+            {/* High-Resolution Asha Wordmark - Centered */}
+            <div className="mb-16 text-center">
               <img 
                 src="/lovable-uploads/f93c1dfb-c269-439a-b28b-28807b671e5c.png" 
                 alt="Asha - Birth Plans Built with Hope" 
-                className="w-auto mx-auto lg:mx-0"
+                className="w-auto mx-auto"
                 style={{ 
                   height: 'clamp(16rem, 35vw, 28rem)', /* Back to massive size */
                   maxWidth: '100%',
@@ -77,8 +73,8 @@ const Index = () => {
               />
             </div>
 
-            {/* Bold Typography Block */}
-            <div className="max-w-5xl">
+            {/* Bold Typography Block - Centered */}
+            <div className="max-w-5xl text-center">
               <h1 className="leading-none mb-8">
                 <div style={{ 
                   fontFamily: 'Crimson Text, serif',
@@ -103,8 +99,8 @@ const Index = () => {
                 </div>
               </h1>
               
-              {/* Clean supportive text */}
-              <p className="max-w-2xl mb-12" style={{ 
+              {/* Clean supportive text - Centered */}
+              <p className="max-w-2xl mb-12 mx-auto" style={{ 
                 fontSize: '1.25rem', 
                 fontWeight: '400', 
                 color: 'hsl(var(--deep-black))', 

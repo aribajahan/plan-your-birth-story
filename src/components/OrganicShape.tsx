@@ -12,20 +12,20 @@ export const OrganicShape = ({
   position = 'top-right'
 }: OrganicShapeProps) => {
   const colors = {
-    primary: '#3176b5',    // Blue
+    primary: '#1e40af',    // Vibrant blue
     secondary: '#eb4f26',  // Red
     accent: 'hsl(32 25% 88%)',
     muted: 'hsl(32 25% 92%)',
     yellow: '#f5cd45',     // Yellow
     beige: '#f3f1e0',      // Light beige
-    flower: '#3176b5'      // Blue for flower
+    flower: '#1e40af'      // Vibrant blue for flower
   };
 
   const sizes = {
     sm: 'w-64 h-64',
     md: 'w-96 h-96', 
-    lg: 'w-[32rem] h-[32rem]',
-    xl: 'w-[40rem] h-[40rem]'
+    lg: 'w-[48rem] h-[48rem]',
+    xl: 'w-[64rem] h-[64rem]'
   };
 
   const positions = {

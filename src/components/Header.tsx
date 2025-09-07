@@ -29,32 +29,30 @@ export const Header = ({ onGetStarted }: HeaderProps) => {
       <div className="container mx-auto px-8">
         <div className="flex items-center justify-between py-6">
           
-          {/* Logo Area - Flexible container for future image upload */}
-          <div className="flex items-center gap-3 group cursor-pointer hover:scale-105 transition-transform duration-300">
-            {/* Logo container - easily replaceable with image */}
-            <div className="logo-container">
-              <img 
-                src="/lovable-uploads/adba3b7b-b015-4501-a4db-edc56e44d7f3.png" 
-                alt="Asha - Birth Plans Built with Hope" 
-                className="h-12 w-auto"
-              />
-            </div>
-            
-            {/* Tagline */}
-            <div className="hidden sm:block ml-2">
-              <p 
-                className="text-xs font-medium tracking-widest uppercase"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.8rem',
-                  color: 'hsl(var(--deep-black))',
-                  letterSpacing: '0.1em'
-                }}
-              >
-                Birth Plans Built with Hope
-              </p>
-            </div>
-          </div>
+          {/* Navigation Links */}
+          <nav className="flex items-center gap-8">
+            <a 
+              href="#" 
+              className="font-medium hover:text-vibrant-coral transition-colors duration-300"
+              style={{ color: 'hsl(var(--deep-black))' }}
+            >
+              Asha Birth Plans
+            </a>
+            <a 
+              href="#" 
+              className="font-medium hover:text-vibrant-coral transition-colors duration-300"
+              style={{ color: 'hsl(var(--deep-black))' }}
+            >
+              Resources
+            </a>
+            <a 
+              href="#" 
+              className="font-medium hover:text-vibrant-coral transition-colors duration-300"
+              style={{ color: 'hsl(var(--deep-black))' }}
+            >
+              About
+            </a>
+          </nav>
 
           {/* Get Started Button */}
           <Button
