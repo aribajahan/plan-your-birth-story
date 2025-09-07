@@ -238,22 +238,32 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     setDiscussedTopics(prev => ({ ...prev, [topic]: true }));
   };
 
-  const getNextUndiscussedTopic = (): string => {
-    const topics = [
-      { key: 'environment', prompt: 'What kind of birth environment would help you feel most comfortable and confident?' },
-      { key: 'painManagement', prompt: 'How are you thinking about pain management during labor?' },
-      { key: 'positions', prompt: 'Have you thought about movement and positioning during labor?' },
-      { key: 'support', prompt: 'What kind of support team would make you feel strongest?' },
-      { key: 'expectations', prompt: 'What hopes or concerns do you have about your birth experience?' }
-    ];
+  const getNextUndiscussedTopic = (discussed: DiscussedTopics): string | null => {
+    if (!discussed.painManagement) return 'pain management options';
+    if (!discussed.environment) return 'birth environment preferences';
+    if (!discussed.support) return 'support team and communication';
+    if (!discussed.positions) return 'labor positions and mobility';
+    if (!discussed.expectations) return 'birth expectations and contingencies';
+    return null;
+  };
 
-    for (const topic of topics) {
-      if (!discussedTopics[topic.key as keyof DiscussedTopics]) {
-        return topic.prompt;
-      }
+  const getMilestoneMessage = (completion: number): string | null => {
+    if (completion >= 25 && completion < 50) {
+      return "🌟 Great start! You're making good progress on your birth plan. Let's keep exploring your preferences.";
     }
-
-    return "You've shared so much thoughtful information with me. What else would you like to explore or discuss?";
+    if (completion >= 50 && completion < 75) {
+      return "🎉 Wonderful! You're halfway through building your birth plan. Your vision is really taking shape.";
+    }
+    if (completion >= 75 && completion < 90) {
+      return "✨ Amazing progress! Your birth plan is looking comprehensive. Let's cover the final details.";
+    }
+    if (completion >= 90 && completion < 100) {
+      return "🎊 You're almost there! Just a few more details and your birth plan will be complete.";
+    }
+    if (completion >= 100) {
+      return "🌈 Congratulations! Your birth plan is complete. You've thoughtfully considered all the important aspects of your birth experience.";
+    }
+    return null;
   };
 
   // Removed saved prompt usage; relying on explicit system prompt and model
@@ -265,6 +275,9 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     // Update user preferences based on their responses
     updateUserPreferences(lowerMessage);
 
+    const nextTopic = getNextUndiscussedTopic(discussedTopics);
+    const milestoneMessage = getMilestoneMessage(completion);
+    
     // Helper to trim to a max number of sentences
     const trimToSentences = (t: string, max = 3) => {
       const parts = t
@@ -281,11 +294,24 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
         content: msg.content,
       }));
 
-      // Add strict system style and constraints
+      // Enhanced system message with completion guidance
       const systemMessage = {
         role: "system",
-        content:
-          "You are a warm, supportive birth-planning companion. Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If helpful, end with one concise follow-up question. Keep language simple and empathetic.",
+        content: `You are a warm, supportive birth-planning companion. Your goal is to help users complete a comprehensive birth plan.
+
+Birth plan completion: ${completion}%
+${nextTopic ? `Next suggested topic: ${nextTopic}` : 'All major topics covered!'}
+
+GUIDANCE RULES:
+- If completion is below 60%, gently guide toward undiscussed topics
+- If completion is 60-80%, ask deeper questions about partially filled preferences  
+- If completion is 80%+, focus on finalizing details and preparing for completion
+- Always celebrate milestones and progress
+- When user goes off-topic, acknowledge then gently redirect: "That's wonderful insight! Now let's explore [next topic]..."
+- If next topic exists, naturally weave it into your response
+- Keep responses warm, encouraging, and focused on birth plan completion
+
+Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If helpful, end with one concise follow-up question about birth planning.`,
       } as const;
 
       const finalMessages = [
@@ -392,13 +418,69 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
 
       setMessages(prev => [...prev, assistantMessage]);
 
+      // Track completion changes for milestone celebrations
+      const oldCompletion = completion;
+      const { completion: newCompletion, capturedPrefs: newCapturedPrefs } = useBirthPlanProgress(userPreferences, discussedTopics);
+      const newDiscussed = { ...discussedTopics };
+      
+      // Add milestone celebrations and completion guidance
+      const milestoneMessage = getMilestoneMessage(newCompletion);
+      if (milestoneMessage && (
+        (newCompletion >= 25 && oldCompletion < 25) ||
+        (newCompletion >= 50 && oldCompletion < 50) ||
+        (newCompletion >= 75 && oldCompletion < 75) ||
+        (newCompletion >= 90 && oldCompletion < 90) ||
+        (newCompletion >= 100 && oldCompletion < 100)
+      )) {
+        setTimeout(() => {
+          const milestoneMsg: ChatMessage = {
+            id: (Date.now() + 1).toString(),
+            role: 'assistant',
+            content: milestoneMessage,
+            timestamp: new Date(),
+            type: 'text'
+          };
+          setMessages(prev => [...prev, milestoneMsg]);
+        }, 1000);
+      }
+
+      // Add completion guidance at key thresholds
+      if (newCompletion >= 60 && newCompletion < 80 && oldCompletion < 60) {
+        const nextTopic = getNextUndiscussedTopic(newDiscussed);
+        if (nextTopic) {
+          setTimeout(() => {
+            const guidanceMsg: ChatMessage = {
+              id: (Date.now() + 2).toString(),
+              role: 'assistant',
+              content: `Let's dive deeper into ${nextTopic} to make your plan even more comprehensive.`,
+              timestamp: new Date(),
+              type: 'text'
+            };
+            setMessages(prev => [...prev, guidanceMsg]);
+          }, 1500);
+        }
+      }
+
+      if (newCompletion >= 80 && oldCompletion < 80) {
+        setTimeout(() => {
+          const finalStretchMsg: ChatMessage = {
+            id: (Date.now() + 3).toString(),
+            role: 'assistant',
+            content: "You're in the final stretch! Let's polish the remaining details to complete your personalized birth plan.",
+            timestamp: new Date(),
+            type: 'text'
+          };
+          setMessages(prev => [...prev, finalStretchMsg]);
+        }, 2000);
+      }
+
       // Generate script preview if user has shared preferences
       if (Object.keys(userPreferences).length > 0 && conversationPhase !== 'introduction') {
         setTimeout(() => {
           const scriptPreview = generateScriptPreview(userPreferences, conversationPhase);
           if (scriptPreview) {
             const scriptMessage: ChatMessage = {
-              id: (Date.now() + 2).toString(),
+              id: (Date.now() + 4).toString(),
               role: 'assistant',
               content: "",
               timestamp: new Date(),
@@ -407,7 +489,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
             };
             setMessages(prev => [...prev, scriptMessage]);
           }
-        }, 1500);
+        }, 2500);
       }
       
       // Add contextual reality checks
@@ -450,14 +532,35 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     }
   };
 
-  const quickReplies = [
-    "What should I know about epidurals?",
-    "Help me decide on pain management options",
-    "What newborn procedures should I plan for?",
-    "I'm not sure what to include in my birth plan",
-    "How do I create a calm environment for delivery?",
-    "This is my first baby, where do I begin?"
-  ];
+  const getDynamicQuickReplies = (discussed: DiscussedTopics, completion: number): string[] => {
+    if (completion >= 90) {
+      return [
+        "Review my complete plan",
+        "Any final recommendations?", 
+        "Help me prepare for birth",
+        "What should I discuss with my doctor?"
+      ];
+    }
+    
+    const undiscussedReplies: string[] = [];
+    if (!discussed.painManagement) undiscussedReplies.push("Tell me about pain relief options");
+    if (!discussed.environment) undiscussedReplies.push("What about the birth environment?");
+    if (!discussed.support) undiscussedReplies.push("Who should be in my support team?");
+    if (!discussed.positions) undiscussedReplies.push("What positions are best for labor?");
+    if (!discussed.expectations) undiscussedReplies.push("What should I expect during birth?");
+    
+    // Fill remaining slots with general helpful prompts
+    const generalReplies = [
+      "What if things don't go as planned?",
+      "How do I communicate with my team?",
+      "Tell me about newborn procedures"
+    ];
+    
+    const combined = [...undiscussedReplies, ...generalReplies];
+    return combined.slice(0, 4);
+  };
+
+  const quickReplies = getDynamicQuickReplies(discussedTopics, completion);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">

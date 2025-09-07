@@ -14,18 +14,26 @@ interface LiveBirthPlanCanvasProps {
 const SectionCard = ({ section }: { section: BirthPlanSection }) => {
   return (
     <Card className={cn(
-      "transition-all duration-300",
+      "transition-all duration-300 relative",
       section.isComplete ? "border-primary/20 bg-primary/5" : "border-dashed border-muted-foreground/30"
     )}>
+      {!section.isComplete && (
+        <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 rounded-full animate-pulse" />
+      )}
+      
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-sm font-medium flex items-center gap-2">
+          <CardTitle className={cn(
+            "text-sm font-medium flex items-center gap-2",
+            !section.isComplete && "text-orange-600 dark:text-orange-400"
+          )}>
             {section.isComplete ? (
               <div className="w-2 h-2 rounded-full bg-primary" />
             ) : (
               <Plus className="w-3 h-3 text-muted-foreground" />
             )}
             {section.title}
+            {!section.isComplete && <span className="text-xs font-normal">(needs attention)</span>}
           </CardTitle>
           {section.isComplete && (
             <Badge variant="secondary" className="text-xs">
@@ -37,15 +45,20 @@ const SectionCard = ({ section }: { section: BirthPlanSection }) => {
       <CardContent className="pt-0">
         {section.isComplete ? (
           <ul className="space-y-2">
-            {section.content.map((item, index) => (
+            {section.content.slice(0, 3).map((item, index) => (
               <li key={index} className="text-sm text-muted-foreground leading-relaxed">
                 • {item}
               </li>
             ))}
+            {section.content.length > 3 && (
+              <li className="text-xs text-muted-foreground italic">
+                + {section.content.length - 3} more items
+              </li>
+            )}
           </ul>
         ) : (
           <p className="text-xs text-muted-foreground italic">
-            Discuss this topic in the chat to add it to your birth plan
+            Chat about this topic to add details to your birth plan
           </p>
         )}
       </CardContent>
@@ -83,8 +96,25 @@ export const LiveBirthPlanCanvas = ({ birthPlan, completion, className }: LiveBi
           </Button>
         </div>
         
-        <div className="text-xs text-muted-foreground">
+        <div className="text-xs text-muted-foreground mb-2">
           {completedSections} of {sections.length} sections complete ({Math.round(completion)}%)
+        </div>
+        
+        <div className={cn(
+          "text-xs font-medium",
+          completion < 25 ? "text-muted-foreground" :
+          completion < 50 ? "text-orange-600 dark:text-orange-400" :
+          completion < 75 ? "text-blue-600 dark:text-blue-400" :
+          completion < 90 ? "text-green-600 dark:text-green-400" :
+          completion < 100 ? "text-purple-600 dark:text-purple-400" :
+          "text-emerald-600 dark:text-emerald-400"
+        )}>
+          {completion < 25 && "Just getting started..."}
+          {completion >= 25 && completion < 50 && "Making good progress! 🌟"}
+          {completion >= 50 && completion < 75 && "Halfway there! 🎉"}
+          {completion >= 75 && completion < 90 && "Almost complete! ✨"}
+          {completion >= 90 && completion < 100 && "Final touches needed 🎊"}
+          {completion >= 100 && "Your plan is ready! 🌈"}
         </div>
         
         <div className="mt-2 h-1 bg-muted rounded-full overflow-hidden">
