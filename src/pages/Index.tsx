@@ -182,26 +182,25 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-32 bg-blue relative">
+      <section className="py-32 relative">
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
-            {/* Section Header */}
             <div className="grid lg:grid-cols-3 gap-16 mb-24">
               <div className="lg:col-span-2">
-                <h2 className="text-editorial-subhead mb-8 text-white">
+                <h2 className="text-editorial-subhead mb-8">
                   Why families choose our 
-                  <span className="text-white block">birth planning approach</span>
+                  <span className="block">birth planning approach</span>
                 </h2>
-                <p className="text-editorial-large text-white/80">
+                <p className="text-editorial-large text-muted-foreground">
                   We combine professional expertise with warm, supportive guidance 
                   to help you navigate one of life's most important moments.
                 </p>
               </div>
               <div className="flex items-end">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift border border-white/20">
-                  <div className="text-3xl font-bold text-white mb-2">95%</div>
-                  <div className="text-sm text-white/70">Feel more prepared for birth</div>
+                <div className="bg-primary/10 backdrop-blur-sm rounded-2xl p-6 hover-lift border border-primary/20">
+                  <div className="text-3xl font-bold mb-2">95%</div>
+                  <div className="text-sm text-muted-foreground">Feel more prepared for birth</div>
                 </div>
               </div>
             </div>
@@ -251,10 +250,10 @@ const Index = () => {
               </div>
 
               {/* Feature 4 */}
-              <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-12 border border-white/30 hover-lift">
+              <div className="bg-primary/10 backdrop-blur-sm rounded-3xl p-12 border border-primary/30 hover-lift">
                 <div className="space-y-6">
-                  <h3 className="text-editorial-large text-white">Communication Confidence</h3>
-                  <p className="text-white/80 text-lg leading-relaxed">
+                  <h3 className="text-editorial-large">Communication Confidence</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
                     Learn how to advocate for yourself and communicate with your medical team, 
                     even in challenging moments. We provide scripts and guidance for difficult conversations.
                   </p>
@@ -266,15 +265,15 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-32 bg-primary relative">
+      <section className="py-32 relative">
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
             <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8 text-white">
+              <h2 className="text-editorial-hero mb-8">
                 Two ways to create your plan
               </h2>
-              <p className="text-editorial-body max-w-3xl mx-auto text-white/80">
+              <p className="text-editorial-body max-w-3xl mx-auto text-muted-foreground">
                 Choose the approach that feels right for you. Both paths lead to the same professional birth plan.
               </p>
             </div>
@@ -378,7 +377,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-32 bg-secondary relative">
+      <section className="py-32 relative">
         {/* Elegant background elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-16 left-16 w-48 h-48 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 rotate-12 blur-lg"></div>
@@ -461,12 +460,12 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-32 bg-accent">
+      <section className="py-32">
         <div className="container mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             
             <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8 text-accent-foreground">
+              <h2 className="text-editorial-hero mb-8">
                 Common questions
               </h2>
             </div>
@@ -498,16 +497,16 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-32 relative overflow-hidden bg-primary">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-accent opacity-90"></div>
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/10"></div>
         <div className="container mx-auto px-8 relative z-10">
           <div className="max-w-5xl mx-auto text-center space-y-12">
-            <h2 className="text-editorial-hero text-primary-foreground">
+            <h2 className="text-editorial-hero">
               Ready to feel empowered 
               <span className="block">about your birth?</span>
             </h2>
             
-            <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Join thousands of families who've created thoughtful, 
               professional birth plans that actually get used.
             </p>
@@ -515,7 +514,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
               <Button 
                 onClick={() => setMode('chat')}
-                className="bg-white text-primary hover:bg-white/90 text-xl px-12 py-6 rounded-2xl shadow-dramatic font-display font-bold"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 text-xl px-12 py-6 rounded-2xl shadow-dramatic font-display font-bold"
                 size="lg"
               >
                 <MessageCircle className="w-6 h-6 mr-3" />
@@ -523,7 +522,7 @@ const Index = () => {
               </Button>
               <Button 
                 onClick={() => setMode('form')}
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-xl px-12 py-6 rounded-2xl font-display font-bold"
+                className="bg-transparent border-2 border-primary text-primary hover:bg-primary/10 text-xl px-12 py-6 rounded-2xl font-display font-bold"
                 size="lg"
               >
                 See a Sample Birth Plan
@@ -534,7 +533,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-card border-t border-border">
+      <footer className="py-12 border-t border-border">
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
