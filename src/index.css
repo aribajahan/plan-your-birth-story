@@ -141,6 +141,11 @@
     @apply text-foreground font-body;
     background-color: hsl(var(--cream-base));
   }
+  
+  /* Ensure cream-base utility class is available */
+  .bg-cream-base {
+    background-color: hsl(var(--cream-base));
+  }
 }
 
 @layer components {

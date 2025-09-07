@@ -3,6 +3,7 @@ import { BirthPlanWizard } from "@/components/BirthPlanWizard";
 import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
 import { GeneratedImage } from "@/components/GeneratedImage";
+import { Header } from "@/components/Header";
 
 import { Heart, MessageCircle, FileText, Quote, Plus, Minus } from "lucide-react";
 
@@ -42,9 +43,11 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden relative">
+    <div className="min-h-screen overflow-hidden relative" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
+      {/* Header */}
+      <Header onGetStarted={() => setMode('chat')} />
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center pt-24">
         {/* Background Elements */}
         <div className="absolute inset-0 gradient-radial"></div>
         <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl"></div>
