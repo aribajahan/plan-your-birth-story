@@ -48,11 +48,27 @@ const Index = () => {
       <Header onGetStarted={() => setMode('chat')} />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-24">
-        {/* Organic Background Shapes */}
+        {/* Bold Organic Background Shapes */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-32 left-20 w-96 h-96 rounded-full opacity-20" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}></div>
-          <div className="absolute top-96 right-32 w-64 h-64 rounded-[40%] opacity-20" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}></div>
-          <div className="absolute bottom-32 left-1/3 w-48 h-48 rounded-[50%] opacity-20" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}></div>
+          {/* Large organic blob in --bold-yellow behind left text */}
+          <div 
+            className="absolute top-20 -left-32 w-[800px] h-[600px] opacity-40" 
+            style={{ 
+              backgroundColor: 'hsl(var(--bold-yellow))',
+              borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+              transform: 'rotate(-15deg)'
+            }}
+          ></div>
+          
+          {/* Smaller organic shape in --vibrant-coral bottom right */}
+          <div 
+            className="absolute bottom-20 right-20 w-[400px] h-[300px] opacity-30" 
+            style={{ 
+              backgroundColor: 'hsl(var(--vibrant-coral))',
+              borderRadius: '40% 60% 60% 40% / 70% 40% 60% 30%',
+              transform: 'rotate(25deg)'
+            }}
+          ></div>
         </div>
         
         <div className="container mx-auto px-8 relative z-10">
@@ -60,13 +76,20 @@ const Index = () => {
             
             {/* Left Column - 55% */}
             <div className="lg:col-span-7 space-y-8">
-              {/* Headline */}
-              <h1 className="font-bold" style={{ fontSize: '5rem', fontWeight: '800', color: 'hsl(var(--deep-black))' }}>
-                From{" "}
-                <span className="italic" style={{ color: 'hsl(var(--vibrant-coral))' }}>
-                  Uncertain to Confident
-                </span>
-                {" "}in 15 Minutes
+              {/* Dramatic Typography */}
+              <h1 className="leading-none">
+                <div style={{ fontSize: '4rem', fontWeight: '300', color: 'hsl(var(--deep-black))' }}>
+                  From
+                </div>
+                <div className="italic -mt-4" style={{ fontSize: '4.5rem', fontWeight: '700', color: 'hsl(var(--vibrant-coral))' }}>
+                  Uncertain
+                </div>
+                <div className="italic -mt-4" style={{ fontSize: '4.5rem', fontWeight: '700', color: 'hsl(var(--vibrant-coral))' }}>
+                  to Confident
+                </div>
+                <div className="-mt-4" style={{ fontSize: '4rem', fontWeight: '700', color: 'hsl(var(--deep-black))' }}>
+                  in 15 Minutes
+                </div>
               </h1>
               
               {/* Subtext */}
@@ -92,61 +115,62 @@ const Index = () => {
 
             {/* Right Column - 45% */}
             <div className="lg:col-span-5 relative">
-              {/* Bold Card */}
+              {/* Chunky Bold Card */}
               <div 
-                className="rounded-3xl p-8 transform rotate-2 border-4"
+                className="rounded-3xl p-10 transform rotate-3 border-4 shadow-2xl"
                 style={{ 
                   backgroundColor: 'hsl(var(--bold-yellow))', 
-                  borderColor: 'hsl(var(--deep-black))'
+                  borderColor: 'hsl(var(--deep-black))',
+                  boxShadow: '12px 12px 0px hsl(var(--deep-black) / 0.3)'
                 }}
               >
                 {/* Card Header */}
-                <h3 className="text-2xl font-bold mb-6" style={{ color: 'hsl(var(--deep-black))' }}>
+                <h3 className="text-3xl font-bold mb-8" style={{ color: 'hsl(var(--deep-black))' }}>
                   Asha gives you:
                 </h3>
                 
-                {/* List with Checkmarks */}
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                {/* List with Chunky Checkmarks */}
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                       </svg>
                     </div>
-                    <p className="text-lg font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
+                    <p className="text-xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
                       Pain management that honors your values
                     </p>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                       </svg>
                     </div>
-                    <p className="text-lg font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
+                    <p className="text-xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
                       Scripts that work when you're vulnerable
                     </p>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                       </svg>
                     </div>
-                    <p className="text-lg font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
+                    <p className="text-xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
                       Hope when plans change
                     </p>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                       </svg>
                     </div>
-                    <p className="text-lg font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
+                    <p className="text-xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
                       Confidence that lasts beyond birth
                     </p>
                   </div>
