@@ -60,18 +60,20 @@ const Index = () => {
           ></div>
         </div>
         
-         <div className="mb-16">
-            <img 
-              src="/lovable-uploads/adba3b7b-b015-4501-a4db-edc56e44d7f3.png" 
-              alt="Asha" 
-              className="w-auto mx-auto lg:mx-0"
-              style={{ 
-                height: 'clamp(20rem, 40vw, 32rem)', /* ENORMOUS - up to 512px */
-                maxWidth: '100%',
-                filter: 'drop-shadow(0 8px 40px rgba(0,0,0,0.2))'
-              }}
-            />
-          </div>
+        <div className="container mx-auto px-8">
+          <div className="max-w-7xl mx-auto flex flex-col items-center lg:items-start">
+            <div className="mb-16">
+              <img 
+                src="/lovable-uploads/adba3b7b-b015-4501-a4db-edc56e44d7f3.png" 
+                alt="Asha" 
+                className="w-auto mx-auto lg:mx-0"
+                style={{ 
+                  height: 'clamp(20rem, 40vw, 32rem)', /* ENORMOUS - up to 512px */
+                  maxWidth: '100%',
+                  filter: 'drop-shadow(0 8px 40px rgba(0,0,0,0.2))'
+                }}
+              />
+            </div>
 
             {/* Bold Typography Block */}
             <div className="max-w-5xl">
