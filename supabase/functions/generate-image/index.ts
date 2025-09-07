@@ -33,6 +33,9 @@ serve(async (req) => {
 
     console.log('Generating image with prompt:', prompt);
 
+    // Ensure valid size parameter
+    const validSize = size === '512x512' ? '1024x1024' : size;
+    
     const response = await fetch('https://api.openai.com/v1/images/generations', {
       method: 'POST',
       headers: {
@@ -40,12 +43,11 @@ serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'gpt-image-1',
+        model: 'dall-e-3',
         prompt: prompt,
         n: 1,
-        size: size,
-        output_format: outputFormat,
-        quality: 'high'
+        size: validSize,
+        quality: 'hd'
       }),
     });
 
