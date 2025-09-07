@@ -1,5 +1,4 @@
 import { Quote } from "lucide-react";
-import { BackgroundRemovedImage } from "@/components/BackgroundRemovedImage";
 
 export const TestimonialsSection = () => {
   return (
@@ -22,7 +21,7 @@ export const TestimonialsSection = () => {
               
               {/* Three Women Illustration */}
               <div className="flex justify-center lg:justify-end">
-                <BackgroundRemovedImage
+                <img
                   src="/lovable-uploads/51033687-6d82-4ab4-901b-99836103578f.png"
                   alt="Three pregnant women with a stroller - representing community support"
                   className="w-full h-auto max-w-sm lg:max-w-md"

@@ -1,5 +1,3 @@
-import { BackgroundRemovedImage } from "@/components/BackgroundRemovedImage";
-
 export const WhyAshaWorksSection = () => {
   return (
     <section className="min-h-screen flex items-center bg-cream-base">
@@ -27,8 +25,8 @@ export const WhyAshaWorksSection = () => {
 
             {/* Illustration */}
             <div className="flex items-center justify-center">
-              <BackgroundRemovedImage
-                src="/lovable-uploads/e9051f6b-475a-4a97-b5e4-b82330515a2e.png"
+              <img 
+                src="/lovable-uploads/283ff4e2-3b9b-4a55-b7dc-c5a2a74139fd.png"
                 alt="Pregnant woman painting - representing creative birth planning process"
                 className="w-full h-auto max-w-md lg:max-w-lg"
               />
