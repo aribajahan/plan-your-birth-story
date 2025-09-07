@@ -46,55 +46,79 @@ const Index = () => {
     <div className="min-h-screen overflow-hidden relative" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
       {/* Header */}
       <Header onGetStarted={() => setMode('chat')} />
-      {/* Hero Section */}
+      {/* Hero Section - Condesa-Style with Asha Wordmark */}
       <section className="relative min-h-screen flex items-center pt-24">
-        {/* Bold Organic Background Shapes */}
+        {/* Minimal organic shapes for texture */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Subtle organic blob in --bold-yellow behind text */}
           <div 
-            className="absolute top-20 -left-32 w-[800px] h-[600px] opacity-15" 
+            className="absolute bottom-20 right-20 w-[200px] h-[150px] opacity-15" 
             style={{ 
               backgroundColor: 'hsl(var(--bold-yellow))',
               borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
-              transform: 'rotate(-15deg)'
-            }}
-          ></div>
-          
-          {/* Smaller organic shape in --vibrant-coral bottom right */}
-          <div 
-            className="absolute bottom-20 right-20 w-[400px] h-[300px] opacity-30" 
-            style={{ 
-              backgroundColor: 'hsl(var(--vibrant-coral))',
-              borderRadius: '40% 60% 60% 40% / 70% 40% 60% 30%',
               transform: 'rotate(25deg)'
             }}
           ></div>
         </div>
         
         <div className="container mx-auto px-8 relative z-10">
-          <div className="flex items-center justify-center min-h-screen py-20">
+          <div className="min-h-screen flex flex-col justify-center py-20">
             
-            {/* Centered Content */}
-            <div className="max-w-4xl text-center space-y-8">
-              {/* Clean, Confident Headline */}
-              <h1 className="leading-tight">
-                <div style={{ fontSize: '4rem', fontWeight: '600', color: 'hsl(var(--deep-black))' }}>
-                  You've Got Pregnancy Down.
+            {/* Massive Asha Wordmark - Condesa Style */}
+            <div className="mb-12">
+              <img 
+                src="/lovable-uploads/adba3b7b-b015-4501-a4db-edc56e44d7f3.png" 
+                alt="Asha" 
+                className="w-auto mx-auto lg:mx-0"
+                style={{ 
+                  height: '8rem', /* Massive like Condesa */
+                  maxWidth: '100%'
+                }}
+              />
+            </div>
+
+            {/* Bold Typography Block */}
+            <div className="max-w-5xl">
+              <h1 className="leading-none mb-8">
+                <div style={{ 
+                  fontSize: 'clamp(3rem, 8vw, 6rem)', 
+                  fontWeight: '700', 
+                  color: 'hsl(var(--deep-black))',
+                  lineHeight: '0.9'
+                }}>
+                  You've Got
                 </div>
-                <div style={{ fontSize: '4rem', fontWeight: '600', color: 'hsl(var(--vibrant-coral))' }}>
+                <div style={{ 
+                  fontSize: 'clamp(3rem, 8vw, 6rem)', 
+                  fontWeight: '700', 
+                  color: 'hsl(var(--deep-black))',
+                  lineHeight: '0.9'
+                }}>
+                  Pregnancy Down.
+                </div>
+                <div style={{ 
+                  fontSize: 'clamp(3rem, 8vw, 6rem)', 
+                  fontWeight: '700', 
+                  color: 'hsl(var(--vibrant-coral))',
+                  lineHeight: '0.9'
+                }}>
                   Now Birth.
                 </div>
               </h1>
               
-              {/* Supportive Subtext */}
-              <p className="max-w-3xl mx-auto" style={{ fontSize: '1.25rem', fontWeight: '400', color: 'hsl(var(--deep-black))', lineHeight: '1.6' }}>
-                You're already doing the very best. Let's just add one more layer of preparation with a birth plan that you actually understand and feel good about, that prepares you for the real thing.
+              {/* Clean supportive text */}
+              <p className="max-w-2xl mb-12" style={{ 
+                fontSize: '1.25rem', 
+                fontWeight: '400', 
+                color: 'hsl(var(--deep-black))', 
+                lineHeight: '1.6' 
+              }}>
+                You're already doing the very best. Let's just add one more layer of preparation with a birth plan that you actually understand and feel good about.
               </p>
 
-              {/* Collaborative CTA Button */}
+              {/* Bold CTA */}
               <Button 
                 onClick={() => setMode('chat')}
-                className="rounded-full px-12 py-4 text-white font-semibold text-lg hover:scale-105 transition-transform duration-300 mt-12"
+                className="rounded-full px-12 py-4 text-white font-bold text-xl hover:scale-105 transition-transform duration-300"
                 style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}
                 size="lg"
               >
