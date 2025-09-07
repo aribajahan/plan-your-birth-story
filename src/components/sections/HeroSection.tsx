@@ -6,40 +6,43 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
   return (
-    <section className="relative h-screen flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-      {/* Geometric shapes background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-80 h-80 rounded-full" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}></div>
-        <div className="absolute bottom-32 left-16 w-64 h-32" style={{ backgroundColor: 'hsl(var(--electric-blue))' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 rotate-45" style={{ backgroundColor: 'hsl(var(--cream-base))' }}></div>
+    <section className="relative h-screen">
+      {/* Red on Red Background Block */}
+      <div 
+        className="absolute inset-0 w-full h-full"
+        style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}
+      >
+        {/* Black on White CTA Block - Bottom Right */}
+        <div 
+          className="absolute bottom-0 right-0 w-1/3 h-1/3"
+          style={{ backgroundColor: 'hsl(var(--cream-base))' }}
+        >
+          <div className="flex items-center justify-center h-full p-12">
+            <Button 
+              onClick={onGetStarted}
+              className="text-xl font-bold px-12 py-6 font-helvetica hover:scale-105 transition-transform duration-300"
+              style={{ 
+                backgroundColor: 'hsl(var(--deep-black))', 
+                color: 'hsl(var(--cream-base))'
+              }}
+            >
+              Start Your Birth Plan
+            </Button>
+          </div>
+        </div>
       </div>
       
-      {/* Wordmark - MASSIVE and dominant */}
-      <div className="relative z-10 text-center">
+      {/* Massive Wordmark - Center Left */}
+      <div className="relative z-10 h-full flex items-center justify-start pl-16">
         <img 
-          src="/lovable-uploads/e9051f6b-475a-4a97-b5e4-b82330515a2e.png"
-          alt="Asha - Birth Plans Built with Hope" 
-          className="w-auto mx-auto mb-12"
+          src={"/lovable-uploads/988162e5-578e-48d9-8560-2f769a1e16d3.png"}
+          alt="Asha" 
+          className="w-auto"
           style={{ 
-            height: 'clamp(20rem, 60vh, 40rem)',
-            maxWidth: '90vw',
-            filter: 'drop-shadow(0 8px 40px rgba(0, 0, 0, 0.3))',
+            height: 'clamp(24rem, 70vh, 48rem)',
+            maxWidth: '60vw',
           }}
         />
-        
-        {/* Minimal, bold call-to-action in contrasting color block */}
-        <div className="inline-block p-8 rounded-3xl" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
-          <Button 
-            onClick={onGetStarted}
-            className="text-2xl font-bold px-16 py-6 rounded-full hover:scale-105 transition-transform duration-300 font-helvetica"
-            style={{ 
-              backgroundColor: 'hsl(var(--deep-black))', 
-              color: 'hsl(var(--cream-base))'
-            }}
-          >
-            Start Your Birth Plan
-          </Button>
-        </div>
       </div>
     </section>
   );
