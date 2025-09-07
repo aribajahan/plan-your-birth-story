@@ -7,14 +7,14 @@ export const WhyAshaWorksSection = () => {
           {/* Left: Bold Text Block */}
           <div className="flex items-center justify-center p-16">
             <div className="max-w-xl">
-              <h2 className="text-8xl font-bold leading-none mb-8" style={{ 
-                fontFamily: 'Crimson Text, serif',
+              <h2 className="section-headline leading-none mb-8" style={{ 
+                fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
                 color: 'hsl(var(--deep-black))'
               }}>
                 Why Asha Actually Works
               </h2>
               
-              <div className="space-y-8 text-2xl" style={{ color: 'hsl(var(--deep-black))' }}>
+              <div className="space-y-8 text-2xl font-helvetica font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
                 <p className="font-bold">Guided questions that help</p>
                 <p className="font-bold">Reality checks that prepare</p>
                 <p className="font-bold">Professional output that works</p>

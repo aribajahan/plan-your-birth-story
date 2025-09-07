@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'display': ['Inter', 'sans-serif'],
-				'body': ['Inter', 'sans-serif'],
+				'display': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+				'body': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
 				'brand': ['Crimson Text', 'serif'],
 				'helvetica': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
 			},

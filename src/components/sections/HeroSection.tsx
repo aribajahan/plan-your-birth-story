@@ -31,7 +31,7 @@ export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
         <div className="inline-block p-8 rounded-3xl" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
           <Button 
             onClick={onGetStarted}
-            className="text-2xl font-bold px-16 py-6 rounded-full hover:scale-105 transition-transform duration-300"
+            className="text-2xl font-bold px-16 py-6 rounded-full hover:scale-105 transition-transform duration-300 font-helvetica"
             style={{ 
               backgroundColor: 'hsl(var(--deep-black))', 
               color: 'hsl(var(--cream-base))'
