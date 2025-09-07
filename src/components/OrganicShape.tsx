@@ -28,39 +28,21 @@ export const OrganicShape = ({
   };
 
   const positions = {
-    'top-left': 'absolute -top-10 -left-10',
-    'top-right': 'absolute -top-16 -right-16',
-    'bottom-left': 'absolute -bottom-20 -left-20',
-    'bottom-right': 'absolute -bottom-16 -right-16',
+    'top-left': 'absolute top-0 left-0',
+    'top-right': 'absolute top-0 right-0',
+    'bottom-left': 'absolute bottom-0 left-0',
+    'bottom-right': 'absolute bottom-0 right-0',
     'center': 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
   };
 
-  // Large organic shapes optimized for full viewport
+  // Simplified organic shapes without complex transforms
   const shapeData = {
-    primary: {
-      path: "M1200 150 C 1100 100, 1100 250, 1200 350 C 1300 450, 1400 300, 1300 150 C 1250 100, 1150 100, 1200 150 Z",
-      transform: "scale(3.5) translate(250,30)"
-    },
-    secondary: {
-      path: "M100 200 C 50 150, 50 300, 100 400 C 150 480, 250 350, 150 200 C 120 150, 60 150, 100 200 Z", 
-      transform: "scale(3) translate(50,50)"
-    },
-    yellow: {
-      path: "M700 300 C 650 200, 600 350, 700 500 C 800 600, 900 400, 800 200 C 750 150, 650 250, 700 300 Z",
-      transform: "scale(2.5) translate(150,80)"
-    },
-    beige: {
-      path: "M300 800 C 200 700, 200 900, 300 1000 C 400 1100, 500 950, 400 800 C 350 750, 250 750, 300 800 Z",
-      transform: "scale(3) translate(80,250)"
-    },
-    accent: {
-      path: "M1600 500 C 1500 400, 1400 550, 1600 700 C 1700 850, 1800 600, 1700 400 C 1650 300, 1550 450, 1600 500 Z",
-      transform: "scale(2) translate(400,200)"
-    },
-    muted: {
-      path: "M700 300 C 650 200, 600 350, 700 500 C 800 600, 900 400, 800 200 C 750 150, 650 250, 700 300 Z",
-      transform: "scale(2.5) translate(150,80)"
-    }
+    primary: "M50 20 C 20 10, 10 40, 30 60 C 50 80, 80 70, 90 40 C 85 20, 70 10, 50 20 Z",
+    secondary: "M40 30 C 15 20, 10 50, 35 70 C 60 85, 85 60, 80 30 C 70 15, 55 20, 40 30 Z", 
+    yellow: "M45 25 C 20 15, 15 45, 40 65 C 65 80, 85 55, 75 25 C 65 10, 50 15, 45 25 Z",
+    beige: "M35 35 C 10 25, 15 55, 35 75 C 55 90, 80 65, 70 35 C 60 20, 45 25, 35 35 Z",
+    accent: "M55 15 C 25 5, 20 35, 45 55 C 70 70, 90 45, 85 15 C 75 0, 60 5, 55 15 Z",
+    muted: "M50 30 C 25 20, 20 50, 45 70 C 70 85, 90 60, 80 30 C 70 15, 55 20, 50 30 Z"
   };
   
   const selectedShape = shapeData[variant] || shapeData.primary;
@@ -69,20 +51,18 @@ export const OrganicShape = ({
 
   return (
     <div 
-      className={`${sizes[size]} ${positions[position]} ${className} pointer-events-none z-10 overflow-hidden`}
+      className={`${sizes[size]} ${positions[position]} ${className} pointer-events-none z-10`}
       style={{ 
-        opacity: 0.8,
+        opacity: 1,
       }}
     >
       <svg 
-        viewBox="0 0 1920 1080" 
+        viewBox="0 0 100 100" 
         className="w-full h-full"
       >
         <path
-          d={selectedShape.path}
+          d={selectedShape}
           fill={colors[variant]}
-          transform={selectedShape.transform}
-          opacity="0.8"
         />
       </svg>
     </div>
