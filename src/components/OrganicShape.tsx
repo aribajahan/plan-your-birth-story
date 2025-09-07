@@ -21,10 +21,10 @@ export const OrganicShape = ({
   };
 
   const sizes = {
-    sm: 'w-32 h-32',
-    md: 'w-48 h-48',
-    lg: 'w-80 h-80',
-    xl: 'w-96 h-96'
+    sm: 'w-64 h-64',
+    md: 'w-96 h-96', 
+    lg: 'w-[32rem] h-[32rem]',
+    xl: 'w-[40rem] h-[40rem]'
   };
 
   const positions = {
