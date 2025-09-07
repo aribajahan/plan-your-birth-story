@@ -79,26 +79,23 @@ const Index = () => {
             <div className="max-w-5xl">
               <h1 className="leading-none mb-8">
                 <div style={{ 
-                  fontSize: 'clamp(3rem, 8vw, 6rem)', 
-                  fontWeight: '700', 
+                  fontFamily: 'Crimson Text, serif',
+                  fontSize: '4.5rem', 
+                  fontWeight: '600', 
                   color: 'hsl(var(--deep-black))',
-                  lineHeight: '0.9'
+                  lineHeight: '1.05',
+                  letterSpacing: '-0.02em'
                 }}>
-                  You've Got
+                  You've Got Pregnancy Down.
                 </div>
                 <div style={{ 
-                  fontSize: 'clamp(3rem, 8vw, 6rem)', 
-                  fontWeight: '700', 
-                  color: 'hsl(var(--deep-black))',
-                  lineHeight: '0.9'
-                }}>
-                  Pregnancy Down.
-                </div>
-                <div style={{ 
-                  fontSize: 'clamp(3rem, 8vw, 6rem)', 
-                  fontWeight: '700', 
+                  fontFamily: 'Crimson Text, serif',
+                  fontSize: '4.5rem', 
+                  fontWeight: '600', 
                   color: 'hsl(var(--vibrant-coral))',
-                  lineHeight: '0.9'
+                  lineHeight: '1.05',
+                  letterSpacing: '-0.02em',
+                  fontStyle: 'italic'
                 }}>
                   Now Birth.
                 </div>
