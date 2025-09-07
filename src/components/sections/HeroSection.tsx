@@ -35,7 +35,7 @@ export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
       {/* Massive Wordmark - Center Left */}
       <div className="relative z-10 h-full flex items-center justify-start pl-16">
         <img 
-          src={"/lovable-uploads/988162e5-578e-48d9-8560-2f769a1e16d3.png"}
+          src="/lovable-uploads/1e3f2e06-e530-44e3-8793-e1150e066a77.png"
           alt="Asha" 
           className="w-auto"
           style={{ 
