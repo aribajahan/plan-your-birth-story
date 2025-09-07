@@ -64,13 +64,13 @@ const Index = () => {
           <div className="min-h-screen flex flex-col justify-center py-20">
             
             {/* Massive Asha Wordmark - Condesa Style */}
-            <div className="mb-12">
+            <div className="mb-16">
               <img 
                 src="/lovable-uploads/adba3b7b-b015-4501-a4db-edc56e44d7f3.png" 
                 alt="Asha" 
                 className="w-auto mx-auto lg:mx-0"
                 style={{ 
-                  height: '8rem', /* Massive like Condesa */
+                  height: 'clamp(10rem, 20vw, 16rem)', /* Much bigger - up to 256px */
                   maxWidth: '100%'
                 }}
               />
