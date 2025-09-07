@@ -124,7 +124,7 @@ const Index = () => {
             <div className="lg:col-span-5 relative">
               {/* Subtle background elements */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-10 right-10 w-48 h-48 rounded-full bg-gradient-to-br from-primary/30 to-primary/15 blur-2xl"></div>
+                <div className="absolute top-10 right-10 w-48 h-48 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-400/15 blur-2xl"></div>
                 <div className="absolute bottom-20 left-5 w-24 h-24 rounded-full bg-gradient-to-br from-secondary/15 to-primary/10 blur-lg"></div>
               </div>
               
