@@ -3,7 +3,7 @@ import { BirthPlanWizard } from "@/components/BirthPlanWizard";
 import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
 import { GeneratedImage } from "@/components/GeneratedImage";
-import { OrganicShape } from "@/components/OrganicShape";
+
 import { Heart, Baby, Shield, MessageCircle, FileText, Star, Sparkles, Award, Users, CheckCircle, Quote, ArrowRight, Plus, Minus, MessageSquare, Lightbulb, Megaphone } from "lucide-react";
 
 const Index = () => {
@@ -122,13 +122,10 @@ const Index = () => {
 
             {/* Right Column - Quick Preview */}
             <div className="lg:col-span-5 relative">
-              {/* Shape Container - positioned to not interfere with content */}
+              {/* Subtle background elements */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="relative w-full h-full">
-                  <div className="absolute bottom-0 right-0 w-80 h-80 overflow-hidden">
-                    <OrganicShape variant="flower" size="lg" position="center" className="opacity-20" />
-                  </div>
-                </div>
+                <div className="absolute top-10 right-10 w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-xl"></div>
+                <div className="absolute bottom-20 left-5 w-24 h-24 rounded-full bg-gradient-to-br from-secondary/15 to-primary/10 blur-lg"></div>
               </div>
               
               <div className="relative z-10">
@@ -400,11 +397,11 @@ const Index = () => {
 
       {/* Testimonials Section */}
       <section className="py-32 bg-secondary relative">
-        {/* Shape Container - anchored to section */}
+        {/* Elegant background elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-8 left-8 w-64 h-64">
-            <OrganicShape variant="accent" size="md" position="center" className="opacity-10" />
-          </div>
+          <div className="absolute top-16 left-16 w-48 h-48 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 rotate-12 blur-lg"></div>
+          <div className="absolute bottom-20 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-white/8 to-white/3 blur-md"></div>
+          <div className="absolute top-1/3 right-1/4 w-20 h-20 rounded-2xl bg-white/5 rotate-45 blur-sm"></div>
         </div>
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
