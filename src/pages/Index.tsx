@@ -3,6 +3,7 @@ import { BirthPlanWizard } from "@/components/BirthPlanWizard";
 import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
 import { GeneratedImage } from "@/components/GeneratedImage";
+import { OrganicShape } from "@/components/OrganicShape";
 import { Heart, Baby, Shield, MessageCircle, FileText, Star, Sparkles, Award, Users, CheckCircle, Quote, ArrowRight, Plus, Minus, MessageSquare, Lightbulb, Megaphone } from "lucide-react";
 
 const Index = () => {
@@ -41,7 +42,8 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden">
+    <div className="min-h-screen bg-background overflow-hidden relative">
+      <OrganicShape variant="accent" size="xl" position="top-right" className="opacity-10" />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         {/* Background Elements */}
@@ -180,7 +182,8 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-32 bg-gradient-editorial">
+      <section className="py-32 bg-gradient-editorial relative">
+        <OrganicShape variant="secondary" size="lg" position="bottom-left" className="opacity-15" />
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
