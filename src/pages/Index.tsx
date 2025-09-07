@@ -207,73 +207,53 @@ const Index = () => {
               
               {/* Feature 1 */}
               <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
-                <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-primary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <MessageCircle className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="space-y-6">
-                    <h3 className="text-editorial-large text-foreground">Guided Questions That Actually Help</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Our thoughtfully crafted questions help you explore your preferences 
-                      without overwhelming medical jargon. We guide you through topics like 
-                      pain management, birthing positions, and immediate postpartum care 
-                      with warmth and clarity.
-                    </p>
-                    <div className="flex gap-3">
-                      <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Personalized</span>
-                      <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">No Jargon</span>
-                    </div>
+                <div className="space-y-6">
+                  <h3 className="text-editorial-large text-foreground">Guided Questions That Actually Help</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    Our thoughtfully crafted questions help you explore your preferences 
+                    without overwhelming medical jargon. We guide you through topics like 
+                    pain management, birthing positions, and immediate postpartum care 
+                    with warmth and clarity.
+                  </p>
+                  <div className="flex gap-3">
+                    <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Personalized</span>
+                    <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">No Jargon</span>
                   </div>
                 </div>
               </div>
 
               {/* Feature 2 */}
               <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
-                <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-secondary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <span className="text-3xl font-bold text-white">✓</span>
-                  </div>
-                  <div className="space-y-6">
-                    <h3 className="text-editorial-large text-foreground">Reality Checks</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Gentle, honest insights about what labor might really be like, 
-                      so you can plan with realistic expectations. We share what many 
-                      first-time parents don't realize, without being scary or discouraging.
-                    </p>
-                  </div>
+                <div className="space-y-6">
+                  <h3 className="text-editorial-large text-foreground">Reality Checks</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    Gentle, honest insights about what labor might really be like, 
+                    so you can plan with realistic expectations. We share what many 
+                    first-time parents don't realize, without being scary or discouraging.
+                  </p>
                 </div>
               </div>
 
               {/* Feature 3 */}
               <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
-                <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-primary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <FileText className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="space-y-6">
-                    <h3 className="text-editorial-large text-foreground">Professional Output</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Generate a clean, professional birth plan that medical staff 
-                      will respect and can quickly reference during your labor. No more 
-                      wondering if your preferences will be taken seriously.
-                    </p>
-                  </div>
+                <div className="space-y-6">
+                  <h3 className="text-editorial-large text-foreground">Professional Output</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    Generate a clean, professional birth plan that medical staff 
+                    will respect and can quickly reference during your labor. No more 
+                    wondering if your preferences will be taken seriously.
+                  </p>
                 </div>
               </div>
 
               {/* Feature 4 */}
               <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-12 border border-white/30 hover-lift">
-                <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-white flex items-center justify-center shadow-glow flex-shrink-0">
-                    <span className="text-3xl font-bold text-accent">💬</span>
-                  </div>
-                  <div className="space-y-6">
-                    <h3 className="text-editorial-large text-white">Communication Confidence</h3>
-                    <p className="text-white/80 text-lg leading-relaxed">
-                      Learn how to advocate for yourself and communicate with your medical team, 
-                      even in challenging moments. We provide scripts and guidance for difficult conversations.
-                    </p>
-                  </div>
+                <div className="space-y-6">
+                  <h3 className="text-editorial-large text-white">Communication Confidence</h3>
+                  <p className="text-white/80 text-lg leading-relaxed">
+                    Learn how to advocate for yourself and communicate with your medical team, 
+                    even in challenging moments. We provide scripts and guidance for difficult conversations.
+                  </p>
                 </div>
               </div>
             </div>
