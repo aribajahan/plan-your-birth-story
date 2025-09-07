@@ -130,9 +130,9 @@ const Index = () => {
               
               {/* Left: Large Illustration (40%) */}
               <div className="lg:col-span-2 flex justify-center">
-                <BackgroundRemovedImage 
-                  src="/lovable-uploads/51033687-6d82-4ab4-901b-99836103578f.png"
-                  alt="Creative woman painting while pregnant - representing personalized birth planning"
+                <img 
+                  src="/lovable-uploads/283ff4e2-3b9b-4a55-b7dc-c5a2a74139fd.png"
+                  alt="Creative pregnant woman painting - representing personalized birth planning"
                   className="w-full h-auto max-w-lg"
                 />
               </div>
