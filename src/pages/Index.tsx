@@ -455,33 +455,33 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-32">
+      <section className="py-32 bg-accent">
         <div className="container mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             
             <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8">
+              <h2 className="text-editorial-hero mb-8 text-accent-foreground">
                 Common questions
               </h2>
             </div>
 
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className="bg-card rounded-2xl shadow-card overflow-hidden">
+                <div key={index} className="bg-white rounded-2xl shadow-card overflow-hidden">
                   <button
-                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-muted/50 transition-colors"
+                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   >
-                    <h3 className="text-lg font-semibold">{faq.question}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">{faq.question}</h3>
                     {openFaq === index ? (
-                      <Minus className="w-5 h-5 text-primary" />
+                      <Minus className="w-5 h-5 text-accent" />
                     ) : (
-                      <Plus className="w-5 h-5 text-primary" />
+                      <Plus className="w-5 h-5 text-accent" />
                     )}
                   </button>
                   {openFaq === index && (
                     <div className="px-8 pb-6">
-                      <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                     </div>
                   )}
                 </div>
