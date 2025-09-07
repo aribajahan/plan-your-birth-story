@@ -31,7 +31,7 @@ serve(async (req) => {
     const isNewModel = ["gpt-5", "gpt-4.1", "o3", "o4-mini"].some((m) => selectedModel.startsWith(m));
 
     // Safe upper bound to prevent runaway costs
-    const tokensCap = Math.max(1, Math.min(Number(maxTokens) || 800, 2000));
+    const tokensCap = Math.max(1, Math.min(Number(maxTokens) || 160, 2000));
 
     // Determine if we should use the Responses API with a saved Prompt
     const promptRefId: string | undefined = (prompt && typeof prompt === 'object' && (prompt as any).id) || promptId;

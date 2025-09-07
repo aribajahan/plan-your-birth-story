@@ -218,46 +218,63 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     return "You've shared so much thoughtful information with me. What else would you like to explore or discuss?";
   };
 
-  const OPENAI_PROMPT_ID = 'pmpt_68bc35edac94819693e152156cd6cb1d0b7ef2b03f6ea265';
+  // Removed saved prompt usage; relying on explicit system prompt and model
+
 
   const generateResponse = async (userMessage: string): Promise<string> => {
     const lowerMessage = userMessage.toLowerCase();
-    
+
     // Update user preferences based on their responses
     updateUserPreferences(lowerMessage);
 
+    // Helper to trim to a max number of sentences
+    const trimToSentences = (t: string, max = 3) => {
+      const parts = t
+        .split(/(?<=[.!?])\s+/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+      return parts.slice(0, max).join(" ").trim();
+    };
+
     try {
-      // Build messages array for context
-      const conversationMessages = messages.slice(-6).map(msg => ({
-        role: msg.role === 'assistant' ? 'assistant' : 'user',
-        content: msg.content
+      // Keep only the last 4 exchanges (~8 messages) for concise context
+      const recentMessages = messages.slice(-8).map((msg) => ({
+        role: msg.role === "assistant" ? "assistant" : "user",
+        content: msg.content,
       }));
 
-      // Add the new user message
-      conversationMessages.push({
-        role: 'user',
-        content: userMessage
-      });
+      // Add strict system style and constraints
+      const systemMessage = {
+        role: "system",
+        content:
+          "You are a warm, supportive birth-planning companion. Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If helpful, end with one concise follow-up question. Keep language simple and empathetic.",
+      } as const;
 
-      const { data, error } = await supabase.functions.invoke('openai-generate', {
+      const finalMessages = [
+        systemMessage,
+        ...recentMessages,
+        { role: "user", content: userMessage },
+      ];
+
+      const { data, error } = await supabase.functions.invoke("openai-generate", {
         body: {
-          // Don't send system context when using saved prompt - let the prompt handle it
-          messages: conversationMessages,
-          // Use saved Prompt for orchestration
-          promptId: OPENAI_PROMPT_ID,
-          promptVersion: 'latest',
-          maxTokens: 300
-        }
+          model: "gpt-4.1-2025-04-14",
+          messages: finalMessages,
+          maxTokens: 120,
+        },
       });
 
       if (error) {
-        console.error('Error calling OpenAI:', error);
+        console.error("Error calling OpenAI:", error);
         return "I'm having trouble connecting right now. Could you try asking that again?";
       }
 
-      return data.generatedText || "I'm here to help you with your birth plan. What would you like to discuss?";
+      const text = (data?.generatedText as string) ||
+        "I'm here to help you with your birth plan. What would you like to discuss?";
+
+      return trimToSentences(text, 3);
     } catch (error) {
-      console.error('Error generating response:', error);
+      console.error("Error generating response:", error);
       return "I'm having a moment of difficulty - could you rephrase your question?";
     }
   };
