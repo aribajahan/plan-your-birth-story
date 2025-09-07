@@ -43,7 +43,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-hidden relative">
-      <OrganicShape variant="yellow" size="xl" position="top-right" className="opacity-30" />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         {/* Background Elements */}
@@ -278,7 +277,6 @@ const Index = () => {
 
       {/* How It Works Section */}
       <section className="py-32 relative">
-        <OrganicShape variant="primary" size="xl" position="bottom-left" className="opacity-25" />
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
