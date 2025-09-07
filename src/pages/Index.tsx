@@ -4,13 +4,14 @@ import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
 import { GeneratedImage } from "@/components/GeneratedImage";
 import { Header } from "@/components/Header";
-import { OrganicShape } from "@/components/OrganicShape";
 
 import { Heart, MessageCircle, FileText, Quote, Plus, Minus } from "lucide-react";
 
 const Index = () => {
   const [mode, setMode] = useState<'home' | 'chat' | 'form'>('home');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  console.log('Index component rendering, mode:', mode);
 
   if (mode === 'chat') {
     return <ChatBirthPlan onBack={() => setMode('home')} onSwitchToForm={() => setMode('form')} />;
