@@ -48,6 +48,7 @@ const Index = () => {
         {/* Background Elements */}
         <div className="absolute inset-0 gradient-radial"></div>
         <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl"></div>
+        <OrganicShape variant="primary" size="xl" position="bottom-left" className="opacity-15" />
         <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl"></div>
         
         <div className="container mx-auto px-8 relative z-10">
@@ -390,7 +391,8 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-32 bg-secondary">
+      <section className="py-32 bg-secondary relative">
+        <OrganicShape variant="primary" size="xl" position="top-right" className="opacity-10" />
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
@@ -410,7 +412,11 @@ const Index = () => {
                     I wish every pregnant person had this tool."
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20"></div>
+                    <img 
+                      src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&h=80&fit=crop&crop=face" 
+                      alt="Sarah M. profile picture" 
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
                     <div>
                       <p className="font-semibold text-foreground">Sarah M.</p>
                     </div>
@@ -426,7 +432,11 @@ const Index = () => {
                     This actually helped me think through what I really wanted."
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-accent/20"></div>
+                    <img 
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" 
+                      alt="Jessica K. profile picture" 
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
                     <div>
                       <p className="font-semibold text-foreground">Jessica K.</p>
                     </div>
@@ -442,7 +452,11 @@ const Index = () => {
                     conversations I didn't even know I needed to have."
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-secondary/20"></div>
+                    <img 
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face" 
+                      alt="Maria L. profile picture" 
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
                     <div>
                       <p className="font-semibold text-foreground">Maria L.</p>
                     </div>
