@@ -36,6 +36,11 @@
     --accent-foreground: 0 0% 100%; /* White text on accent */
     --accent-deep: 25 80% 55%; /* Deeper orange variant */
 
+    /* Contemporary blue - calm and professional */
+    --blue: 210 85% 58%; /* Contemporary blue */
+    --blue-foreground: 0 0% 100%; /* White text on blue */
+    --blue-light: 210 75% 68%; /* Lighter blue variant */
+
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
 
@@ -96,6 +101,11 @@
 
     --accent: 25 90% 65%; /* Keep warm orange accent */
     --accent-foreground: 0 0% 100%;
+
+    /* Contemporary blue for dark mode */
+    --blue: 210 85% 58%; /* Keep same blue */
+    --blue-foreground: 0 0% 100%;
+    --blue-light: 210 75% 68%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
