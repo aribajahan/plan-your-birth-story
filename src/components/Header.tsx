@@ -33,17 +33,11 @@ export const Header = ({ onGetStarted }: HeaderProps) => {
           <div className="flex items-center gap-3 group cursor-pointer hover:scale-105 transition-transform duration-300">
             {/* Logo container - easily replaceable with image */}
             <div className="logo-container">
-              <h1 
-                className="text-3xl font-bold"
-                style={{ 
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '2rem',
-                  fontWeight: '700',
-                  color: 'hsl(var(--vibrant-coral))'
-                }}
-              >
-                Asha
-              </h1>
+              <img 
+                src="/lovable-uploads/adba3b7b-b015-4501-a4db-edc56e44d7f3.png" 
+                alt="Asha - Birth Plans Built with Hope" 
+                className="h-12 w-auto"
+              />
             </div>
             
             {/* Tagline */}
