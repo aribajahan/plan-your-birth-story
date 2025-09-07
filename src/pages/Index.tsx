@@ -124,14 +124,14 @@ const Index = () => {
             {/* Right Column - Quick Preview */}
             <div className="lg:col-span-5">
               <div className="relative">
-                {/* Hero Image */}
+                {/* Hero Image Placeholder */}
                 <div className="mb-8">
-                  <GeneratedImage 
-                    prompt="Professional portrait of a confident, glowing pregnant woman in her third trimester, sitting comfortably in a modern, bright room with soft natural lighting, wearing comfortable clothing, looking peaceful and prepared, warm and supportive atmosphere, photorealistic style"
-                    alt="Confident expecting mother preparing for birth"
-                    className="w-full h-80 object-cover rounded-3xl shadow-dramatic"
-                    size="1536x1024"
-                  />
+                  <div className="w-full h-80 bg-gradient-primary rounded-3xl shadow-dramatic flex items-center justify-center">
+                    <div className="text-primary-foreground text-center">
+                      <Baby className="w-16 h-16 mx-auto mb-4 opacity-60" />
+                      <p className="text-sm opacity-80">Hero image placeholder</p>
+                    </div>
+                  </div>
                 </div>
                 
                 {/* Main Floating Card */}
@@ -213,14 +213,8 @@ const Index = () => {
               {/* Feature 1 */}
               <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center shadow-glow flex-shrink-0 relative overflow-hidden">
-                    <GeneratedImage 
-                      prompt="Warm illustration of a supportive conversation between two women, one pregnant, sitting together with soft lighting, caring and understanding atmosphere, professional illustration style"
-                      alt="Supportive guidance illustration"
-                      className="absolute inset-0 w-full h-full object-cover opacity-20"
-                      size="512x512"
-                    />
-                    <MessageSquare className="w-10 h-10 text-primary-foreground relative z-10" />
+                  <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center shadow-glow flex-shrink-0">
+                    <MessageSquare className="w-10 h-10 text-primary-foreground" />
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-card-foreground">Guided Questions That Actually Help</h3>
@@ -241,14 +235,8 @@ const Index = () => {
               {/* Feature 2 */}
               <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-accent flex items-center justify-center shadow-glow flex-shrink-0 relative overflow-hidden">
-                    <GeneratedImage 
-                      prompt="Soft illustration of a lightbulb with gentle rays of understanding, representing insight and clarity, warm colors, professional illustration style"
-                      alt="Reality check insights illustration"
-                      className="absolute inset-0 w-full h-full object-cover opacity-20"
-                      size="512x512"
-                    />
-                    <Lightbulb className="w-10 h-10 text-accent-foreground relative z-10" />
+                  <div className="w-20 h-20 rounded-3xl bg-accent flex items-center justify-center shadow-glow flex-shrink-0">
+                    <Lightbulb className="w-10 h-10 text-accent-foreground" />
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-card-foreground">Reality Checks</h3>
@@ -264,14 +252,8 @@ const Index = () => {
               {/* Feature 3 */}
               <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-secondary flex items-center justify-center shadow-glow flex-shrink-0 relative overflow-hidden">
-                    <GeneratedImage 
-                      prompt="Professional document with heart symbol, representing care and professionalism, clean modern design, soft colors, illustration style"
-                      alt="Professional output illustration"
-                      className="absolute inset-0 w-full h-full object-cover opacity-20"
-                      size="512x512"
-                    />
-                    <Heart className="w-10 h-10 text-secondary-foreground relative z-10" />
+                  <div className="w-20 h-20 rounded-3xl bg-secondary flex items-center justify-center shadow-glow flex-shrink-0">
+                    <Heart className="w-10 h-10 text-secondary-foreground" />
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-card-foreground">Professional Output</h3>
@@ -287,14 +269,8 @@ const Index = () => {
               {/* Feature 4 */}
               <div className="bg-primary/5 backdrop-blur-sm rounded-3xl p-12 border border-primary/20 hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl gradient-primary flex items-center justify-center shadow-glow flex-shrink-0 relative overflow-hidden">
-                    <GeneratedImage 
-                      prompt="Confident woman speaking up and advocating for herself, empowering communication, soft professional illustration style, warm supportive colors"
-                      alt="Communication confidence illustration"
-                      className="absolute inset-0 w-full h-full object-cover opacity-20"
-                      size="512x512"
-                    />
-                    <Megaphone className="w-10 h-10 text-primary-foreground relative z-10" />
+                  <div className="w-20 h-20 rounded-3xl gradient-primary flex items-center justify-center shadow-glow flex-shrink-0">
+                    <Megaphone className="w-10 h-10 text-primary-foreground" />
                   </div>
                   <div className="space-y-6">
                     <h3 className="text-editorial-large text-primary">Communication Confidence</h3>
