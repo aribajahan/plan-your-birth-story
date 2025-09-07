@@ -2,9 +2,11 @@ import { Quote } from "lucide-react";
 
 export const TestimonialsSection = () => {
   return (
-    <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--forest-green))' }}>
+    <section className="min-h-screen flex items-center bg-cream-base">
       <div className="w-full px-4 lg:px-8">
-        <div className="py-16">
+        
+        {/* Rounded Green Container */}
+        <div className="rounded-3xl p-8 lg:p-16" style={{ backgroundColor: 'hsl(var(--forest-green))' }}>
           
           {/* Asymmetrical testimonials layout */}
           <div className="space-y-16">
@@ -37,6 +39,7 @@ export const TestimonialsSection = () => {
             </div>
           </div>
         </div>
+        
       </div>
     </section>
   );

@@ -6,9 +6,11 @@ interface FinalCTASectionProps {
 
 export const FinalCTASection = ({ onGetStarted }: FinalCTASectionProps) => {
   return (
-    <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+    <section className="min-h-screen flex items-center bg-cream-base">
       <div className="w-full px-4 lg:px-8">
-        <div className="py-16 text-center">
+        
+        {/* Rounded Coral Container */}
+        <div className="rounded-3xl p-8 lg:p-16 text-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
           
           {/* Bold asymmetrical CTA */}
           <h2 className="section-headline leading-none text-white mb-16" style={{ 
@@ -34,6 +36,7 @@ export const FinalCTASection = ({ onGetStarted }: FinalCTASectionProps) => {
             </div>
           </div>
         </div>
+        
       </div>
     </section>
   );

@@ -8,9 +8,11 @@ interface HowItWorksSectionProps {
 
 export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectionProps) => {
   return (
-    <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
+    <section className="min-h-screen flex items-center bg-cream-base">
       <div className="w-full px-4 lg:px-8">
-        <div className="py-16">
+        
+        {/* Rounded Blue Container */}
+        <div className="rounded-3xl p-8 lg:p-16" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
           
           {/* Bold asymmetrical layout */}
           <div className="grid lg:grid-cols-3 gap-16 items-start">
@@ -83,6 +85,7 @@ export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectio
             </div>
           </div>
         </div>
+        
       </div>
     </section>
   );
