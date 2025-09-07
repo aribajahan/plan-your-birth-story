@@ -7,8 +7,8 @@ interface FinalCTASectionProps {
 export const FinalCTASection = ({ onGetStarted }: FinalCTASectionProps) => {
   return (
     <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-      <div className="w-full">
-        <div className="max-w-7xl mx-auto p-16 text-center">
+      <div className="w-full px-4 lg:px-8">
+        <div className="py-16 text-center">
           
           {/* Bold asymmetrical CTA */}
           <h2 className="section-headline leading-none text-white mb-16" style={{ 

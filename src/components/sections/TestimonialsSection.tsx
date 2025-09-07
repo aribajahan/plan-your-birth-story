@@ -3,8 +3,8 @@ import { Quote } from "lucide-react";
 export const TestimonialsSection = () => {
   return (
     <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--forest-green))' }}>
-      <div className="w-full">
-        <div className="max-w-7xl mx-auto p-16">
+      <div className="w-full px-4 lg:px-8">
+        <div className="py-16">
           
           {/* Asymmetrical testimonials layout */}
           <div className="space-y-16">

@@ -9,8 +9,8 @@ interface HowItWorksSectionProps {
 export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectionProps) => {
   return (
     <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
-      <div className="w-full">
-        <div className="max-w-7xl mx-auto p-16">
+      <div className="w-full px-4 lg:px-8">
+        <div className="py-16">
           
           {/* Bold asymmetrical layout */}
           <div className="grid lg:grid-cols-3 gap-16 items-start">
