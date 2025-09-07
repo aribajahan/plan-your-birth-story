@@ -122,7 +122,7 @@ const Index = () => {
 
             {/* Right Column - Quick Preview */}
             <div className="lg:col-span-5 relative">
-              <OrganicShape variant="flower" size="lg" position="bottom-right" className="opacity-20" />
+              <OrganicShape variant="flower" size="md" position="top-quarter-right" className="opacity-15 -translate-x-8" />
               <div className="relative">
                 
                 {/* Main Floating Card */}
@@ -392,7 +392,7 @@ const Index = () => {
 
       {/* Testimonials Section */}
       <section className="py-32 bg-secondary relative">
-        <OrganicShape variant="primary" size="xl" position="top-right" className="opacity-10" />
+        <OrganicShape variant="accent" size="lg" position="center-right" className="opacity-8 -translate-x-16" />
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             

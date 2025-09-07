@@ -2,7 +2,7 @@ interface OrganicShapeProps {
   className?: string;
   variant?: 'primary' | 'secondary' | 'accent' | 'muted' | 'yellow' | 'beige' | 'flower';
   size?: 'sm' | 'md' | 'lg' | 'xl';
-  position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center';
+  position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center' | 'top-right-offset' | 'bottom-left-offset' | 'center-right' | 'center-left' | 'top-quarter-right' | 'bottom-third-left';
 }
 
 export const OrganicShape = ({ 
@@ -33,7 +33,13 @@ export const OrganicShape = ({
     'top-right': 'absolute top-0 right-0',
     'bottom-left': 'absolute bottom-0 left-0',
     'bottom-right': 'absolute bottom-0 right-0',
-    'center': 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+    'center': 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+    'top-right-offset': 'absolute top-8 right-8',
+    'bottom-left-offset': 'absolute bottom-8 left-8',
+    'center-right': 'absolute top-1/2 right-8 -translate-y-1/2',
+    'center-left': 'absolute top-1/2 left-8 -translate-y-1/2',
+    'top-quarter-right': 'absolute top-1/4 right-4',
+    'bottom-third-left': 'absolute bottom-1/3 left-4'
   };
 
   // Simplified organic shapes without complex transforms
