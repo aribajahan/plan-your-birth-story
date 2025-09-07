@@ -16,7 +16,7 @@ export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
           <img 
             src="/lovable-uploads/1e3f2e06-e530-44e3-8793-e1150e066a77.png"
             alt="Asha - AI Birth Plan Assistant" 
-            className="w-auto max-h-48 lg:max-h-64 xl:max-h-80 object-contain mx-auto"
+            className="w-auto max-h-64 lg:max-h-80 xl:max-h-96 object-contain mx-auto"
           />
         </div>
         
