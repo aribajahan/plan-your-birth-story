@@ -237,8 +237,8 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
     };
 
     try {
-      // Keep only the last 4 exchanges (~8 messages) for concise context
-      const recentMessages = messages.slice(-8).map((msg) => ({
+      // Keep the last ~10 exchanges (~20 messages) for better continuity
+      const recentMessages = messages.slice(-20).map((msg) => ({
         role: msg.role === "assistant" ? "assistant" : "user",
         content: msg.content,
       }));
@@ -260,7 +260,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
         body: {
           model: "gpt-4.1-2025-04-14",
           messages: finalMessages,
-          maxTokens: 120,
+          maxTokens: 180,
         },
       });
 
