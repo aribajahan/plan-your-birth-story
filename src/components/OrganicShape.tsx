@@ -33,8 +33,8 @@ export const OrganicShape = ({
     'center': 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
   };
 
-  // Flower-like organic shape based on the reference images
-  const blobPath = "M50,10 C60,10 70,15 75,25 C80,35 85,40 90,50 C85,60 80,65 75,75 C70,85 60,90 50,90 C40,90 30,85 25,75 C20,65 15,60 10,50 C15,40 20,35 25,25 C30,15 40,10 50,10 Z";
+  // Multi-petal flower shape matching the reference images
+  const blobPath = "M50,5 C55,5 60,10 65,20 C75,15 85,20 90,30 C95,40 90,50 85,55 C90,65 85,75 75,80 C65,85 55,80 50,75 C45,80 35,85 25,80 C15,75 10,65 15,55 C10,50 5,40 10,30 C15,20 25,15 35,20 C40,10 45,5 50,5 Z";
 
   console.log('OrganicShape rendering:', { variant, size, position });
 
