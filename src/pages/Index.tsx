@@ -48,7 +48,6 @@ const Index = () => {
         {/* Background Elements */}
         <div className="absolute inset-0 gradient-radial"></div>
         <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl"></div>
-        <OrganicShape variant="secondary" size="xl" position="bottom-left" className="opacity-20" />
         <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl"></div>
         
         <div className="container mx-auto px-8 relative z-10">
@@ -174,7 +173,6 @@ const Index = () => {
 
       {/* Features Section */}
       <section className="py-32 bg-accent relative">
-        <OrganicShape variant="secondary" size="lg" position="top-right" className="opacity-30" />
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
@@ -279,7 +277,6 @@ const Index = () => {
 
       {/* How It Works Section */}
       <section className="py-32 bg-primary relative">
-        <OrganicShape variant="secondary" size="xl" position="bottom-left" className="opacity-25" />
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
@@ -458,8 +455,7 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-32 bg-accent relative">
-        <OrganicShape variant="secondary" size="lg" position="center" className="opacity-20" />
+      <section className="py-32 bg-accent">
         <div className="container mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             
