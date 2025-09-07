@@ -35,17 +35,35 @@ export const OrganicShape = ({
     'center': 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
   };
 
-  // Use different shapes based on variant for more variety
-  const blobPaths = {
-    primary: "M50 70 C 20 50, 20 100, 50 130 C 80 160, 110 110, 80 70 C 70 50, 30 50, 50 70 Z", // Organic blob
-    secondary: "M170 80 C 150 60, 130 90, 170 120 C 200 150, 220 100, 180 60 C 160 40, 140 70, 170 80 Z", // Flowing shape
-    yellow: "M290 70 C 260 50, 260 100, 290 130 C 320 160, 350 110, 320 70 C 310 50, 270 50, 290 70 Z", // Rounded organic
-    beige: "M410 80 C 390 60, 370 90, 410 120 C 440 150, 460 100, 420 60 C 400 40, 380 70, 410 80 Z", // Soft curves
-    accent: "M530 70 C 500 50, 500 100, 530 130 C 560 160, 590 110, 560 70 C 550 50, 510 50, 530 70 Z", // Gentle blob
-    muted: "M50 70 C 20 50, 20 100, 50 130 C 80 160, 110 110, 80 70 C 70 50, 30 50, 50 70 Z" // Same as primary
+  // Large organic shapes optimized for full viewport
+  const shapeData = {
+    primary: {
+      path: "M1200 150 C 1100 100, 1100 250, 1200 350 C 1300 450, 1400 300, 1300 150 C 1250 100, 1150 100, 1200 150 Z",
+      transform: "scale(3.5) translate(250,30)"
+    },
+    secondary: {
+      path: "M100 200 C 50 150, 50 300, 100 400 C 150 480, 250 350, 150 200 C 120 150, 60 150, 100 200 Z", 
+      transform: "scale(3) translate(50,50)"
+    },
+    yellow: {
+      path: "M700 300 C 650 200, 600 350, 700 500 C 800 600, 900 400, 800 200 C 750 150, 650 250, 700 300 Z",
+      transform: "scale(2.5) translate(150,80)"
+    },
+    beige: {
+      path: "M300 800 C 200 700, 200 900, 300 1000 C 400 1100, 500 950, 400 800 C 350 750, 250 750, 300 800 Z",
+      transform: "scale(3) translate(80,250)"
+    },
+    accent: {
+      path: "M1600 500 C 1500 400, 1400 550, 1600 700 C 1700 850, 1800 600, 1700 400 C 1650 300, 1550 450, 1600 500 Z",
+      transform: "scale(2) translate(400,200)"
+    },
+    muted: {
+      path: "M700 300 C 650 200, 600 350, 700 500 C 800 600, 900 400, 800 200 C 750 150, 650 250, 700 300 Z",
+      transform: "scale(2.5) translate(150,80)"
+    }
   };
   
-  const selectedBlob = blobPaths[variant] || blobPaths.primary;
+  const selectedShape = shapeData[variant] || shapeData.primary;
 
   console.log('OrganicShape rendering:', { variant, size, position });
 
@@ -57,12 +75,14 @@ export const OrganicShape = ({
       }}
     >
       <svg 
-        viewBox="0 0 600 200" 
+        viewBox="0 0 1920 1080" 
         className="w-full h-full"
       >
         <path
-          d={selectedBlob}
+          d={selectedShape.path}
           fill={colors[variant]}
+          transform={selectedShape.transform}
+          opacity="0.8"
         />
       </svg>
     </div>
