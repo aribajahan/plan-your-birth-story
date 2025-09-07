@@ -16,12 +16,12 @@ export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
           <img 
             src="/lovable-uploads/1e3f2e06-e530-44e3-8793-e1150e066a77.png"
             alt="Asha - AI Birth Plan Assistant" 
-            className="w-auto max-h-24 lg:max-h-32 object-contain mx-auto"
+            className="w-auto max-h-48 lg:max-h-64 xl:max-h-80 object-contain mx-auto"
           />
         </div>
         
         {/* New Headline */}
-        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-helvetica font-medium mb-12 text-deep-black leading-relaxed max-w-4xl">
+        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-helvetica font-medium mb-12 text-vibrant-coral leading-relaxed max-w-4xl">
           You've already mastered pregnancy. Now let's prepare you for birth with confidence.
         </h1>
         

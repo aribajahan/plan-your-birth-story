@@ -11,7 +11,7 @@ export const WhyAshaWorksSection = () => {
                 fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
                 color: 'hsl(var(--deep-black))'
               }}>
-                Why Asha Actually Works
+                Why Asha
               </h2>
               
               <div className="space-y-8 text-2xl font-helvetica font-medium" style={{ color: 'hsl(var(--deep-black))' }}>

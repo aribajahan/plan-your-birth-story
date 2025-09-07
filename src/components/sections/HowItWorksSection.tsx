@@ -8,7 +8,7 @@ interface HowItWorksSectionProps {
 
 export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectionProps) => {
   return (
-    <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--electric-blue))' }}>
+    <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
       <div className="w-full">
         <div className="max-w-7xl mx-auto p-16">
           
