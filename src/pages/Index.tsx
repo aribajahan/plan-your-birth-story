@@ -4,6 +4,7 @@ import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
 import { GeneratedImage } from "@/components/GeneratedImage";
 import { Header } from "@/components/Header";
+import whyAshaWorksIllustration from "@/assets/why-asha-works-illustration.jpg";
 
 import { Heart, MessageCircle, FileText, Quote, Plus, Minus } from "lucide-react";
 
@@ -119,84 +120,69 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-32 relative">
-        <div className="container mx-auto px-8">
-          <div className="max-w-7xl mx-auto">
+      {/* Why Asha Actually Works Section */}
+      <section className="py-20 relative" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
+        <div className="w-full">
+          <div className="max-w-7xl mx-auto px-8">
             
-            <div className="grid lg:grid-cols-3 gap-16 mb-24">
-              <div className="lg:col-span-2">
-                <h2 className="text-editorial-subhead mb-8">
-                  Why families choose our 
-                  <span className="block">birth planning approach</span>
-                </h2>
-                <p className="text-editorial-large text-muted-foreground">
-                  We combine professional expertise with warm, supportive guidance 
-                  to help you navigate one of life's most important moments.
-                </p>
-              </div>
-              <div className="flex items-end">
-                <div className="bg-primary/10 backdrop-blur-sm rounded-2xl p-6 hover-lift border border-primary/20">
-                  <div className="text-3xl font-bold mb-2">95%</div>
-                  <div className="text-sm text-muted-foreground">Feel more prepared for birth</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Features Grid */}
-            <div className="grid lg:grid-cols-2 gap-8">
+            {/* Split Layout */}
+            <div className="grid lg:grid-cols-5 gap-16 items-center min-h-[600px]">
               
-              {/* Feature 1 */}
-              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
-                <div className="space-y-6">
-                  <h3 className="text-editorial-large text-foreground">Guided Questions That Actually Help</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    Our thoughtfully crafted questions help you explore your preferences 
-                    without overwhelming medical jargon. We guide you through topics like 
-                    pain management, birthing positions, and immediate postpartum care 
-                    with warmth and clarity.
-                  </p>
-                  <div className="flex gap-3">
-                    <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Personalized</span>
-                    <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">No Jargon</span>
+              {/* Left: Large Illustration (40%) */}
+              <div className="lg:col-span-2 flex justify-center">
+                <img 
+                  src={whyAshaWorksIllustration}
+                  alt="Empowered woman feeling confident about birth planning"
+                  className="w-full h-auto max-w-lg rounded-2xl shadow-dramatic"
+                />
+              </div>
+
+              {/* Right: Content (60%) */}
+              <div className="lg:col-span-3 space-y-8">
+                <h2 
+                  className="text-editorial-hero mb-8"
+                  style={{ color: 'hsl(var(--deep-black))' }}
+                >
+                  Why Asha Actually Works
+                </h2>
+                
+                <div className="space-y-6" style={{ color: 'hsl(var(--deep-black))' }}>
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Guided Questions That Actually Help
+                    </h3>
+                    <p className="text-xl leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Our thoughtfully crafted questions help you explore your preferences 
+                      without overwhelming medical jargon. We guide you through topics like 
+                      pain management, birthing positions, and immediate postpartum care 
+                      with warmth and clarity.
+                    </p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Reality Checks
+                    </h3>
+                    <p className="text-xl leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Gentle, honest insights about what labor might really be like, 
+                      so you can plan with realistic expectations. We share what many 
+                      first-time parents don't realize, without being scary or discouraging.
+                    </p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Professional Output & Communication Confidence
+                    </h3>
+                    <p className="text-xl leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Generate a clean, professional birth plan that medical staff 
+                      will respect and can quickly reference during your labor. Learn how to advocate 
+                      for yourself and communicate with your medical team, even in challenging moments.
+                    </p>
                   </div>
                 </div>
               </div>
-
-              {/* Feature 2 */}
-              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
-                <div className="space-y-6">
-                  <h3 className="text-editorial-large text-foreground">Reality Checks</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    Gentle, honest insights about what labor might really be like, 
-                    so you can plan with realistic expectations. We share what many 
-                    first-time parents don't realize, without being scary or discouraging.
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
-                <div className="space-y-6">
-                  <h3 className="text-editorial-large text-foreground">Professional Output</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    Generate a clean, professional birth plan that medical staff 
-                    will respect and can quickly reference during your labor. No more 
-                    wondering if your preferences will be taken seriously.
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 4 */}
-              <div className="bg-primary/10 backdrop-blur-sm rounded-3xl p-12 border border-primary/30 hover-lift">
-                <div className="space-y-6">
-                  <h3 className="text-editorial-large">Communication Confidence</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    Learn how to advocate for yourself and communicate with your medical team, 
-                    even in challenging moments. We provide scripts and guidance for difficult conversations.
-                  </p>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
