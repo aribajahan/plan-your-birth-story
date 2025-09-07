@@ -48,132 +48,107 @@ const Index = () => {
       <Header onGetStarted={() => setMode('chat')} />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-24">
-        {/* Background Elements */}
-        <div className="absolute inset-0 gradient-radial"></div>
-        <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl"></div>
+        {/* Organic Background Shapes */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-32 left-20 w-96 h-96 rounded-full opacity-20" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}></div>
+          <div className="absolute top-96 right-32 w-64 h-64 rounded-[40%] opacity-20" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}></div>
+          <div className="absolute bottom-32 left-1/3 w-48 h-48 rounded-[50%] opacity-20" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}></div>
+        </div>
         
         <div className="container mx-auto px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 items-center min-h-screen py-20">
             
-            {/* Left Column - Bold Typography */}
-            <div className="lg:col-span-7 space-y-12">
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap items-center gap-6 bg-card/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-card hover-glow transition-smooth text-sm font-medium">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Trusted by 1000+ families</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>4.9/5 rating</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Used by doulas & birth professionals</span>
-                </div>
-              </div>
-              
+            {/* Left Column - 55% */}
+            <div className="lg:col-span-7 space-y-8">
               {/* Headline */}
-              <div className="space-y-6">
-                <h1 className="hero-title">
-                  <span className="block text-shimmer">Asha,</span>
-                  <span className="block text-primary relative">
-                    Your Birth Guide
-                    <div className="absolute -right-16 top-0 w-24 h-24 rounded-full bg-secondary/20 blur-2xl"></div>
-                  </span>
-                </h1>
-                
-                <div className="w-32 h-2 bg-gradient-primary rounded-full shadow-glow"></div>
-              </div>
+              <h1 className="hero-title">
+                Birth Plans That Give You{" "}
+                <span className="italic" style={{ color: 'hsl(var(--vibrant-coral))' }}>
+                  Hope & Power
+                </span>
+              </h1>
               
-              <p className="big-text max-w-2xl text-muted-foreground">
-                Your supportive birth planning companion that helps you create 
-                a thoughtful birth plan with guidance that feels like having 
-                a trusted friend by your side. 
-                <span className="text-primary font-semibold">Hopeful, confident, and empowering.</span>
+              {/* Subtext */}
+              <p className="big-text max-w-2xl" style={{ color: 'hsl(var(--deep-black))' }}>
+                15 minutes to go from anxious to confident. Get the plan, the scripts, and the hope you deserve.
               </p>
 
-              {/* CTAs */}
-              <div className="space-y-8">
-                <div className="flex flex-col sm:flex-row gap-6">
-                  <Button 
-                    onClick={() => setMode('chat')}
-                    className="btn-editorial-primary text-xl px-10 py-8 rounded-2xl group h-auto"
-                    size="lg"
-                  >
-                    <MessageCircle className="w-7 h-7 mr-4 group-hover:rotate-12 transition-transform" />
-                    <div className="text-left">
-                      <div className="font-bold">Chat Through It</div>
-                      <div className="text-sm opacity-90 font-normal">Natural conversation</div>
-                    </div>
-                  </Button>
-                  
-                  <Button 
-                    onClick={() => setMode('form')}
-                    className="btn-editorial-ghost text-xl px-10 py-8 rounded-2xl group h-auto"
-                    size="lg"
-                  >
-                    <FileText className="w-7 h-7 mr-4 group-hover:scale-110 transition-transform" />
-                    <div className="text-left">
-                      <div className="font-bold">Fill Out Forms</div>
-                      <div className="text-sm opacity-90 font-normal">Step-by-step approach</div>
-                    </div>
-                  </Button>
-                </div>
-              </div>
+              {/* Trust Line */}
+              <p className="text-sm" style={{ color: 'hsl(var(--deep-black) / 0.7)' }}>
+                ✨ 2,000+ hopeful families • 200+ hospitals trust Asha
+              </p>
+
+              {/* CTA Button */}
+              <Button 
+                onClick={() => setMode('chat')}
+                className="rounded-full px-12 py-4 text-white font-bold text-lg hover:scale-105 transition-transform duration-300"
+                style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}
+                size="lg"
+              >
+                Start with Hope
+              </Button>
             </div>
 
-            {/* Right Column - Quick Preview */}
+            {/* Right Column - 45% */}
             <div className="lg:col-span-5 relative">
-              {/* Subtle background elements */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-10 right-10 w-48 h-48 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-400/15 blur-2xl"></div>
-                <div className="absolute bottom-20 left-5 w-24 h-24 rounded-full bg-gradient-to-br from-secondary/15 to-primary/10 blur-lg"></div>
-              </div>
-              
-              <div className="relative z-10">
+              {/* Bold Card */}
+              <div 
+                className="rounded-3xl p-8 transform rotate-2 border-4"
+                style={{ 
+                  backgroundColor: 'hsl(var(--bold-yellow))', 
+                  borderColor: 'hsl(var(--deep-black))'
+                }}
+              >
+                {/* Card Header */}
+                <h3 className="text-2xl font-bold mb-6" style={{ color: 'hsl(var(--deep-black))' }}>
+                  Asha gives you:
+                </h3>
                 
-                {/* Main Floating Card */}
-                <div className="bg-card/90 backdrop-blur-sm rounded-3xl p-8 shadow-dramatic hover-lift">
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="font-display font-bold text-2xl mb-2">What you'll create</h3>
-                      <p className="text-muted-foreground text-sm">Your complete birth planning toolkit</p>
+                {/* List with Checkmarks */}
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                      </svg>
                     </div>
-                    
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
-                        <p className="text-sm">Personalized birth preferences</p>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
-                        <p className="text-sm">Pain management options</p>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
-                        <p className="text-sm">Support team preferences</p>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
-                        <p className="text-sm">Professional document ready to share</p>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
-                        <p className="text-sm">Communication scripts for medical team</p>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 shadow-glow"></div>
-                        <p className="text-sm">Partner advocacy guidance</p>
-                      </div>
-                    </div>
+                    <p className="text-lg font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Pain management that honors your values
+                    </p>
                   </div>
-                </div>
-                
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-gradient-primary shadow-glow hover:scale-110 transition-transform cursor-pointer flex items-center justify-center">
-                  <Heart className="w-8 h-8 text-white" />
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <p className="text-lg font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Scripts that work when you're vulnerable
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <p className="text-lg font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Hope when plans change
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <p className="text-lg font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
+                      Confidence that lasts beyond birth
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
