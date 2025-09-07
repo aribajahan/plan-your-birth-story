@@ -1,6 +1,6 @@
 interface OrganicShapeProps {
   className?: string;
-  variant?: 'primary' | 'secondary' | 'accent' | 'muted';
+  variant?: 'primary' | 'secondary' | 'accent' | 'muted' | 'yellow' | 'beige';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center';
 }
@@ -12,10 +12,12 @@ export const OrganicShape = ({
   position = 'top-right'
 }: OrganicShapeProps) => {
   const colors = {
-    primary: '#3176b5',  // Blue
-    secondary: '#eb4f26', // Red
+    primary: '#3176b5',    // Blue
+    secondary: '#eb4f26',  // Red
     accent: 'hsl(32 25% 88%)',
-    muted: 'hsl(32 25% 92%)'
+    muted: 'hsl(32 25% 92%)',
+    yellow: '#f5cd45',     // Yellow
+    beige: '#f3f1e0'       // Light beige
   };
 
   const sizes = {
@@ -33,8 +35,17 @@ export const OrganicShape = ({
     'center': 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
   };
 
-  // Multi-petal flower shape matching the reference images
-  const blobPath = "M50,5 C55,5 60,10 65,20 C75,15 85,20 90,30 C95,40 90,50 85,55 C90,65 85,75 75,80 C65,85 55,80 50,75 C45,80 35,85 25,80 C15,75 10,65 15,55 C10,50 5,40 10,30 C15,20 25,15 35,20 C40,10 45,5 50,5 Z";
+  // Multiple organic blob shapes from your reference
+  const blobPaths = [
+    "M50 70 C 20 50, 20 100, 50 130 C 80 160, 110 110, 80 70 C 70 50, 30 50, 50 70 Z",
+    "M170 80 C 150 60, 130 90, 170 120 C 200 150, 220 100, 180 60 C 160 40, 140 70, 170 80 Z", 
+    "M290 70 C 260 50, 260 100, 290 130 C 320 160, 350 110, 320 70 C 310 50, 270 50, 290 70 Z",
+    "M410 80 C 390 60, 370 90, 410 120 C 440 150, 460 100, 420 60 C 400 40, 380 70, 410 80 Z",
+    "M530 70 C 500 50, 500 100, 530 130 C 560 160, 590 110, 560 70 C 550 50, 510 50, 530 70 Z"
+  ];
+  
+  // Randomly select a blob shape
+  const selectedBlob = blobPaths[Math.floor(Math.random() * blobPaths.length)];
 
   console.log('OrganicShape rendering:', { variant, size, position });
 
@@ -46,11 +57,11 @@ export const OrganicShape = ({
       }}
     >
       <svg 
-        viewBox="0 0 100 100" 
+        viewBox="0 0 600 200" 
         className="w-full h-full"
       >
         <path
-          d={blobPath}
+          d={selectedBlob}
           fill={colors[variant]}
         />
       </svg>
