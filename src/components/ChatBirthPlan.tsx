@@ -502,9 +502,9 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
       </div>
 
       {/* Two-Column Layout: Chat + Live Birth Plan */}
-      <div className="flex-1 overflow-hidden flex">
+      <div className="flex-1 overflow-hidden flex h-full">
         {/* Chat Column */}
-        <div className="flex-1 flex flex-col lg:w-3/5">
+        <div className="flex-1 flex flex-col lg:w-3/5 h-full overflow-hidden">
           <div className="flex-1 overflow-y-auto px-4 py-6">
             <div className="max-w-3xl mx-auto space-y-6">
               {messages.map((message) => (
@@ -633,10 +633,11 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
         </div>
 
         {/* Live Birth Plan Canvas - Right Column */}
-        <div className="hidden lg:block lg:w-2/5">
+        <div className="hidden lg:block lg:w-2/5 h-full">
           <LiveBirthPlanCanvas 
             birthPlan={liveBirthPlan}
             completion={completion}
+            className="h-full overflow-hidden"
           />
         </div>
       </div>
