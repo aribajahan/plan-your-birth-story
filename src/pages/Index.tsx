@@ -64,6 +64,8 @@ const Index = () => {
                   filter: 'drop-shadow(0 6px 30px rgba(233, 90, 61, 0.15))', /* Asha coral shadow */
                   imageRendering: 'high-quality' as any
                 }}
+                onLoad={() => console.log('Asha wordmark loaded successfully')}
+                onError={(e) => console.error('Asha wordmark failed to load:', e)}
               />
             </div>
 
