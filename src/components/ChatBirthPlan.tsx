@@ -9,6 +9,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
 import { BirthPlanProgress } from "@/components/BirthPlanProgress";
 import { useBirthPlanProgress } from "@/hooks/useBirthPlanProgress";
+import { LiveBirthPlanCanvas } from "@/components/LiveBirthPlanCanvas";
+import { useLiveBirthPlan } from "@/hooks/useLiveBirthPlan";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 interface ChatBirthPlanProps {
@@ -16,7 +18,7 @@ interface ChatBirthPlanProps {
   onSwitchToForm: () => void;
 }
 
-interface UserPreferences {
+export interface UserPreferences {
   painManagementApproach?: 'natural' | 'medical' | 'flexible';
   environmentStyle?: 'quiet' | 'lively' | 'flexible';
   supportNeeds?: 'minimal' | 'moderate' | 'extensive';
@@ -25,7 +27,7 @@ interface UserPreferences {
   previousExperience?: 'first-time' | 'experienced' | 'mixed';
 }
 
-interface DiscussedTopics {
+export interface DiscussedTopics {
   painManagement: boolean;
   environment: boolean;
   positions: boolean;
@@ -102,6 +104,7 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
   const [guestId, setGuestId] = useState<string | null>(null);
 
   const { completion, capturedPrefs } = useBirthPlanProgress(userPreferences, discussedTopics);
+  const liveBirthPlan = useLiveBirthPlan(userPreferences, discussedTopics);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -148,8 +151,43 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
       updates.previousExperience = 'experienced';
     }
 
+    // Detect birth location
+    if (message.includes('hospital')) {
+      updates.birthLocation = 'hospital';
+    } else if (message.includes('birthing center') || message.includes('birth center')) {
+      updates.birthLocation = 'birthing-center';
+    } else if (message.includes('home birth') || message.includes('at home')) {
+      updates.birthLocation = 'home';
+    }
+
+    // Detect support needs
+    if (message.includes('minimal') || message.includes('leave me alone') || message.includes('quiet support')) {
+      updates.supportNeeds = 'minimal';
+    } else if (message.includes('lots of support') || message.includes('need help') || message.includes('check on me')) {
+      updates.supportNeeds = 'extensive';
+    } else if (message.includes('moderate') || message.includes('balanced') || message.includes('when needed')) {
+      updates.supportNeeds = 'moderate';
+    }
+
     if (Object.keys(updates).length > 0) {
       setUserPreferences(prev => ({ ...prev, ...updates }));
+    }
+    
+    // Mark topics as discussed based on content
+    if (message.includes('pain') || message.includes('epidural') || message.includes('medication')) {
+      setDiscussedTopics(prev => ({ ...prev, painManagement: true }));
+    }
+    if (message.includes('environment') || message.includes('room') || message.includes('atmosphere')) {
+      setDiscussedTopics(prev => ({ ...prev, environment: true }));
+    }
+    if (message.includes('position') || message.includes('move') || message.includes('walk')) {
+      setDiscussedTopics(prev => ({ ...prev, positions: true }));
+    }
+    if (message.includes('support') || message.includes('team') || message.includes('help')) {
+      setDiscussedTopics(prev => ({ ...prev, support: true }));
+    }
+    if (message.includes('expect') || message.includes('hope') || message.includes('worry') || message.includes('concern')) {
+      setDiscussedTopics(prev => ({ ...prev, expectations: true }));
     }
   };
 
@@ -454,149 +492,155 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
             </Button>
           </div>
           
-          {/* Progress Bar */}
-          <div className="flex items-center gap-4">
-            <div className="flex-1 bg-muted rounded-full h-2">
-              <div 
-                className="bg-primary h-2 rounded-full transition-all duration-500"
-                style={{ width: `${(currentStep / totalSteps) * 100}%` }}
-              ></div>
-            </div>
-            <span className="text-sm text-muted-foreground">
-              Step {currentStep} of {totalSteps}
-            </span>
-          </div>
+          {/* Enhanced Progress */}
+          <BirthPlanProgress 
+            completion={completion}
+            capturedPrefs={capturedPrefs}
+            className="max-w-md"
+          />
         </div>
       </div>
 
-      {/* Chat Messages */}
-      <div className="flex-1 overflow-hidden">
-        <div className="h-full overflow-y-auto px-4 py-6">
-          <div className="max-w-4xl mx-auto space-y-6">
-            {messages.map((message) => (
-              <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                {message.type === 'reality-check' && message.realityCheck ? (
-                  <div className="w-full max-w-2xl animate-fade-in">
-                    <RealityCheck 
-                      title={message.realityCheck.title}
-                      content={message.realityCheck.content}
-                    />
-                  </div>
-                ) : message.type === 'script-preview' && message.scriptPreview ? (
-                  <div className="w-full max-w-2xl animate-fade-in">
-                    <div className="bg-accent/20 border border-accent/40 rounded-lg p-4 mb-2">
-                      <div className="flex items-start gap-3">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/30 flex items-center justify-center">
-                          <Sparkles className="w-4 h-4 text-accent-foreground" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h4 className="font-semibold text-accent-foreground">{message.scriptPreview.title}</h4>
-                            <span className="text-xs bg-accent/40 text-accent-foreground px-2 py-1 rounded-full">
-                              {message.scriptPreview.category}
-                            </span>
+      {/* Two-Column Layout: Chat + Live Birth Plan */}
+      <div className="flex-1 overflow-hidden flex">
+        {/* Chat Column */}
+        <div className="flex-1 flex flex-col lg:w-3/5">
+          <div className="flex-1 overflow-y-auto px-4 py-6">
+            <div className="max-w-3xl mx-auto space-y-6">
+              {messages.map((message) => (
+                <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  {message.type === 'reality-check' && message.realityCheck ? (
+                    <div className="w-full max-w-2xl animate-fade-in">
+                      <RealityCheck 
+                        title={message.realityCheck.title}
+                        content={message.realityCheck.content}
+                      />
+                    </div>
+                  ) : message.type === 'script-preview' && message.scriptPreview ? (
+                    <div className="w-full max-w-2xl animate-fade-in">
+                      <div className="bg-accent/20 border border-accent/40 rounded-lg p-4 mb-2">
+                        <div className="flex items-start gap-3">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/30 flex items-center justify-center">
+                            <Sparkles className="w-4 h-4 text-accent-foreground" />
                           </div>
-                          <p className="text-sm text-accent-foreground/80 leading-relaxed italic">
-                            "{message.scriptPreview.content}"
-                          </p>
-                          <p className="text-xs text-accent-foreground/60 mt-2">
-                            💡 This script is being generated based on your preferences
-                          </p>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-2">
+                              <h4 className="font-semibold text-accent-foreground">{message.scriptPreview.title}</h4>
+                              <span className="text-xs bg-accent/40 text-accent-foreground px-2 py-1 rounded-full">
+                                {message.scriptPreview.category}
+                              </span>
+                            </div>
+                            <p className="text-sm text-accent-foreground/80 leading-relaxed italic">
+                              "{message.scriptPreview.content}"
+                            </p>
+                            <p className="text-xs text-accent-foreground/60 mt-2">
+                              💡 This script is being generated based on your preferences
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ) : (
-                  <div className={`max-w-2xl ${message.role === 'user' ? 'ml-12' : 'mr-12'} animate-fade-in`}>
-                    <div className={`p-4 rounded-lg shadow-sm transition-smooth hover:shadow-card ${
-                      message.role === 'user' 
-                        ? 'gradient-primary text-white' 
-                        : 'bg-card border border-border text-card-foreground'
-                    }`}>
-                      <p className="leading-relaxed whitespace-pre-line">{message.content}</p>
-                      <div className={`text-xs mt-2 ${message.role === 'user' ? 'text-white/70' : 'text-muted-foreground'}`}>
-                        {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  ) : (
+                    <div className={`max-w-xl ${message.role === 'user' ? 'ml-8' : 'mr-8'} animate-fade-in`}>
+                      <div className={`p-4 rounded-lg shadow-sm transition-smooth hover:shadow-card ${
+                        message.role === 'user' 
+                          ? 'gradient-primary text-white' 
+                          : 'bg-card border border-border text-card-foreground'
+                      }`}>
+                        <p className="leading-relaxed whitespace-pre-line">{message.content}</p>
+                        <div className={`text-xs mt-2 ${message.role === 'user' ? 'text-white/70' : 'text-muted-foreground'}`}>
+                          {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
-            
-            {isLoading && (
-              <div className="flex justify-start animate-fade-in">
-                <div className="max-w-2xl mr-12">
-                  <div className="bg-card border border-border text-card-foreground p-4 rounded-lg shadow-sm">
-                    <div className="flex items-center gap-3">
-                      <div className="flex gap-1">
-                        <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-100"></div>
-                        <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-200"></div>
+                  )}
+                </div>
+              ))}
+              
+              {isLoading && (
+                <div className="flex justify-start animate-fade-in">
+                  <div className="max-w-xl mr-8">
+                    <div className="bg-card border border-border text-card-foreground p-4 rounded-lg shadow-sm">
+                      <div className="flex items-center gap-3">
+                        <div className="flex gap-1">
+                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-100"></div>
+                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-200"></div>
+                        </div>
+                        <span className="text-sm text-muted-foreground">Thinking...</span>
                       </div>
-                      <span className="text-sm text-muted-foreground">Thinking...</span>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-        </div>
-      </div>
-
-      {/* Quick Replies */}
-      <div className="px-4 py-3 bg-muted/30">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex gap-2 overflow-x-auto pb-2">
-            {quickReplies.map((reply, index) => (
-              <Button
-                key={index}
-                variant="outline"
-                size="sm"
-                onClick={() => setInputMessage(reply)}
-                className="whitespace-nowrap text-xs hover-lift transition-smooth"
-              >
-                {reply}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Message Input */}
-      <div className="bg-card border-t border-border">
-        <div className="container mx-auto px-4 py-4">
-          <div className="max-w-4xl mx-auto flex items-center gap-3">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={toggleVoiceInput}
-              className={`transition-smooth ${isListening ? 'bg-primary text-primary-foreground shadow-glow' : 'hover-glow'}`}
-            >
-              {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
-            </Button>
-            
-            <div className="flex-1">
-              <Input
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Share your thoughts, questions, or concerns..."
-                onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-                disabled={isLoading}
-                className="border-border transition-smooth focus:shadow-glow"
-              />
+              )}
+              <div ref={messagesEndRef} />
             </div>
-            
-            <Button
-              onClick={sendMessage}
-              disabled={!inputMessage.trim() || isLoading}
-              className="gradient-primary text-white shadow-card hover:shadow-confident transition-editorial transform hover:scale-105"
-            >
-              <Send className="w-4 h-4" />
-            </Button>
+          </div>
+
+          {/* Quick Replies - Within Chat Column */}
+          <div className="px-4 py-3 bg-muted/30 border-t border-border">
+            <div className="max-w-3xl mx-auto">
+              <div className="flex gap-2 overflow-x-auto pb-2">
+                {quickReplies.map((reply, index) => (
+                  <Button
+                    key={index}
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setInputMessage(reply)}
+                    className="whitespace-nowrap text-xs hover-lift transition-smooth"
+                  >
+                    {reply}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Message Input - Within Chat Column */}
+          <div className="bg-card border-t border-border">
+            <div className="px-4 py-4">
+              <div className="max-w-3xl mx-auto flex items-center gap-3">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={toggleVoiceInput}
+                  className={`transition-smooth ${isListening ? 'bg-primary text-primary-foreground shadow-glow' : 'hover-glow'}`}
+                >
+                  {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+                </Button>
+                
+                <div className="flex-1">
+                  <Input
+                    value={inputMessage}
+                    onChange={(e) => setInputMessage(e.target.value)}
+                    placeholder="Share your thoughts, questions, or concerns..."
+                    onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                    disabled={isLoading}
+                    className="border-border transition-smooth focus:shadow-glow"
+                  />
+                </div>
+                
+                <Button
+                  onClick={sendMessage}
+                  disabled={!inputMessage.trim() || isLoading}
+                  className="gradient-primary text-white shadow-card hover:shadow-confident transition-editorial transform hover:scale-105"
+                >
+                  <Send className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
+
+        {/* Live Birth Plan Canvas - Right Column */}
+        <div className="hidden lg:block lg:w-2/5">
+          <LiveBirthPlanCanvas 
+            birthPlan={liveBirthPlan}
+            completion={completion}
+          />
+        </div>
       </div>
+
     </div>
   );
 };
