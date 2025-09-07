@@ -50,9 +50,9 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center pt-24">
         {/* Bold Organic Background Shapes */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Large organic blob in --bold-yellow behind left text */}
+          {/* Subtle organic blob in --bold-yellow behind text */}
           <div 
-            className="absolute top-20 -left-32 w-[800px] h-[600px] opacity-40" 
+            className="absolute top-20 -left-32 w-[800px] h-[600px] opacity-15" 
             style={{ 
               backgroundColor: 'hsl(var(--bold-yellow))',
               borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
@@ -72,110 +72,34 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-8 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-16 items-center min-h-screen py-20">
+          <div className="flex items-center justify-center min-h-screen py-20">
             
-            {/* Left Column - 55% */}
-            <div className="lg:col-span-7 space-y-8">
-              {/* Dramatic Typography */}
-              <h1 className="leading-none">
-                <div style={{ fontSize: '4rem', fontWeight: '300', color: 'hsl(var(--deep-black))' }}>
-                  From
+            {/* Centered Content */}
+            <div className="max-w-4xl text-center space-y-8">
+              {/* Clean, Confident Headline */}
+              <h1 className="leading-tight">
+                <div style={{ fontSize: '4rem', fontWeight: '600', color: 'hsl(var(--deep-black))' }}>
+                  You've Got Pregnancy Down.
                 </div>
-                <div className="italic -mt-4" style={{ fontSize: '4.5rem', fontWeight: '700', color: 'hsl(var(--vibrant-coral))' }}>
-                  Uncertain
-                </div>
-                <div className="italic -mt-4" style={{ fontSize: '4.5rem', fontWeight: '700', color: 'hsl(var(--vibrant-coral))' }}>
-                  to Confident
-                </div>
-                <div className="-mt-4" style={{ fontSize: '4rem', fontWeight: '700', color: 'hsl(var(--deep-black))' }}>
-                  in 15 Minutes
+                <div style={{ fontSize: '4rem', fontWeight: '600', color: 'hsl(var(--vibrant-coral))' }}>
+                  Now Birth.
                 </div>
               </h1>
               
-              {/* Subtext */}
-              <p className="max-w-2xl" style={{ fontSize: '1.75rem', fontWeight: '500', color: 'hsl(var(--deep-black))' }}>
-                Get the birth plan, the exact scripts, and the confidence you need to advocate for yourself when it matters most.
+              {/* Supportive Subtext */}
+              <p className="max-w-3xl mx-auto" style={{ fontSize: '1.25rem', fontWeight: '400', color: 'hsl(var(--deep-black))', lineHeight: '1.6' }}>
+                You're already doing the very best. Let's just add one more layer of preparation with a birth plan that you actually understand and feel good about, that prepares you for the real thing.
               </p>
 
-              {/* Trust Line */}
-              <p className="text-sm" style={{ color: 'hsl(var(--deep-black) / 0.7)' }}>
-                ✨ 2,000+ hopeful families • 200+ hospitals trust Asha
-              </p>
-
-              {/* CTA Button */}
+              {/* Collaborative CTA Button */}
               <Button 
                 onClick={() => setMode('chat')}
-                className="rounded-full px-12 py-4 text-white font-bold text-lg hover:scale-105 transition-transform duration-300"
+                className="rounded-full px-12 py-4 text-white font-semibold text-lg hover:scale-105 transition-transform duration-300 mt-12"
                 style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}
                 size="lg"
               >
-                Start with Hope
+                Let's Make a Birth Plan
               </Button>
-            </div>
-
-            {/* Right Column - 45% */}
-            <div className="lg:col-span-5 relative">
-              {/* Chunky Bold Card */}
-              <div 
-                className="rounded-3xl p-10 transform rotate-3 border-4 shadow-2xl"
-                style={{ 
-                  backgroundColor: 'hsl(var(--bold-yellow))', 
-                  borderColor: 'hsl(var(--deep-black))',
-                  boxShadow: '12px 12px 0px hsl(var(--deep-black) / 0.3)'
-                }}
-              >
-                {/* Card Header */}
-                <h3 className="text-3xl font-bold mb-8" style={{ color: 'hsl(var(--deep-black))' }}>
-                  Asha gives you:
-                </h3>
-                
-                {/* List with Chunky Checkmarks */}
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                      </svg>
-                    </div>
-                    <p className="text-xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Pain management that honors your values
-                    </p>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                      </svg>
-                    </div>
-                    <p className="text-xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Scripts that work when you're vulnerable
-                    </p>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                      </svg>
-                    </div>
-                    <p className="text-xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Hope when plans change
-                    </p>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                      </svg>
-                    </div>
-                    <p className="text-xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Confidence that lasts beyond birth
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
