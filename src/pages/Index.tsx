@@ -49,17 +49,12 @@ const Index = () => {
       <Header onGetStarted={() => setMode('chat')} />
       {/* Hero Section - Condesa-Style with Asha Wordmark */}
       <section className="relative min-h-screen flex items-center pt-24">
-        {/* Single vibrant organic shape - positioned behind and to the right to avoid text overlap */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <OrganicShape variant="primary" size="lg" position="center-right" className="opacity-20 -translate-x-32" />
-        </div>
-        
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto flex flex-col items-center">
             {/* High-Resolution Asha Wordmark - Centered */}
             <div className="mb-16 text-center">
               <img 
-                src="/lovable-uploads/f93c1dfb-c269-439a-b28b-28807b671e5c.png" 
+                src="/lovable-uploads/6e31e5fb-0f76-49da-aa83-70d7b456a46e.png"
                 alt="Asha - Birth Plans Built with Hope" 
                 className="w-auto mx-auto"
                 style={{ 
