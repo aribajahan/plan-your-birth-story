@@ -55,17 +55,17 @@ const Index = () => {
             {/* High-Resolution Asha Wordmark - Centered */}
             <div className="mb-16 text-center">
               <img 
-                src="/lovable-uploads/6e31e5fb-0f76-49da-aa83-70d7b456a46e.png"
+                src="/lovable-uploads/adba3b7b-b015-4501-a4db-edc56e44d7f3.png"
                 alt="Asha - Birth Plans Built with Hope" 
                 className="w-auto mx-auto"
                 style={{ 
-                  height: 'clamp(16rem, 35vw, 28rem)', /* Back to massive size */
+                  height: 'clamp(16rem, 35vw, 28rem)',
                   maxWidth: '100%',
-                  filter: 'drop-shadow(0 6px 30px rgba(233, 90, 61, 0.15))', /* Asha coral shadow */
+                  filter: 'drop-shadow(0 6px 30px rgba(233, 90, 61, 0.15))',
                   imageRendering: 'high-quality' as any
                 }}
-                onLoad={() => console.log('Asha wordmark loaded successfully')}
-                onError={(e) => console.error('Asha wordmark failed to load:', e)}
+                onLoad={() => console.log('✅ Wordmark loaded successfully')}
+                onError={(e) => console.error('❌ Wordmark failed to load:', e)}
               />
             </div>
 
