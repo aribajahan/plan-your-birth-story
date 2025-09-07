@@ -4,7 +4,6 @@ import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Button } from "@/components/ui/button";
 import { GeneratedImage } from "@/components/GeneratedImage";
 import { Header } from "@/components/Header";
-import { BackgroundRemovedImage } from "@/components/BackgroundRemovedImage";
 
 import { Heart, MessageCircle, FileText, Quote, Plus, Minus } from "lucide-react";
 
@@ -46,253 +45,156 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen overflow-hidden relative" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
+    <div className="min-h-screen overflow-hidden relative">
       {/* Header */}
       <Header onGetStarted={() => setMode('chat')} />
-      {/* Hero Section - Condesa-Style with Asha Wordmark */}
-      <section className="relative min-h-screen flex items-center pt-24">
-        <div className="container mx-auto px-8">
-          <div className="max-w-7xl mx-auto flex flex-col items-center">
-            {/* High-Resolution Asha Wordmark - Centered */}
-            <div className="mb-16 text-center">
-              <img 
-                src="/lovable-uploads/e9051f6b-475a-4a97-b5e4-b82330515a2e.png"
-                alt="Asha - Birth Plans Built with Hope" 
-                className="w-auto mx-auto"
-                style={{ 
-                  height: 'clamp(16rem, 35vw, 28rem)',
-                  maxWidth: '100%',
-                  filter: 'drop-shadow(0 6px 30px rgba(233, 90, 61, 0.15))',
-                  imageRendering: 'high-quality' as any
-                }}
-                onLoad={() => console.log('✅ New Asha wordmark loaded successfully')}
-                onError={(e) => console.error('❌ New Asha wordmark failed to load:', e)}
-              />
-            </div>
-
-            {/* Bold Typography Block - Centered */}
-            <div className="max-w-5xl text-center">
-              <h1 className="leading-none mb-8">
-                <div style={{ 
-                  fontFamily: 'Crimson Text, serif',
-                  fontSize: '4.5rem', 
-                  fontWeight: '600', 
-                  color: 'hsl(var(--deep-black))',
-                  lineHeight: '1.05',
-                  letterSpacing: '-0.02em'
-                }}>
-                  You've Got Pregnancy Down.
-                </div>
-                <div style={{ 
-                  fontFamily: 'Crimson Text, serif',
-                  fontSize: '4.5rem', 
-                  fontWeight: '600', 
-                  color: 'hsl(var(--vibrant-coral))',
-                  lineHeight: '1.05',
-                  letterSpacing: '-0.02em',
-                  fontStyle: 'italic'
-                }}>
-                  Now Birth.
-                </div>
-              </h1>
-              
-              {/* Clean supportive text - Centered */}
-              <p className="max-w-2xl mb-12 mx-auto" style={{ 
-                fontSize: '1.25rem', 
-                fontWeight: '400', 
-                color: 'hsl(var(--deep-black))', 
-                lineHeight: '1.6' 
-              }}>
-                You're already doing the very best. Let's just add one more layer of preparation with a birth plan that you actually understand and feel good about.
-              </p>
-
-              {/* Bold CTA */}
-              <Button 
-                onClick={() => setMode('chat')}
-                className="rounded-full px-12 py-4 text-white font-bold text-xl hover:scale-105 transition-transform duration-300"
-                style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}
-                size="lg"
-              >
-                Let's Make a Birth Plan
-              </Button>
-            </div>
+      
+      {/* Hero Section - Bold Condesa-Style */}
+      <section className="relative h-screen flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+        {/* Geometric shapes background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-80 h-80 rounded-full" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}></div>
+          <div className="absolute bottom-32 left-16 w-64 h-32" style={{ backgroundColor: 'hsl(var(--electric-blue))' }}></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 rotate-45" style={{ backgroundColor: 'hsl(var(--cream-base))' }}></div>
+        </div>
+        
+        {/* Wordmark - MASSIVE and dominant */}
+        <div className="relative z-10 text-center">
+          <img 
+            src="/lovable-uploads/e9051f6b-475a-4a97-b5e4-b82330515a2e.png"
+            alt="Asha - Birth Plans Built with Hope" 
+            className="w-auto mx-auto mb-12"
+            style={{ 
+              height: 'clamp(20rem, 60vh, 40rem)',
+              maxWidth: '90vw',
+              filter: 'drop-shadow(0 8px 40px rgba(0, 0, 0, 0.3))',
+            }}
+          />
+          
+          {/* Minimal, bold call-to-action in contrasting color block */}
+          <div className="inline-block p-8 rounded-3xl" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
+            <Button 
+              onClick={() => setMode('chat')}
+              className="text-2xl font-bold px-16 py-6 rounded-full hover:scale-105 transition-transform duration-300"
+              style={{ 
+                backgroundColor: 'hsl(var(--deep-black))', 
+                color: 'hsl(var(--cream-base))'
+              }}
+            >
+              Start Your Birth Plan
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Why Asha Actually Works Section */}
-      <section className="py-20 relative font-helvetica" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
+      {/* Why Asha Actually Works - Bold Color Block */}
+      <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
         <div className="w-full">
-          <div className="max-w-7xl mx-auto px-8">
+          <div className="grid lg:grid-cols-2 min-h-screen">
             
-            {/* Split Layout */}
-            <div className="grid lg:grid-cols-5 gap-16 items-center min-h-[600px]">
-              
-              {/* Left: Large Illustration (40%) */}
-              <div className="lg:col-span-2 flex justify-center">
-                <img 
-                  src="/lovable-uploads/283ff4e2-3b9b-4a55-b7dc-c5a2a74139fd.png"
-                  alt="Creative pregnant woman painting - representing personalized birth planning"
-                  className="w-full h-auto max-w-lg"
-                />
-              </div>
-
-              {/* Right: Content (60%) */}
-              <div className="lg:col-span-3 space-y-8">
-                <h2 
-                  className="text-editorial-hero mb-8"
-                  style={{ color: 'hsl(var(--deep-black))' }}
-                >
+            {/* Left: Bold Text Block */}
+            <div className="flex items-center justify-center p-16">
+              <div className="max-w-xl">
+                <h2 className="text-8xl font-bold leading-none mb-8" style={{ 
+                  fontFamily: 'Crimson Text, serif',
+                  color: 'hsl(var(--deep-black))'
+                }}>
                   Why Asha Actually Works
                 </h2>
                 
-                <div className="space-y-6" style={{ color: 'hsl(var(--deep-black))' }}>
-                  <div className="space-y-4">
-                    <h3 className="text-3xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Guided Questions That Actually Help
-                    </h3>
-                    <p className="text-xl leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Our thoughtfully crafted questions help you explore your preferences 
-                      without overwhelming medical jargon. We guide you through topics like 
-                      pain management, birthing positions, and immediate postpartum care 
-                      with warmth and clarity.
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    <h3 className="text-3xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Reality Checks
-                    </h3>
-                    <p className="text-xl leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Gentle, honest insights about what labor might really be like, 
-                      so you can plan with realistic expectations. We share what many 
-                      first-time parents don't realize, without being scary or discouraging.
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    <h3 className="text-3xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Professional Output & Communication Confidence
-                    </h3>
-                    <p className="text-xl leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>
-                      Generate a clean, professional birth plan that medical staff 
-                      will respect and can quickly reference during your labor. Learn how to advocate 
-                      for yourself and communicate with your medical team, even in challenging moments.
-                    </p>
-                  </div>
+                <div className="space-y-8 text-2xl" style={{ color: 'hsl(var(--deep-black))' }}>
+                  <p className="font-bold">Guided questions that help</p>
+                  <p className="font-bold">Reality checks that prepare</p>
+                  <p className="font-bold">Professional output that works</p>
                 </div>
               </div>
-              
             </div>
+
+            {/* Right: Illustration */}
+            <div className="flex items-center justify-center p-16" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
+              <img 
+                src="/lovable-uploads/283ff4e2-3b9b-4a55-b7dc-c5a2a74139fd.png"
+                alt="Creative pregnant woman painting - representing personalized birth planning"
+                className="w-full h-auto max-w-lg"
+              />
+            </div>
+            
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-32 relative">
-        <div className="container mx-auto px-8">
-          <div className="max-w-7xl mx-auto">
+      {/* How It Works - Electric Blue Block */}
+      <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--electric-blue))' }}>
+        <div className="w-full">
+          <div className="max-w-7xl mx-auto p-16">
             
-            <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8">
-                Two ways to create your plan
-              </h2>
-              <p className="text-editorial-body max-w-3xl mx-auto text-muted-foreground">
-                Choose the approach that feels right for you. Both paths lead to the same professional birth plan.
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-12">
+            {/* Bold asymmetrical layout */}
+            <div className="grid lg:grid-cols-3 gap-16 items-start">
               
-              {/* Chat Approach */}
-              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
-                <div className="space-y-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center">
-                      <MessageCircle className="w-8 h-8 text-accent-foreground" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-display font-bold text-foreground">Chat Through It</h3>
-                      <p className="text-muted-foreground">Natural conversation approach</p>
-                    </div>
-                  </div>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    Have a guided conversation with our AI that feels like talking to a supportive friend. 
-                    Ask questions, share concerns, and get personalized guidance as you work through your preferences.
-                  </p>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-accent"></div>
-                      <span className="text-sm text-foreground">Personalized follow-up questions</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-accent"></div>
-                      <span className="text-sm text-foreground">Real-time script generation</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-accent"></div>
-                      <span className="text-sm text-foreground">Flexible, conversational flow</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-accent"></div>
-                      <span className="text-sm text-foreground">Perfect for processing complex feelings</span>
-                    </div>
-                  </div>
-                  
-                  <Button 
-                    onClick={() => setMode('chat')}
-                    className="btn-editorial-primary w-full"
-                  >
-                    Start Chatting →
-                  </Button>
-                </div>
+              {/* Large title taking up left column */}
+              <div className="lg:col-span-1">
+                <h2 className="text-7xl font-bold leading-none text-white" style={{ 
+                  fontFamily: 'Crimson Text, serif'
+                }}>
+                  Two Ways
+                </h2>
               </div>
 
-              {/* Form Approach */}
-              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
-                <div className="space-y-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center">
-                      <FileText className="w-8 h-8 text-accent-foreground" />
-                    </div>
-                     <div>
-                       <h3 className="text-2xl font-display font-bold text-foreground">Fill Out Forms</h3>
-                       <p className="text-muted-foreground">Structured step-by-step</p>
-                     </div>
-                   </div>
-                   
-                   <p className="text-muted-foreground leading-relaxed">
-                     Work through organized sections at your own pace. Each section includes guidance, 
-                     reality checks, and communication scripts tailored to your choices.
-                   </p>
-                   
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-accent"></div>
-                        <span className="text-sm text-foreground">Clear progress tracking</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-accent"></div>
-                        <span className="text-sm text-foreground">Organized by topic</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-accent"></div>
-                        <span className="text-sm text-foreground">Save and return anytime</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-accent"></div>
-                        <span className="text-sm text-foreground">Great for methodical planners</span>
+              {/* Two approaches side by side */}
+              <div className="lg:col-span-2 space-y-8">
+                
+                {/* Chat Approach */}
+                <div className="p-12 rounded-3xl" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
+                  <div className="flex items-start gap-8">
+                    <div className="flex-shrink-0">
+                      <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+                        <MessageCircle className="w-10 h-10 text-white" />
                       </div>
                     </div>
-                  
-                   <Button 
-                     onClick={() => setMode('form')}
-                     className="btn-editorial-ghost w-full"
-                   >
-                     Start Forms →
-                   </Button>
+                    <div className="space-y-4">
+                      <h3 className="text-4xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>Chat Through It</h3>
+                      <p className="text-xl" style={{ color: 'hsl(var(--deep-black))' }}>
+                        Natural conversation that feels like talking to a supportive friend.
+                      </p>
+                      <Button 
+                        onClick={() => setMode('chat')}
+                        className="text-xl font-bold px-8 py-4 rounded-full"
+                        style={{ 
+                          backgroundColor: 'hsl(var(--vibrant-coral))',
+                          color: 'white'
+                        }}
+                      >
+                        Start Chatting
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Form Approach */}
+                <div className="p-12 rounded-3xl" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
+                  <div className="flex items-start gap-8">
+                    <div className="flex-shrink-0">
+                      <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--deep-black))' }}>
+                        <FileText className="w-10 h-10 text-white" />
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-4xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>Fill Out Forms</h3>
+                      <p className="text-xl" style={{ color: 'hsl(var(--deep-black))' }}>
+                        Structured sections at your own pace with clear progress tracking.
+                      </p>
+                      <Button 
+                        onClick={() => setMode('form')}
+                        className="text-xl font-bold px-8 py-4 rounded-full"
+                        style={{ 
+                          backgroundColor: 'hsl(var(--deep-black))',
+                          color: 'white'
+                        }}
+                      >
+                        Start Forms
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -300,82 +202,38 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-32 relative">
-        {/* Elegant background elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-16 left-16 w-48 h-48 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 rotate-12 blur-lg"></div>
-          <div className="absolute bottom-20 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-white/8 to-white/3 blur-md"></div>
-          <div className="absolute top-1/3 right-1/4 w-20 h-20 rounded-2xl bg-white/5 rotate-45 blur-sm"></div>
-        </div>
-        <div className="container mx-auto px-8">
-          <div className="max-w-7xl mx-auto">
+      {/* Testimonials - Deep Green Block */}
+      <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--forest-green))' }}>
+        <div className="w-full">
+          <div className="max-w-7xl mx-auto p-16">
             
-            <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8 text-white">
+            {/* Asymmetrical testimonials layout */}
+            <div className="space-y-16">
+              
+              {/* Bold title */}
+              <h2 className="text-8xl font-bold leading-none text-white max-w-4xl" style={{ 
+                fontFamily: 'Crimson Text, serif'
+              }}>
                 What families are saying
               </h2>
-            </div>
-
-            <div className="grid lg:grid-cols-3 gap-8">
               
-              <div className="bg-white rounded-3xl p-8 shadow-card hover-lift">
-                <div className="space-y-6">
-                  <Quote className="w-8 h-8 text-accent" />
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    "This made me feel so much more confident about advocating for myself. 
-                    I wish every pregnant person had this tool."
+              {/* Testimonials in bold blocks */}
+              <div className="grid lg:grid-cols-2 gap-8">
+                
+                <div className="p-12 rounded-3xl" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
+                  <Quote className="w-12 h-12 mb-6" style={{ color: 'hsl(var(--vibrant-coral))' }} />
+                  <p className="text-2xl font-bold leading-relaxed mb-6" style={{ color: 'hsl(var(--deep-black))' }}>
+                    "This made me feel so much more confident about advocating for myself."
                   </p>
-                  <div className="flex items-center gap-3">
-                    <img 
-                      src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&h=80&fit=crop&crop=face" 
-                      alt="Sarah M. profile picture" 
-                      className="w-10 h-10 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold text-foreground">Sarah M.</p>
-                    </div>
-                  </div>
+                  <p className="text-xl font-semibold" style={{ color: 'hsl(var(--deep-black))' }}>Sarah M.</p>
                 </div>
-              </div>
 
-              <div className="bg-white rounded-3xl p-8 shadow-card hover-lift">
-                <div className="space-y-6">
-                  <Quote className="w-8 h-8 text-accent" />
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    "Finally, a birth plan tool that doesn't make me feel like I'm just checking boxes. 
-                    This actually helped me think through what I really wanted."
+                <div className="p-12 rounded-3xl" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
+                  <Quote className="w-12 h-12 mb-6" style={{ color: 'hsl(var(--deep-black))' }} />
+                  <p className="text-2xl font-bold leading-relaxed mb-6" style={{ color: 'hsl(var(--deep-black))' }}>
+                    "Finally, a birth plan tool that doesn't make me feel like I'm just checking boxes."
                   </p>
-                  <div className="flex items-center gap-3">
-                    <img 
-                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" 
-                      alt="Jessica K. profile picture" 
-                      className="w-10 h-10 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold text-foreground">Jessica K.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-3xl p-8 shadow-card hover-lift">
-                <div className="space-y-6">
-                  <Quote className="w-8 h-8 text-accent" />
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    "The communication scripts were game-changing. I felt prepared for 
-                    conversations I didn't even know I needed to have."
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <img 
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face" 
-                      alt="Maria L. profile picture" 
-                      className="w-10 h-10 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold text-foreground">Maria L.</p>
-                    </div>
-                  </div>
+                  <p className="text-xl font-semibold" style={{ color: 'hsl(var(--deep-black))' }}>Jessica K.</p>
                 </div>
               </div>
             </div>
@@ -383,74 +241,69 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-32">
-        <div className="container mx-auto px-8">
-          <div className="max-w-4xl mx-auto">
-            
-            <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8">
-                Common questions
-              </h2>
-            </div>
+      {/* FAQ - Bold Yellow Block */}
+      <section className="py-24" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
+        <div className="max-w-6xl mx-auto px-16">
+          
+          <h2 className="text-6xl font-bold mb-16 text-center" style={{ 
+            fontFamily: 'Crimson Text, serif',
+            color: 'hsl(var(--deep-black))'
+          }}>
+            Questions?
+          </h2>
 
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-white rounded-2xl shadow-card overflow-hidden">
-                  <button
-                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  >
-                    <h3 className="text-lg font-semibold text-gray-900">{faq.question}</h3>
-                    {openFaq === index ? (
-                      <Minus className="w-5 h-5 text-accent" />
-                    ) : (
-                      <Plus className="w-5 h-5 text-accent" />
-                    )}
-                  </button>
-                  {openFaq === index && (
-                    <div className="px-8 pb-6">
-                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                    </div>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="rounded-3xl overflow-hidden" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
+                <button
+                  className="w-full px-12 py-8 text-left flex items-center justify-between hover:opacity-80 transition-opacity"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                >
+                  <h3 className="text-2xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>{faq.question}</h3>
+                  {openFaq === index ? (
+                    <Minus className="w-8 h-8" style={{ color: 'hsl(var(--vibrant-coral))' }} />
+                  ) : (
+                    <Plus className="w-8 h-8" style={{ color: 'hsl(var(--vibrant-coral))' }} />
                   )}
-                </div>
-              ))}
-            </div>
+                </button>
+                {openFaq === index && (
+                  <div className="px-12 pb-8">
+                    <p className="text-xl leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/10"></div>
-        <div className="container mx-auto px-8 relative z-10">
-          <div className="max-w-5xl mx-auto text-center space-y-12">
-            <h2 className="text-editorial-hero">
-              Ready to feel empowered 
-              <span className="block">about your birth?</span>
+      {/* Final CTA - Coral Block */}
+      <section className="min-h-screen flex items-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+        <div className="w-full">
+          <div className="max-w-7xl mx-auto p-16 text-center">
+            
+            {/* Bold asymmetrical CTA */}
+            <h2 className="text-8xl font-bold leading-none text-white mb-16" style={{ 
+              fontFamily: 'Crimson Text, serif'
+            }}>
+              Ready?
             </h2>
             
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Join thousands of families who've created thoughtful, 
-              professional birth plans that actually get used.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
               <Button 
                 onClick={() => setMode('chat')}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 text-xl px-12 py-6 rounded-2xl shadow-dramatic font-display font-bold"
-                size="lg"
+                className="text-3xl font-bold px-16 py-8 rounded-full hover:scale-105 transition-transform duration-300"
+                style={{ 
+                  backgroundColor: 'hsl(var(--cream-base))',
+                  color: 'hsl(var(--deep-black))'
+                }}
               >
-                <MessageCircle className="w-6 h-6 mr-3" />
-                Start Your Birth Plan - It's Free
+                Start Your Birth Plan
               </Button>
-              <Button 
-                onClick={() => setMode('form')}
-                className="bg-transparent border-2 border-primary text-primary hover:bg-primary/10 text-xl px-12 py-6 rounded-2xl font-display font-bold"
-                size="lg"
-              >
-                See a Sample Birth Plan
-              </Button>
+              
+              <div className="text-2xl text-white font-bold">
+                It's Free
+              </div>
             </div>
           </div>
         </div>
