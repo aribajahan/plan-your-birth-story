@@ -1,6 +1,6 @@
 interface OrganicShapeProps {
   className?: string;
-  variant?: 'primary' | 'secondary' | 'accent' | 'muted' | 'yellow' | 'beige';
+  variant?: 'primary' | 'secondary' | 'accent' | 'muted' | 'yellow' | 'beige' | 'flower';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center';
 }
@@ -17,7 +17,8 @@ export const OrganicShape = ({
     accent: 'hsl(32 25% 88%)',
     muted: 'hsl(32 25% 92%)',
     yellow: '#f5cd45',     // Yellow
-    beige: '#f3f1e0'       // Light beige
+    beige: '#f3f1e0',      // Light beige
+    flower: '#3176b5'      // Blue for flower
   };
 
   const sizes = {
@@ -42,7 +43,8 @@ export const OrganicShape = ({
     yellow: "M45 25 C 20 15, 15 45, 40 65 C 65 80, 85 55, 75 25 C 65 10, 50 15, 45 25 Z",
     beige: "M35 35 C 10 25, 15 55, 35 75 C 55 90, 80 65, 70 35 C 60 20, 45 25, 35 35 Z",
     accent: "M55 15 C 25 5, 20 35, 45 55 C 70 70, 90 45, 85 15 C 75 0, 60 5, 55 15 Z",
-    muted: "M50 30 C 25 20, 20 50, 45 70 C 70 85, 90 60, 80 30 C 70 15, 55 20, 50 30 Z"
+    muted: "M50 30 C 25 20, 20 50, 45 70 C 70 85, 90 60, 80 30 C 70 15, 55 20, 50 30 Z",
+    flower: "M50 50 m -20 0 a 20 20 0 1 0 40 0 a 20 20 0 1 0 -40 0 M50 50 m 0 -20 a 20 20 0 1 0 0 40 a 20 20 0 1 0 0 -40 M50 50 m -14 -14 a 20 20 0 1 0 28 28 a 20 20 0 1 0 -28 -28 M50 50 m 14 -14 a 20 20 0 1 0 -28 28 a 20 20 0 1 0 28 -28"
   };
   
   const selectedShape = shapeData[variant] || shapeData.primary;

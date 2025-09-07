@@ -48,7 +48,6 @@ const Index = () => {
         {/* Background Elements */}
         <div className="absolute inset-0 gradient-radial"></div>
         <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl"></div>
-        <OrganicShape variant="primary" size="xl" position="bottom-left" className="opacity-15" />
         <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl"></div>
         
         <div className="container mx-auto px-8 relative z-10">
@@ -122,7 +121,8 @@ const Index = () => {
             </div>
 
             {/* Right Column - Quick Preview */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 relative">
+              <OrganicShape variant="flower" size="lg" position="bottom-right" className="opacity-20" />
               <div className="relative">
                 
                 {/* Main Floating Card */}
