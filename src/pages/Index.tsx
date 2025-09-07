@@ -122,8 +122,16 @@ const Index = () => {
 
             {/* Right Column - Quick Preview */}
             <div className="lg:col-span-5 relative">
-              <OrganicShape variant="flower" size="lg" position="bottom-right" className="opacity-20 right-20 bottom-16" />
-              <div className="relative">
+              {/* Shape Container - positioned to not interfere with content */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="relative w-full h-full">
+                  <div className="absolute bottom-0 right-0 w-80 h-80 overflow-hidden">
+                    <OrganicShape variant="flower" size="lg" position="center" className="opacity-20" />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="relative z-10">
                 
                 {/* Main Floating Card */}
                 <div className="bg-card/90 backdrop-blur-sm rounded-3xl p-8 shadow-dramatic hover-lift">
@@ -392,7 +400,12 @@ const Index = () => {
 
       {/* Testimonials Section */}
       <section className="py-32 bg-secondary relative">
-        <OrganicShape variant="accent" size="lg" position="top-left" className="opacity-10 left-20 top-16" />
+        {/* Shape Container - anchored to section */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-8 left-8 w-64 h-64">
+            <OrganicShape variant="accent" size="md" position="center" className="opacity-10" />
+          </div>
+        </div>
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
