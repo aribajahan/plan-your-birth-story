@@ -71,8 +71,9 @@ export const LiveBirthPlanCanvas = ({ birthPlan, completion, className }: LiveBi
   const completedSections = sections.filter(section => section.isComplete).length;
 
   const handleDownloadPDF = () => {
-    // Future implementation for PDF generation
-    console.log("Download PDF functionality to be implemented");
+    const { transformToPDFData, generateBirthPlanPDF } = require('@/utils/pdfGenerator');
+    const pdfData = transformToPDFData(birthPlan);
+    generateBirthPlanPDF(pdfData);
   };
 
   return (
@@ -161,14 +162,14 @@ export const LiveBirthPlanCanvas = ({ birthPlan, completion, className }: LiveBi
                     <p className="text-sm text-muted-foreground mb-2">
                       Your birth plan is taking shape! 
                     </p>
-                    <Button 
-                      onClick={handleDownloadPDF}
-                      className="text-xs"
-                      size="sm"
-                    >
-                      <Download className="w-3 h-3 mr-1" />
-                      Download as PDF
-                    </Button>
+          <Button 
+            onClick={handleDownloadPDF}
+            className="text-xs"
+            size="sm"
+          >
+            <Download className="w-3 h-3 mr-1" />
+            Download as PDF
+          </Button>
                   </div>
                 </CardContent>
               </Card>
