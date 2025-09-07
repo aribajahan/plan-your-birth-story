@@ -61,16 +61,17 @@ const Index = () => {
             {/* Left Column - 55% */}
             <div className="lg:col-span-7 space-y-8">
               {/* Headline */}
-              <h1 className="hero-title">
-                Birth Plans That Give You{" "}
+              <h1 className="font-bold" style={{ fontSize: '5rem', fontWeight: '800', color: 'hsl(var(--deep-black))' }}>
+                From{" "}
                 <span className="italic" style={{ color: 'hsl(var(--vibrant-coral))' }}>
-                  Hope & Power
+                  Uncertain to Confident
                 </span>
+                {" "}in 15 Minutes
               </h1>
               
               {/* Subtext */}
-              <p className="big-text max-w-2xl" style={{ color: 'hsl(var(--deep-black))' }}>
-                15 minutes to go from anxious to confident. Get the plan, the scripts, and the hope you deserve.
+              <p className="max-w-2xl" style={{ fontSize: '1.75rem', fontWeight: '500', color: 'hsl(var(--deep-black))' }}>
+                Get the birth plan, the exact scripts, and the confidence you need to advocate for yourself when it matters most.
               </p>
 
               {/* Trust Line */}
