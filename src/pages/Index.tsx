@@ -172,26 +172,26 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-32 bg-gradient-editorial relative">
+      <section className="py-32 bg-accent relative">
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
             {/* Section Header */}
             <div className="grid lg:grid-cols-3 gap-16 mb-24">
               <div className="lg:col-span-2">
-                <h2 className="text-editorial-subhead mb-8">
+                <h2 className="text-editorial-subhead mb-8 text-white">
                   Why families choose our 
-                  <span className="text-primary block">birth planning approach</span>
+                  <span className="text-white block">birth planning approach</span>
                 </h2>
-                <p className="text-editorial-large text-muted-foreground">
+                <p className="text-editorial-large text-white/80">
                   We combine professional expertise with warm, supportive guidance 
                   to help you navigate one of life's most important moments.
                 </p>
               </div>
               <div className="flex items-end">
-                <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 hover-lift">
-                  <div className="text-3xl font-bold text-primary mb-2">95%</div>
-                  <div className="text-sm text-muted-foreground">Feel more prepared for birth</div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift border border-white/20">
+                  <div className="text-3xl font-bold text-white mb-2">95%</div>
+                  <div className="text-sm text-white/70">Feel more prepared for birth</div>
                 </div>
               </div>
             </div>
@@ -200,13 +200,13 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-8">
               
               {/* Feature 1 */}
-              <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
+              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
                   <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center shadow-glow flex-shrink-0">
                     <MessageSquare className="w-10 h-10 text-primary-foreground" />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="text-editorial-large text-card-foreground">Guided Questions That Actually Help</h3>
+                    <h3 className="text-editorial-large text-foreground">Guided Questions That Actually Help</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
                       Our thoughtfully crafted questions help you explore your preferences 
                       without overwhelming medical jargon. We guide you through topics like 
@@ -222,13 +222,13 @@ const Index = () => {
               </div>
 
               {/* Feature 2 */}
-              <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
+              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-accent flex items-center justify-center shadow-glow flex-shrink-0">
-                    <Lightbulb className="w-10 h-10 text-accent-foreground" />
+                  <div className="w-20 h-20 rounded-3xl bg-secondary flex items-center justify-center shadow-glow flex-shrink-0">
+                    <Lightbulb className="w-10 h-10 text-secondary-foreground" />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="text-editorial-large text-card-foreground">Reality Checks</h3>
+                    <h3 className="text-editorial-large text-foreground">Reality Checks</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
                       Gentle, honest insights about what labor might really be like, 
                       so you can plan with realistic expectations. We share what many 
@@ -239,13 +239,13 @@ const Index = () => {
               </div>
 
               {/* Feature 3 */}
-              <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
+              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl bg-secondary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <Heart className="w-10 h-10 text-secondary-foreground" />
+                  <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center shadow-glow flex-shrink-0">
+                    <Heart className="w-10 h-10 text-primary-foreground" />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="text-editorial-large text-card-foreground">Professional Output</h3>
+                    <h3 className="text-editorial-large text-foreground">Professional Output</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
                       Generate a clean, professional birth plan that medical staff 
                       will respect and can quickly reference during your labor. No more 
@@ -256,14 +256,14 @@ const Index = () => {
               </div>
 
               {/* Feature 4 */}
-              <div className="bg-primary/5 backdrop-blur-sm rounded-3xl p-12 border border-primary/20 hover-lift">
+              <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-12 border border-white/30 hover-lift">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 h-20 rounded-3xl gradient-primary flex items-center justify-center shadow-glow flex-shrink-0">
-                    <Megaphone className="w-10 h-10 text-primary-foreground" />
+                  <div className="w-20 h-20 rounded-3xl bg-white flex items-center justify-center shadow-glow flex-shrink-0">
+                    <Megaphone className="w-10 h-10 text-accent" />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="text-editorial-large text-primary">Communication Confidence</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
+                    <h3 className="text-editorial-large text-white">Communication Confidence</h3>
+                    <p className="text-white/80 text-lg leading-relaxed">
                       Learn how to advocate for yourself and communicate with your medical team, 
                       even in challenging moments. We provide scripts and guidance for difficult conversations.
                     </p>
@@ -276,15 +276,15 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-32 relative">
+      <section className="py-32 bg-primary relative">
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
             <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8">
+              <h2 className="text-editorial-hero mb-8 text-white">
                 Two ways to create your plan
               </h2>
-              <p className="text-editorial-body max-w-3xl mx-auto">
+              <p className="text-editorial-body max-w-3xl mx-auto text-white/80">
                 Choose the approach that feels right for you. Both paths lead to the same professional birth plan.
               </p>
             </div>
@@ -292,14 +292,14 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-12">
               
               {/* Chat Approach */}
-              <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
+              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
                 <div className="space-y-8">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center">
-                      <MessageCircle className="w-8 h-8 text-primary-foreground" />
+                    <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center">
+                      <MessageCircle className="w-8 h-8 text-accent-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-display font-bold">Chat Through It</h3>
+                      <h3 className="text-2xl font-display font-bold text-foreground">Chat Through It</h3>
                       <p className="text-muted-foreground">Natural conversation approach</p>
                     </div>
                   </div>
@@ -311,20 +311,20 @@ const Index = () => {
                   
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Personalized follow-up questions</span>
+                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <span className="text-sm text-foreground">Personalized follow-up questions</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Real-time script generation</span>
+                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <span className="text-sm text-foreground">Real-time script generation</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Flexible, conversational flow</span>
+                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <span className="text-sm text-foreground">Flexible, conversational flow</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Perfect for processing complex feelings</span>
+                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <span className="text-sm text-foreground">Perfect for processing complex feelings</span>
                     </div>
                   </div>
                   
@@ -339,41 +339,41 @@ const Index = () => {
               </div>
 
               {/* Form Approach */}
-              <div className="bg-card rounded-3xl p-12 shadow-card hover-lift">
+              <div className="bg-white rounded-3xl p-12 shadow-card hover-lift">
                 <div className="space-y-8">
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center">
                       <FileText className="w-8 h-8 text-accent-foreground" />
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-display font-bold">Fill Out Forms</h3>
-                      <p className="text-muted-foreground">Structured step-by-step</p>
-                    </div>
-                  </div>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    Work through organized sections at your own pace. Each section includes guidance, 
-                    reality checks, and communication scripts tailored to your choices.
-                  </p>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
-                      <span className="text-sm">Clear progress tracking</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
-                      <span className="text-sm">Organized by topic</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
-                      <span className="text-sm">Save and return anytime</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
-                      <span className="text-sm">Great for methodical planners</span>
-                    </div>
-                  </div>
+                     <div>
+                       <h3 className="text-2xl font-display font-bold text-foreground">Fill Out Forms</h3>
+                       <p className="text-muted-foreground">Structured step-by-step</p>
+                     </div>
+                   </div>
+                   
+                   <p className="text-muted-foreground leading-relaxed">
+                     Work through organized sections at your own pace. Each section includes guidance, 
+                     reality checks, and communication scripts tailored to your choices.
+                   </p>
+                   
+                   <div className="space-y-3">
+                     <div className="flex items-center gap-3">
+                       <CheckCircle className="w-5 h-5 text-accent" />
+                       <span className="text-sm text-foreground">Clear progress tracking</span>
+                     </div>
+                     <div className="flex items-center gap-3">
+                       <CheckCircle className="w-5 h-5 text-accent" />
+                       <span className="text-sm text-foreground">Organized by topic</span>
+                     </div>
+                     <div className="flex items-center gap-3">
+                       <CheckCircle className="w-5 h-5 text-accent" />
+                       <span className="text-sm text-foreground">Save and return anytime</span>
+                     </div>
+                     <div className="flex items-center gap-3">
+                       <CheckCircle className="w-5 h-5 text-accent" />
+                       <span className="text-sm text-foreground">Great for methodical planners</span>
+                     </div>
+                   </div>
                   
                   <Button 
                     onClick={() => setMode('form')}
@@ -390,21 +390,21 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-32 bg-gradient-editorial">
+      <section className="py-32 bg-secondary">
         <div className="container mx-auto px-8">
           <div className="max-w-7xl mx-auto">
             
             <div className="text-center mb-20">
-              <h2 className="text-editorial-hero mb-8">
+              <h2 className="text-editorial-hero mb-8 text-white">
                 What families are saying
               </h2>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
               
-              <div className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+              <div className="bg-white rounded-3xl p-8 shadow-card hover-lift">
                 <div className="space-y-6">
-                  <Quote className="w-8 h-8 text-primary" />
+                  <Quote className="w-8 h-8 text-accent" />
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     "This made me feel so much more confident about advocating for myself. 
                     I wish every pregnant person had this tool."
@@ -412,15 +412,15 @@ const Index = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary/20"></div>
                     <div>
-                      <p className="font-semibold">Sarah M.</p>
+                      <p className="font-semibold text-foreground">Sarah M.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+              <div className="bg-white rounded-3xl p-8 shadow-card hover-lift">
                 <div className="space-y-6">
-                  <Quote className="w-8 h-8 text-primary" />
+                  <Quote className="w-8 h-8 text-accent" />
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     "Finally, a birth plan tool that doesn't make me feel like I'm just checking boxes. 
                     This actually helped me think through what I really wanted."
@@ -428,15 +428,15 @@ const Index = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-accent/20"></div>
                     <div>
-                      <p className="font-semibold">Jessica K.</p>
+                      <p className="font-semibold text-foreground">Jessica K.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+              <div className="bg-white rounded-3xl p-8 shadow-card hover-lift">
                 <div className="space-y-6">
-                  <Quote className="w-8 h-8 text-primary" />
+                  <Quote className="w-8 h-8 text-accent" />
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     "The communication scripts were game-changing. I felt prepared for 
                     conversations I didn't even know I needed to have."
@@ -444,7 +444,7 @@ const Index = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-secondary/20"></div>
                     <div>
-                      <p className="font-semibold">Maria L.</p>
+                      <p className="font-semibold text-foreground">Maria L.</p>
                     </div>
                   </div>
                 </div>
