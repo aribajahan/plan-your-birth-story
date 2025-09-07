@@ -121,7 +121,7 @@ const Index = () => {
       </section>
 
       {/* Why Asha Actually Works Section */}
-      <section className="py-20 relative" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
+      <section className="py-20 relative font-helvetica" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
         <div className="w-full">
           <div className="max-w-7xl mx-auto px-8">
             
@@ -131,8 +131,8 @@ const Index = () => {
               {/* Left: Large Illustration (40%) */}
               <div className="lg:col-span-2 flex justify-center">
                 <img 
-                  src={whyAshaWorksIllustration}
-                  alt="Empowered woman feeling confident about birth planning"
+                  src="/lovable-uploads/51033687-6d82-4ab4-901b-99836103578f.png"
+                  alt="Creative woman painting while pregnant - representing personalized birth planning"
                   className="w-full h-auto max-w-lg rounded-2xl shadow-dramatic"
                 />
               </div>

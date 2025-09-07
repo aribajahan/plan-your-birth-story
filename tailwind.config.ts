@@ -22,6 +22,7 @@ export default {
 				'display': ['Inter', 'sans-serif'],
 				'body': ['Inter', 'sans-serif'],
 				'brand': ['Crimson Text', 'serif'],
+				'helvetica': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
