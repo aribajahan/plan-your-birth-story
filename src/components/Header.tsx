@@ -32,14 +32,14 @@ export const Header = ({ onGetStarted }: HeaderProps) => {
           {/* Navigation Links */}
           <nav className="flex items-center gap-8">
             <a 
-              href="#" 
+              href="/" 
               className="font-medium hover:text-vibrant-coral transition-colors duration-300"
               style={{ color: 'hsl(var(--deep-black))' }}
             >
               Asha Birth Plans
             </a>
             <a 
-              href="#" 
+              href="/resources" 
               className="font-medium hover:text-vibrant-coral transition-colors duration-300"
               style={{ color: 'hsl(var(--deep-black))' }}
             >
