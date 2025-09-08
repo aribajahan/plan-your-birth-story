@@ -46,11 +46,11 @@ export const Header = ({ onGetStarted }: HeaderProps) => {
               Resources
             </a>
             <a 
-              href="#" 
+              href="/how-it-works" 
               className="font-medium hover:text-vibrant-coral transition-colors duration-300"
               style={{ color: 'hsl(var(--deep-black))' }}
             >
-              About
+              How It Works
             </a>
           </nav>
 
