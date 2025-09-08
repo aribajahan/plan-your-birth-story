@@ -56,7 +56,7 @@ const HowItWorks = () => {
               color: colors.deepBlack
             }}
           >
-            Five Simple Steps
+            Three Simple Steps
           </h2>
           
           <div className="grid lg:grid-cols-5 gap-12 items-center">
@@ -64,24 +64,16 @@ const HowItWorks = () => {
             <div className="lg:col-span-3 space-y-12">
               {[
                 {
-                  step: "Step 1: Choose Your Path",
-                  description: "Pick conversation or forms - both lead to the same place."
+                  step: "Step 1: Share Your Preferences",
+                  description: "Tell us about your hopes, concerns, and values around birth through conversation or forms."
                 },
                 {
-                  step: "Step 2: Share What Matters",
-                  description: "We'll ask about your hopes, concerns, and values around birth."
-                },
-                {
-                  step: "Step 3: Get Real About Scenarios",
+                  step: "Step 2: Prepare for Scenarios",
                   description: "Gentle preparation for different possibilities, so you're ready for whatever comes."
                 },
                 {
-                  step: "Step 4: Practice Communication",
-                  description: "Learn exactly what to say to medical staff in different situations."
-                },
-                {
-                  step: "Step 5: Get Your Plan",
-                  description: "Receive a clear document plus scripts for your medical team."
+                  step: "Step 3: Get Your Plan & Scripts",
+                  description: "Receive a clear document plus communication scripts for your medical team."
                 }
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-4">
@@ -157,27 +149,21 @@ const HowItWorks = () => {
             <div className="lg:col-span-3 space-y-8">
               {[
                 {
-                  title: "Your Personal Birth Plan",
+                  title: "Your Birth Plan Document",
                   items: [
                     "Clear preferences organized by topic",
                     "Professional format hospitals understand",
-                    "Easy to share with your medical team"
+                    "Easy to share with your medical team",
+                    "Preparation for different birth possibilities"
                   ]
                 },
                 {
-                  title: "Communication Scripts",
+                  title: "Communication Scripts & Confidence",
                   items: [
                     "Exact phrases for common situations",
                     "Questions to ask when decisions need to be made",
-                    "Language for your partner to use when advocating"
-                  ]
-                },
-                {
-                  title: "Confidence for Any Scenario",
-                  items: [
-                    "Preparation for different birth possibilities",
-                    "Tools to communicate when plans change",
-                    "Guidance for unexpected situations"
+                    "Language for your partner to use when advocating",
+                    "Tools to communicate when plans change"
                   ]
                 }
               ].map((section, index) => (
@@ -200,70 +186,6 @@ const HowItWorks = () => {
         </div>
       </SectionContainer>
 
-      {/* Sample Plan Preview Section - Cream */}
-      <SectionContainer 
-        backgroundColor={colors.creamBase} 
-        condesa={true}
-        innerPadding="xl"
-      >
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 
-            className={`${typography.heading.sizes.lg} font-bold mb-8`}
-            style={{ 
-              fontFamily: typography.heading.fontFamily,
-              color: colors.deepBlack
-            }}
-          >
-            See What Your Plan Looks Like
-          </h2>
-          
-          <p 
-            className={`${typography.body.sizes.lg} mb-12 max-w-3xl mx-auto`}
-            style={{ color: colors.deepBlack }}
-          >
-            Here's an example of how Asha organizes your preferences into a clear, 
-            professional birth plan that medical teams actually use.
-          </p>
-
-          {/* Mockup preview area */}
-          <div 
-            className="w-full max-w-2xl mx-auto h-96 rounded-2xl flex items-center justify-center border-2 border-dashed mb-12"
-            style={{ 
-              borderColor: colors.deepBlack,
-              backgroundColor: 'rgba(255, 255, 255, 0.5)'
-            }}
-          >
-            <div className="text-center p-8">
-              <FileText 
-                className="w-16 h-16 mx-auto mb-4"
-                style={{ color: colors.deepBlack }}
-              />
-              <p 
-                className="text-lg font-medium"
-                style={{ color: colors.deepBlack }}
-              >
-                Birth Plan Document Preview
-              </p>
-              <p 
-                className="text-sm mt-2"
-                style={{ color: colors.deepBlack }}
-              >
-                Visual mockup of a completed birth plan
-              </p>
-            </div>
-          </div>
-
-          <Button 
-            className="font-bold px-12 py-6 rounded-full text-lg hover:scale-105 transition-transform duration-300"
-            style={{ 
-              backgroundColor: colors.richBlue,
-              color: colors.white
-            }}
-          >
-            See Full Example Plan
-          </Button>
-        </div>
-      </SectionContainer>
 
       {/* Ready to Start CTA Section - Coral */}
       <SectionContainer 
