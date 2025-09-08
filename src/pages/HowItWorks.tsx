@@ -101,8 +101,8 @@ const HowItWorks = () => {
             {/* Right side - Illustration space (40% on desktop) */}
             <div className="lg:col-span-2 flex items-center justify-center">
               <img 
-                src="/lovable-uploads/277d7049-7e3e-43f7-9207-63a1c6a6c4b2.png" 
-                alt="Healthcare provider consulting with pregnant woman illustration" 
+                src="/lovable-uploads/f08a2f44-fca5-4195-b619-30ad0204d382.png" 
+                alt="Woman working on laptop at desk illustration" 
                 className="w-full max-w-md h-auto rounded-2xl"
               />
             </div>
@@ -200,7 +200,7 @@ const HowItWorks = () => {
             Most people finish in about 15 minutes.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex justify-center">
             <Button 
               onClick={handleGetStarted}
               className={`${typography.body.sizes.lg} font-bold px-16 py-8 rounded-full hover:scale-105 transition-transform duration-300`}
@@ -211,13 +211,6 @@ const HowItWorks = () => {
             >
               Create My Birth Plan
               <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            
-            <Button 
-              variant="outline"
-              className={`${typography.body.sizes.lg} font-bold px-12 py-8 rounded-full border-2 border-white text-white hover:bg-white hover:text-coral-500 transition-all duration-300`}
-            >
-              See Example Plan
             </Button>
           </div>
         </div>
