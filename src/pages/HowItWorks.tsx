@@ -63,15 +63,15 @@ const HowItWorks = () => {
             <div className="lg:col-span-3 space-y-12">
               {[
                 {
-                  step: "Step 1: Share Your Preferences",
+                  step: "Share Your Preferences",
                   description: "Tell us about your hopes, concerns, and values around birth through conversation or forms."
                 },
                 {
-                  step: "Step 2: Prepare for Scenarios",
+                  step: "Prepare for Scenarios",
                   description: "Gentle preparation for different possibilities, so you're ready for whatever comes."
                 },
                 {
-                  step: "Step 3: Get Your Plan & Scripts",
+                  step: "Get Your Plan & Scripts",
                   description: "Receive a clear document plus communication scripts for your medical team."
                 }
               ].map((item, index) => (
