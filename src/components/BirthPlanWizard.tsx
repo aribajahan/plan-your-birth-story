@@ -18,16 +18,22 @@ export interface BirthPlanData {
     positions: string[];
     mobility: string;
     atmosphere: string;
+    customRequests?: string;
   };
   painManagement: {
     approach: string;
     specificPreferences: string[];
     backupPlan: string;
+    specificDetails?: string;
   };
   supportTeam: {
     primarySupport: string;
+    primarySupportName: string;
+    primarySupportContact: string;
     additionalSupport: string[];
+    additionalSupportDetails: { type: string; name: string; contact?: string }[];
     communicationStyle: string;
+    specialInstructions: string;
   };
 }
 
@@ -46,16 +52,22 @@ export const BirthPlanWizard = ({ onBack, onSwitchToChat }: BirthPlanWizardProps
       positions: [],
       mobility: '',
       atmosphere: '',
+      customRequests: '',
     },
     painManagement: {
       approach: '',
       specificPreferences: [],
       backupPlan: '',
+      specificDetails: '',
     },
     supportTeam: {
       primarySupport: '',
+      primarySupportName: '',
+      primarySupportContact: '',
       additionalSupport: [],
+      additionalSupportDetails: [],
       communicationStyle: '',
+      specialInstructions: '',
     },
   });
 

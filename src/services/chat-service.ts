@@ -75,58 +75,136 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
 
   static updateUserPreferences(message: string): Partial<UserPreferences> {
     const updates: Partial<UserPreferences> = {};
+    const lowerMessage = message.toLowerCase();
     
-    // Detect communication style preference
-    if (message.includes('detail') || message.includes('explain') || message.includes('more information')) {
+    // Enhanced communication style detection
+    if (lowerMessage.includes('detail') || lowerMessage.includes('explain') || lowerMessage.includes('more information') || 
+        lowerMessage.includes('tell me everything') || lowerMessage.includes('want to know') || lowerMessage.includes('understand')) {
       updates.communicationStyle = 'detailed';
-    } else if (message.includes('quick') || message.includes('simple') || message.includes('brief')) {
+    } else if (lowerMessage.includes('quick') || lowerMessage.includes('simple') || lowerMessage.includes('brief') || 
+               lowerMessage.includes('straight forward') || lowerMessage.includes('direct') || lowerMessage.includes('just tell me')) {
       updates.communicationStyle = 'direct';
-    } else if (message.includes('gentle') || message.includes('support') || message.includes('scared')) {
+    } else if (lowerMessage.includes('gentle') || lowerMessage.includes('nervous') || lowerMessage.includes('scared') ||
+               lowerMessage.includes('anxious') || lowerMessage.includes('worried') || lowerMessage.includes('reassuring')) {
       updates.communicationStyle = 'gentle';
     }
 
-    // Detect pain management preferences
-    if (message.includes('natural') || message.includes('no medication') || message.includes('unmedicated')) {
+    // Enhanced pain management detection
+    if (lowerMessage.includes('natural') || lowerMessage.includes('no medication') || lowerMessage.includes('unmedicated') ||
+        lowerMessage.includes('drug-free') || lowerMessage.includes('without drugs') || lowerMessage.includes('breathing') ||
+        lowerMessage.includes('hypnobirthing') || lowerMessage.includes('water birth')) {
       updates.painManagementApproach = 'natural';
-    } else if (message.includes('epidural') || message.includes('medication') || message.includes('pain relief')) {
+    } else if (lowerMessage.includes('epidural') || lowerMessage.includes('medication') || lowerMessage.includes('pain relief') ||
+               lowerMessage.includes('drugs') || lowerMessage.includes('medical') || lowerMessage.includes('anesthesia')) {
       updates.painManagementApproach = 'medical';
-    } else if (message.includes('flexible') || message.includes('open to both') || message.includes('see how it goes')) {
+    } else if (lowerMessage.includes('flexible') || lowerMessage.includes('open to both') || lowerMessage.includes('see how it goes') ||
+               lowerMessage.includes('decide later') || lowerMessage.includes('keep options open') || lowerMessage.includes('maybe')) {
       updates.painManagementApproach = 'flexible';
     }
 
-    // Detect environment preferences
-    if (message.includes('quiet') || message.includes('peaceful') || message.includes('calm')) {
+    // Enhanced environment detection
+    if (lowerMessage.includes('quiet') || lowerMessage.includes('peaceful') || lowerMessage.includes('calm') ||
+        lowerMessage.includes('dim lights') || lowerMessage.includes('soft music') || lowerMessage.includes('private') ||
+        lowerMessage.includes('minimal noise')) {
       updates.environmentStyle = 'quiet';
-    } else if (message.includes('active') || message.includes('energy') || message.includes('people around')) {
+    } else if (lowerMessage.includes('active') || lowerMessage.includes('energy') || lowerMessage.includes('people around') ||
+               lowerMessage.includes('music') || lowerMessage.includes('talking') || lowerMessage.includes('social')) {
       updates.environmentStyle = 'lively';
     }
 
-    // Detect experience level
-    if (message.includes('first baby') || message.includes('first time') || message.includes('never done this')) {
+    // Enhanced experience detection
+    if (lowerMessage.includes('first baby') || lowerMessage.includes('first time') || lowerMessage.includes('never done this') ||
+        lowerMessage.includes('first child') || lowerMessage.includes('new to this') || lowerMessage.includes('don\'t know what to expect')) {
       updates.previousExperience = 'first-time';
-    } else if (message.includes('had babies before') || message.includes('not my first') || message.includes('experienced')) {
+    } else if (lowerMessage.includes('had babies before') || lowerMessage.includes('not my first') || lowerMessage.includes('experienced') ||
+               lowerMessage.includes('second baby') || lowerMessage.includes('third') || lowerMessage.includes('previous birth') ||
+               lowerMessage.includes('last time')) {
       updates.previousExperience = 'experienced';
     }
 
-    // Detect birth location
-    if (message.includes('hospital')) {
+    // Enhanced location detection
+    if (lowerMessage.includes('hospital')) {
       updates.birthLocation = 'hospital';
-    } else if (message.includes('birthing center') || message.includes('birth center')) {
+    } else if (lowerMessage.includes('birthing center') || lowerMessage.includes('birth center') || lowerMessage.includes('midwifery')) {
       updates.birthLocation = 'birthing-center';
-    } else if (message.includes('home birth') || message.includes('at home')) {
+    } else if (lowerMessage.includes('home birth') || lowerMessage.includes('at home') || lowerMessage.includes('my house')) {
       updates.birthLocation = 'home';
     }
 
-    // Detect support needs
-    if (message.includes('minimal') || message.includes('leave me alone') || message.includes('quiet support')) {
+    // Enhanced support needs detection
+    if (lowerMessage.includes('minimal') || lowerMessage.includes('leave me alone') || lowerMessage.includes('quiet support') ||
+        lowerMessage.includes('space') || lowerMessage.includes('privacy') || lowerMessage.includes('don\'t need much')) {
       updates.supportNeeds = 'minimal';
-    } else if (message.includes('lots of support') || message.includes('need help') || message.includes('check on me')) {
+    } else if (lowerMessage.includes('lots of support') || lowerMessage.includes('need help') || lowerMessage.includes('check on me') ||
+               lowerMessage.includes('frequent') || lowerMessage.includes('active support') || lowerMessage.includes('close attention')) {
       updates.supportNeeds = 'extensive';
-    } else if (message.includes('moderate') || message.includes('balanced') || message.includes('when needed')) {
+    } else if (lowerMessage.includes('moderate') || lowerMessage.includes('balanced') || lowerMessage.includes('when needed') ||
+               lowerMessage.includes('some support') || lowerMessage.includes('reasonable amount')) {
       updates.supportNeeds = 'moderate';
     }
 
     return updates;
+  }
+
+  // Enhanced method to extract specific details from user messages
+  static extractSpecificDetails(message: string): {
+    names?: string[];
+    preferences?: string[];
+    concerns?: string[];
+    requests?: string[];
+  } {
+    const details: any = {};
+    const lowerMessage = message.toLowerCase();
+
+    // Extract names (looking for patterns like "my partner John" or "Jane will be there")
+    const namePatterns = [
+      /(?:my |the |with )?(?:partner|husband|wife|mom|mother|dad|father|sister|brother|friend|doula) (?:is |named |called )?([A-Z][a-z]+)/gi,
+      /([A-Z][a-z]+) (?:will be|is my|is the)/gi,
+      /called ([A-Z][a-z]+)/gi
+    ];
+    
+    const extractedNames: string[] = [];
+    namePatterns.forEach(pattern => {
+      const matches = message.matchAll(pattern);
+      for (const match of matches) {
+        if (match[1] && !extractedNames.includes(match[1])) {
+          extractedNames.push(match[1]);
+        }
+      }
+    });
+    
+    if (extractedNames.length > 0) {
+      details.names = extractedNames;
+    }
+
+    // Extract specific preferences
+    const preferencePatterns = [
+      /I (?:want|prefer|would like|need) to ([^.!?]+)/gi,
+      /I don't want ([^.!?]+)/gi,
+      /Please (?:don't |avoid )?([^.!?]+)/gi
+    ];
+
+    const extractedPreferences: string[] = [];
+    preferencePatterns.forEach(pattern => {
+      const matches = message.matchAll(pattern);
+      for (const match of matches) {
+        if (match[1] && !extractedPreferences.includes(match[1].trim())) {
+          extractedPreferences.push(match[1].trim());
+        }
+      }
+    });
+
+    if (extractedPreferences.length > 0) {
+      details.preferences = extractedPreferences;
+    }
+
+    // Extract concerns or worries
+    if (lowerMessage.includes('worried') || lowerMessage.includes('concerned') || lowerMessage.includes('afraid') || 
+        lowerMessage.includes('nervous') || lowerMessage.includes('scared')) {
+      details.concerns = [message]; // Store the full message as context
+    }
+
+    return details;
   }
 
   static updateDiscussedTopics(message: string): Partial<DiscussedTopics> {

@@ -73,16 +73,22 @@ export const ChatBirthPlan = ({ onBack, onSwitchToForm }: ChatBirthPlanProps) =>
       positions: [],
       mobility: '',
       atmosphere: '',
+      customRequests: '',
     },
     painManagement: {
       approach: '',
       specificPreferences: [],
       backupPlan: '',
+      specificDetails: '',
     },
     supportTeam: {
       primarySupport: '',
+      primarySupportName: '',
+      primarySupportContact: '',
       additionalSupport: [],
+      additionalSupportDetails: [],
       communicationStyle: '',
+      specialInstructions: '',
     },
   });
   const [conversationPhase, setConversationPhase] = useState<'introduction' | 'labor' | 'pain' | 'support' | 'scripts' | 'complete'>('introduction');

@@ -204,6 +204,14 @@ export const SummaryStep = ({ data }: SummaryStepProps) => {
                     <span className="text-muted-foreground">{data.laborPreferences.atmosphere}</span>
                   </div>
                 )}
+                {data.laborPreferences.customRequests && (
+                  <div>
+                    <span className="font-medium text-card-foreground">Additional Requests: </span>
+                    <div className="text-muted-foreground mt-1 italic">
+                      "{data.laborPreferences.customRequests}"
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -230,6 +238,14 @@ export const SummaryStep = ({ data }: SummaryStepProps) => {
                     <span className="text-muted-foreground">{data.painManagement.backupPlan}</span>
                   </div>
                 )}
+                {data.painManagement.specificDetails && (
+                  <div>
+                    <span className="font-medium text-card-foreground">Additional Details: </span>
+                    <div className="text-muted-foreground mt-1 italic">
+                      "{data.painManagement.specificDetails}"
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -240,20 +256,60 @@ export const SummaryStep = ({ data }: SummaryStepProps) => {
                 Support Team
               </h3>
               <div className="space-y-3 ml-5">
-                <div>
-                  <span className="font-medium text-card-foreground">Primary Support: </span>
-                  <span className="text-muted-foreground capitalize">{data.supportTeam.primarySupport || 'Not specified'}</span>
-                </div>
-                {data.supportTeam.additionalSupport.length > 0 && (
+                {/* Primary Support */}
+                {data.supportTeam.primarySupport && (
                   <div>
-                    <span className="font-medium text-card-foreground">Additional Support: </span>
+                    <span className="font-medium text-card-foreground">Primary Support Person: </span>
+                    <span className="text-muted-foreground">
+                      {data.supportTeam.primarySupportName ? 
+                        `${data.supportTeam.primarySupportName} (${data.supportTeam.primarySupport})` :
+                        data.supportTeam.primarySupport
+                      }
+                      {data.supportTeam.primarySupportContact && 
+                        ` • ${data.supportTeam.primarySupportContact}`
+                      }
+                    </span>
+                  </div>
+                )}
+
+                {/* Additional Support with Names */}
+                {data.supportTeam.additionalSupportDetails.length > 0 && (
+                  <div>
+                    <span className="font-medium text-card-foreground">Additional Support Team: </span>
+                    <div className="ml-4 mt-1 space-y-1">
+                      {data.supportTeam.additionalSupportDetails.map((person, index) => (
+                        <div key={index} className="text-muted-foreground">
+                          • {person.name} ({person.type})
+                          {person.contact && ` • ${person.contact}`}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Fallback Additional Support (legacy) */}
+                {data.supportTeam.additionalSupport.length > 0 && data.supportTeam.additionalSupportDetails.length === 0 && (
+                  <div>
+                    <span className="font-medium text-card-foreground">Additional Support Types: </span>
                     <span className="text-muted-foreground">{data.supportTeam.additionalSupport.join(', ')}</span>
                   </div>
                 )}
+
+                {/* Communication Style */}
                 {data.supportTeam.communicationStyle && (
                   <div>
-                    <span className="font-medium text-card-foreground">Communication Style: </span>
+                    <span className="font-medium text-card-foreground">Preferred Communication: </span>
                     <span className="text-muted-foreground capitalize">{data.supportTeam.communicationStyle}</span>
+                  </div>
+                )}
+
+                {/* Special Instructions */}
+                {data.supportTeam.specialInstructions && (
+                  <div>
+                    <span className="font-medium text-card-foreground">Special Instructions: </span>
+                    <div className="text-muted-foreground mt-1 italic">
+                      "{data.supportTeam.specialInstructions}"
+                    </div>
                   </div>
                 )}
               </div>
