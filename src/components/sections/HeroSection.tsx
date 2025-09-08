@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
   return (
-    <SectionContainer backgroundColor={colors.creamBase} fullBleed={true}>
+    <SectionContainer backgroundColor={colors.creamBase} condesa={true}>
       
       {/* Single Column Centered Layout */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center">

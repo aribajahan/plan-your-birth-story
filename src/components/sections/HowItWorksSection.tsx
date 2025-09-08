@@ -10,7 +10,7 @@ interface HowItWorksSectionProps {
 
 export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectionProps) => {
   return (
-    <SectionContainer backgroundColor={colors.richBlue} fullBleed={true}>
+    <SectionContainer backgroundColor={colors.richBlue} condesa={true}>
       
       {/* Clean centered layout */}
       <div className="text-center mb-12">

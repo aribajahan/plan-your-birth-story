@@ -5,7 +5,7 @@ import { colors, typography } from "@/styles/design-tokens";
 
 export const TestimonialsSection = () => {
   return (
-    <SectionContainer backgroundColor={colors.creamBase} fullBleed={true}>
+    <SectionContainer backgroundColor={colors.creamBase} condesa={true}>
           
         {/* Asymmetrical testimonials layout */}
         <div className="space-y-16">

@@ -8,7 +8,7 @@ export const FAQSection = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <SectionContainer backgroundColor={colors.faqBlack} fullBleed={true}>
+    <SectionContainer backgroundColor={colors.faqBlack} condesa={true}>
       <h2 
         className={`${typography.heading.sizes.lg} font-bold mb-16 text-center`}
         style={{ 

@@ -5,7 +5,7 @@ import type { CTAProps } from "@/types/shared";
 
 export const FinalCTASection = ({ onGetStarted }: CTAProps) => {
   return (
-    <SectionContainer backgroundColor={colors.vibrantCoral} fullBleed={true}>
+    <SectionContainer backgroundColor={colors.vibrantCoral} condesa={true}>
       <div className="text-center">
         
         {/* Bold asymmetrical CTA with enhanced typography */}

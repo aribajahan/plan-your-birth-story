@@ -3,7 +3,7 @@ import { colors, typography } from "@/styles/design-tokens";
 
 export const WhyAshaWorksSection = () => {
   return (
-    <SectionContainer backgroundColor={colors.boldYellow} fullBleed={true}>
+    <SectionContainer backgroundColor={colors.boldYellow} condesa={true}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
           {/* Text Content */}

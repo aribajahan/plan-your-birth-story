@@ -6,6 +6,7 @@ interface SectionContainerProps {
   className?: string;
   backgroundColor?: string;
   fullBleed?: boolean;
+  condesa?: boolean;
   innerPadding?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
@@ -21,8 +22,24 @@ export const SectionContainer = ({
   className,
   backgroundColor = 'hsl(var(--cream-base))',
   fullBleed = false,
+  condesa = false,
   innerPadding = 'lg'
 }: SectionContainerProps) => {
+  if (condesa) {
+    return (
+      <section className={cn('py-4 lg:py-6', className)}>
+        <div 
+          className={cn('w-[90vw] lg:w-[95vw] max-w-[1400px] mx-auto rounded-2xl lg:rounded-3xl', paddingClasses[innerPadding], 'px-6 lg:px-16')}
+          style={{ backgroundColor }}
+        >
+          <div className="max-w-[1200px] mx-auto">
+            {children}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   if (fullBleed) {
     return (
       <section 
