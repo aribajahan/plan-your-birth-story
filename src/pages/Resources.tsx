@@ -2,8 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { SectionContainer } from "@/components/ui/section-container";
+import { ResourceCard } from "@/components/ui/resource-card";
 import { colors, typography } from "@/styles/design-tokens";
 import { useAppMode } from "@/hooks/useAppMode";
+import { 
+  BookOpen, 
+  Users, 
+  Heart, 
+  Phone, 
+  Shield, 
+  Lightbulb,
+  UserCheck,
+  GraduationCap,
+  Stethoscope,
+  MessageCircle,
+  AlertTriangle,
+  Headphones
+} from "lucide-react";
 
 const Resources = () => {
   const { goToChat } = useAppMode();
@@ -44,10 +59,10 @@ const Resources = () => {
           </h2>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="space-y-12">
           <div>
             <h3 
-              className={`${typography.heading.sizes.sm} font-bold mb-6`}
+              className={`${typography.heading.sizes.sm} font-bold mb-8 text-center`}
               style={{ 
                 fontFamily: typography.heading.fontFamily,
                 color: colors.deepBlack
@@ -55,31 +70,31 @@ const Resources = () => {
             >
               Evidence-Based Information
             </h3>
-            <div 
-              className={`space-y-4 ${typography.body.sizes.md}`}
-              style={{ 
-                fontFamily: typography.body.fontFamily,
-                color: colors.deepBlack
-              }}
-            >
-              <div>
-                <a href="https://evidencebasedbirth.com" target="_blank" rel="noopener" className="font-bold hover:underline">Evidence Based Birth</a>
-                <span> - Research made accessible</span>
-              </div>
-              <div>
-                <a href="https://www.acog.org/womens-health" target="_blank" rel="noopener" className="font-bold hover:underline">ACOG Patient Resources</a>
-                <span> - Official guidance, simplified</span>
-              </div>
-              <div>
-                <a href="https://www.nationalpartnership.org/our-work/health/maternity/" target="_blank" rel="noopener" className="font-bold hover:underline">Childbirth Connection</a>
-                <span> - Research on maternity care</span>
-              </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <ResourceCard
+                title="Evidence Based Birth"
+                description="Research made accessible with clear, evidence-based guidance for informed decision making"
+                href="https://evidencebasedbirth.com"
+                icon={<BookOpen className="w-5 h-5 text-primary" />}
+              />
+              <ResourceCard
+                title="ACOG Patient Resources"
+                description="Official guidance from the American College of Obstetricians and Gynecologists, simplified for patients"
+                href="https://www.acog.org/womens-health"
+                icon={<Shield className="w-5 h-5 text-primary" />}
+              />
+              <ResourceCard
+                title="Childbirth Connection"
+                description="Research on maternity care quality and evidence-based practices"
+                href="https://www.nationalpartnership.org/our-work/health/maternity/"
+                icon={<Heart className="w-5 h-5 text-primary" />}
+              />
             </div>
           </div>
           
           <div>
             <h3 
-              className={`${typography.heading.sizes.sm} font-bold mb-6`}
+              className={`${typography.heading.sizes.sm} font-bold mb-8 text-center`}
               style={{ 
                 fontFamily: typography.heading.fontFamily,
                 color: colors.deepBlack
@@ -87,18 +102,28 @@ const Resources = () => {
             >
               Understanding Your Options
             </h3>
-            <ul 
-              className={`space-y-3 ${typography.body.sizes.md}`}
-              style={{ 
-                fontFamily: typography.body.fontFamily,
-                color: colors.deepBlack
-              }}
-            >
-              <li>• Pain management choices explained simply</li>
-              <li>• Hospital vs. birth center vs. home birth</li>
-              <li>• Common interventions and when they're used</li>
-              <li>• Your rights during labor and delivery</li>
-            </ul>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <ResourceCard
+                title="Pain Management"
+                description="Choices explained simply - from natural techniques to medical interventions"
+                icon={<Lightbulb className="w-5 h-5 text-primary" />}
+              />
+              <ResourceCard
+                title="Birth Settings"
+                description="Hospital vs. birth center vs. home birth - what works for you"
+                icon={<Heart className="w-5 h-5 text-primary" />}
+              />
+              <ResourceCard
+                title="Common Interventions"
+                description="When they're used and what to expect during labor and delivery"
+                icon={<Stethoscope className="w-5 h-5 text-primary" />}
+              />
+              <ResourceCard
+                title="Your Rights"
+                description="Understanding your rights and choices during labor and delivery"
+                icon={<Shield className="w-5 h-5 text-primary" />}
+              />
+            </div>
           </div>
         </div>
       </SectionContainer>
@@ -114,67 +139,104 @@ const Resources = () => {
           </h2>
         </div>
         
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="space-y-12">
           <div>
             <h3 
-              className={`${typography.heading.sizes.sm} font-bold mb-6 text-white`}
+              className={`${typography.heading.sizes.sm} font-bold mb-8 text-white text-center`}
               style={{ fontFamily: typography.heading.fontFamily }}
             >
               Doulas & Birth Support
             </h3>
-            <div 
-              className={`space-y-4 ${typography.body.sizes.md} text-white`}
-              style={{ fontFamily: typography.body.fontFamily }}
-            >
-              <div>
-                <a href="https://www.dona.org/what-is-a-doula/find-a-doula/" target="_blank" rel="noopener" className="font-bold hover:underline">DONA International</a>
-                <span> - Find certified doulas</span>
-              </div>
-              <div>• Questions to ask when interviewing doulas</div>
-              <div>• What doulas do (and don't do)</div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <ResourceCard
+                title="DONA International"
+                description="Find certified doulas in your area with comprehensive directory and certification standards"
+                href="https://www.dona.org/what-is-a-doula/find-a-doula/"
+                icon={<UserCheck className="w-5 h-5 text-white" />}
+                variant="default"
+                className="bg-white/10 backdrop-blur-sm border border-white/20"
+              />
+              <ResourceCard
+                title="Interview Questions"
+                description="Essential questions to ask when interviewing potential doulas for your birth team"
+                icon={<MessageCircle className="w-5 h-5 text-white" />}
+                variant="default"
+                className="bg-white/10 backdrop-blur-sm border border-white/20"
+              />
+              <ResourceCard
+                title="Doula Roles"
+                description="Understanding what doulas do and don't do to set proper expectations"
+                icon={<Heart className="w-5 h-5 text-white" />}
+                variant="default"
+                className="bg-white/10 backdrop-blur-sm border border-white/20"
+              />
             </div>
           </div>
           
           <div>
             <h3 
-              className={`${typography.heading.sizes.sm} font-bold mb-6 text-white`}
+              className={`${typography.heading.sizes.sm} font-bold mb-8 text-white text-center`}
               style={{ fontFamily: typography.heading.fontFamily }}
             >
               Childbirth Education
             </h3>
-            <div 
-              className={`space-y-4 ${typography.body.sizes.md} text-white`}
-              style={{ fontFamily: typography.body.fontFamily }}
-            >
-              <div>
-                <a href="https://www.lamaze.org/FindAClass" target="_blank" rel="noopener" className="font-bold hover:underline">Lamaze Classes</a>
-                <span> - Evidence-based preparation</span>
-              </div>
-              <div>
-                <a href="https://www.bradleybirth.com/Directory.aspx" target="_blank" rel="noopener" className="font-bold hover:underline">Bradley Method</a>
-                <span> - Natural childbirth focus</span>
-              </div>
-              <div>• Hospital classes vs. independent instructors</div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <ResourceCard
+                title="Lamaze Classes"
+                description="Evidence-based preparation focusing on natural birth and informed decision making"
+                href="https://www.lamaze.org/FindAClass"
+                icon={<GraduationCap className="w-5 h-5 text-white" />}
+                variant="default"
+                className="bg-white/10 backdrop-blur-sm border border-white/20"
+              />
+              <ResourceCard
+                title="Bradley Method"
+                description="Natural childbirth focus with partner-coached breathing and relaxation techniques"
+                href="https://www.bradleybirth.com/Directory.aspx"
+                icon={<Users className="w-5 h-5 text-white" />}
+                variant="default"
+                className="bg-white/10 backdrop-blur-sm border border-white/20"
+              />
+              <ResourceCard
+                title="Class Options"
+                description="Hospital classes vs. independent instructors - what's best for your learning style"
+                icon={<BookOpen className="w-5 h-5 text-white" />}
+                variant="default"
+                className="bg-white/10 backdrop-blur-sm border border-white/20"
+              />
             </div>
           </div>
           
           <div>
             <h3 
-              className={`${typography.heading.sizes.sm} font-bold mb-6 text-white`}
+              className={`${typography.heading.sizes.sm} font-bold mb-8 text-white text-center`}
               style={{ fontFamily: typography.heading.fontFamily }}
             >
               Healthcare Providers
             </h3>
-            <div 
-              className={`space-y-4 ${typography.body.sizes.md} text-white`}
-              style={{ fontFamily: typography.body.fontFamily }}
-            >
-              <div>
-                <a href="https://www.midwife.org/find-a-midwife" target="_blank" rel="noopener" className="font-bold hover:underline">Find a Midwife</a>
-                <span> - Certified nurse-midwives</span>
-              </div>
-              <div>• Questions to ask potential providers</div>
-              <div>• When to consider switching providers</div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <ResourceCard
+                title="Find a Midwife"
+                description="Directory of certified nurse-midwives and their practice locations"
+                href="https://www.midwife.org/find-a-midwife"
+                icon={<Stethoscope className="w-5 h-5 text-white" />}
+                variant="default"
+                className="bg-white/10 backdrop-blur-sm border border-white/20"
+              />
+              <ResourceCard
+                title="Provider Questions"
+                description="Important questions to ask when choosing your healthcare provider"
+                icon={<MessageCircle className="w-5 h-5 text-white" />}
+                variant="default"
+                className="bg-white/10 backdrop-blur-sm border border-white/20"
+              />
+              <ResourceCard
+                title="Switching Providers"
+                description="When and how to consider changing healthcare providers during pregnancy"
+                icon={<AlertTriangle className="w-5 h-5 text-white" />}
+                variant="default"
+                className="bg-white/10 backdrop-blur-sm border border-white/20"
+              />
             </div>
           </div>
         </div>
@@ -194,85 +256,107 @@ const Resources = () => {
         <div className="space-y-12">
           <div>
             <h3 
-              className={`${typography.heading.sizes.sm} font-bold mb-6 text-white`}
+              className={`${typography.heading.sizes.sm} font-bold mb-8 text-white text-center`}
               style={{ fontFamily: typography.heading.fontFamily }}
             >
               Immediate Crisis Support
             </h3>
-            <div 
-              className={`space-y-4 ${typography.body.sizes.md} text-white bg-white/5 rounded-2xl p-8`}
-              style={{ fontFamily: typography.body.fontFamily }}
-            >
-              <div><strong>Crisis Text Line:</strong> Text HOME to 741741</div>
-              <div><strong>National Suicide Prevention Lifeline:</strong> 988</div>
-              <div><strong>Maternal Mental Health Hotline:</strong> 1-833-TLC-MAMA</div>
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <ResourceCard
+                title="Crisis Text Line"
+                description="Text HOME to 741741 for immediate support from trained crisis counselors"
+                icon={<Phone className="w-5 h-5 text-white" />}
+                variant="emergency"
+              />
+              <ResourceCard
+                title="Suicide Prevention Lifeline"
+                description="Call 988 for 24/7 mental health crisis support and suicide prevention"
+                icon={<Headphones className="w-5 h-5 text-white" />}
+                variant="emergency"
+              />
+              <ResourceCard
+                title="Maternal Mental Health"
+                description="Call 1-833-TLC-MAMA for perinatal mental health support and resources"
+                icon={<Heart className="w-5 h-5 text-white" />}
+                variant="emergency"
+              />
             </div>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="space-y-12">
             <div>
               <h3 
-                className={`${typography.heading.sizes.sm} font-bold mb-6 text-white`}
+                className={`${typography.heading.sizes.sm} font-bold mb-8 text-white text-center`}
                 style={{ fontFamily: typography.heading.fontFamily }}
               >
                 Mental Health Resources
               </h3>
-              <div 
-                className={`space-y-4 ${typography.body.sizes.md} text-white`}
-                style={{ fontFamily: typography.body.fontFamily }}
-              >
-                <div>
-                  <a href="https://www.postpartum.net/get-help/" target="_blank" rel="noopener" className="font-bold hover:underline">Postpartum Support International</a>
-                  <span> - Find perinatal specialists</span>
-                </div>
-                <div>
-                  <a href="https://maternalmentalhealthnow.org/resources/" target="_blank" rel="noopener" className="font-bold hover:underline">Maternal Mental Health NOW</a>
-                  <span> - Resources and advocacy</span>
-                </div>
-                <div>• When to seek professional help</div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <ResourceCard
+                  title="Postpartum Support International"
+                  description="Find perinatal mental health specialists in your area"
+                  href="https://www.postpartum.net/get-help/"
+                  icon={<Users className="w-5 h-5 text-white" />}
+                  variant="default"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20"
+                />
+                <ResourceCard
+                  title="Maternal Mental Health NOW"
+                  description="Resources and advocacy for maternal mental health support"
+                  href="https://maternalmentalhealthnow.org/resources/"
+                  icon={<Shield className="w-5 h-5 text-white" />}
+                  variant="default"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20"
+                />
+                <ResourceCard
+                  title="When to Seek Help"
+                  description="Understanding when professional mental health support is needed"
+                  icon={<AlertTriangle className="w-5 h-5 text-white" />}
+                  variant="default"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20"
+                />
               </div>
             </div>
             
             <div>
               <h3 
-                className={`${typography.heading.sizes.sm} font-bold mb-6 text-white`}
+                className={`${typography.heading.sizes.sm} font-bold mb-8 text-white text-center`}
                 style={{ fontFamily: typography.heading.fontFamily }}
               >
-                Birth Trauma Support
+                Birth Trauma & Community Support
               </h3>
-              <div 
-                className={`space-y-4 ${typography.body.sizes.md} text-white`}
-                style={{ fontFamily: typography.body.fontFamily }}
-              >
-                <div>
-                  <a href="https://www.birthtraumaassociation.org.uk/" target="_blank" rel="noopener" className="font-bold hover:underline">Birth Trauma Association</a>
-                  <span> - Processing difficult experiences</span>
-                </div>
-                <div>
-                  <a href="https://solaceformothers.org/" target="_blank" rel="noopener" className="font-bold hover:underline">Solace for Mothers</a>
-                  <span> - Peer support network</span>
-                </div>
-                <div>• Therapy options for birth trauma</div>
-              </div>
-            </div>
-            
-            <div>
-              <h3 
-                className={`${typography.heading.sizes.sm} font-bold mb-6 text-white`}
-                style={{ fontFamily: typography.heading.fontFamily }}
-              >
-                Community Support
-              </h3>
-              <div 
-                className={`space-y-4 ${typography.body.sizes.md} text-white`}
-                style={{ fontFamily: typography.body.fontFamily }}
-              >
-                <div>
-                  <a href="https://www.familyequality.org/resources/" target="_blank" rel="noopener" className="font-bold hover:underline">Family Equality Council</a>
-                  <span> - LGBTQ+ family resources</span>
-                </div>
-                <div>• Local new parent groups</div>
-                <div>• Online communities that actually help</div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <ResourceCard
+                  title="Birth Trauma Association"
+                  description="Processing difficult birth experiences with specialized support"
+                  href="https://www.birthtraumaassociation.org.uk/"
+                  icon={<Heart className="w-5 h-5 text-white" />}
+                  variant="default"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20"
+                />
+                <ResourceCard
+                  title="Solace for Mothers"
+                  description="Peer support network for mothers dealing with birth trauma"
+                  href="https://solaceformothers.org/"
+                  icon={<Users className="w-5 h-5 text-white" />}
+                  variant="default"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20"
+                />
+                <ResourceCard
+                  title="Family Equality Council"
+                  description="LGBTQ+ family resources and community support"
+                  href="https://www.familyequality.org/resources/"
+                  icon={<Shield className="w-5 h-5 text-white" />}
+                  variant="default"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20"
+                />
+                <ResourceCard
+                  title="Community Groups"
+                  description="Local new parent groups and supportive online communities"
+                  icon={<MessageCircle className="w-5 h-5 text-white" />}
+                  variant="default"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20"
+                />
               </div>
             </div>
           </div>
