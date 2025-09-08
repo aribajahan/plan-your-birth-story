@@ -10,12 +10,10 @@ interface SectionContainerProps {
 }
 
 const paddingClasses = {
-  inner: {
-    sm: 'py-8 lg:py-12',
-    md: 'py-12 lg:py-20',
-    lg: 'py-16 lg:py-32',
-    xl: 'py-20 lg:py-40'
-  }
+  sm: 'py-16 lg:py-20',
+  md: 'py-20 lg:py-28', 
+  lg: 'py-24 lg:py-32',
+  xl: 'py-32 lg:py-40'
 };
 
 export const SectionContainer = ({ 
@@ -28,13 +26,11 @@ export const SectionContainer = ({
   if (fullBleed) {
     return (
       <section 
-        className={cn('w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]', className)}
+        className={cn('w-full', paddingClasses[innerPadding], 'px-6 lg:px-16', className)}
         style={{ backgroundColor }}
       >
-        <div className="max-w-[1200px] mx-auto px-4 lg:px-8">
-          <div className={cn(paddingClasses.inner[innerPadding])}>
-            {children}
-          </div>
+        <div className="max-w-[1200px] mx-auto">
+          {children}
         </div>
       </section>
     );
@@ -47,7 +43,7 @@ export const SectionContainer = ({
     >
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div 
-          className={cn('rounded-3xl', paddingClasses.inner[innerPadding])}
+          className={cn('rounded-3xl', paddingClasses[innerPadding])}
           style={{ backgroundColor }}
         >
           {children}

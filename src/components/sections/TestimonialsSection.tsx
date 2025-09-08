@@ -5,7 +5,7 @@ import { colors, typography } from "@/styles/design-tokens";
 
 export const TestimonialsSection = () => {
   return (
-    <SectionContainer backgroundColor={colors.richBlue} fullBleed={true}>
+    <SectionContainer backgroundColor={colors.creamBase} fullBleed={true}>
           
         {/* Asymmetrical testimonials layout */}
         <div className="space-y-16">
@@ -16,7 +16,7 @@ export const TestimonialsSection = () => {
               className={`${typography.heading.sizes.xl} font-bold leading-none`}
               style={{ 
                 fontFamily: typography.heading.fontFamily,
-                color: colors.white
+                color: colors.deepBlack
               }}
             >
               {testimonialsConfig.title}
@@ -38,18 +38,18 @@ export const TestimonialsSection = () => {
               <div 
                 key={index}
                 className="p-12" 
-                style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+                style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}
               >
                 <Quote className="w-12 h-12 mb-6" style={{ color: colors.vibrantCoral }} />
                 <p 
                   className={`${typography.body.sizes.lg} font-bold leading-relaxed mb-6`}
-                  style={{ color: colors.white }}
+                  style={{ color: colors.deepBlack }}
                 >
                   "{testimonial.quote}"
                 </p>
                 <p 
                   className={`${typography.body.sizes.md} font-semibold`}
-                  style={{ color: colors.white }}
+                  style={{ color: colors.deepBlack }}
                 >
                   {testimonial.author}
                 </p>
