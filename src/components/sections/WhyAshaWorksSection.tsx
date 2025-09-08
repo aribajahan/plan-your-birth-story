@@ -3,7 +3,7 @@ import { colors, typography } from "@/styles/design-tokens";
 
 export const WhyAshaWorksSection = () => {
   return (
-    <SectionContainer backgroundColor={colors.boldYellow} condesa={true}>
+    <SectionContainer backgroundColor={colors.richBlue} condesa={true}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
           {/* Text Content */}
@@ -12,7 +12,7 @@ export const WhyAshaWorksSection = () => {
               className="text-4xl lg:text-7xl font-bold leading-none mb-8" 
               style={{ 
                 fontFamily: typography.body.fontFamily,
-                color: colors.deepBlack
+                color: colors.white
               }}
             >
               What Makes Asha Different
@@ -21,21 +21,21 @@ export const WhyAshaWorksSection = () => {
             <div className="space-y-6">
               {/* Feature Block 1 */}
               <div>
-                <p className="text-lg font-helvetica leading-relaxed" style={{ color: colors.deepBlack }}>
+                <p className="text-lg font-helvetica leading-relaxed" style={{ color: colors.white }}>
                   Honest guidance that prepares you without overwhelming you - we share what birth is really like in a way that helps, not scares
                 </p>
               </div>
               
               {/* Feature Block 2 */}
               <div>
-                <p className="text-lg font-helvetica leading-relaxed" style={{ color: colors.deepBlack }}>
+                <p className="text-lg font-helvetica leading-relaxed" style={{ color: colors.white }}>
                   The exact words to use when you need to speak up - practice what to say when medical staff suggests interventions
                 </p>
               </div>
               
               {/* Feature Block 3 */}
               <div>
-                <p className="text-lg font-helvetica leading-relaxed" style={{ color: colors.deepBlack }}>
+                <p className="text-lg font-helvetica leading-relaxed" style={{ color: colors.white }}>
                   Plans that help you communicate no matter how birth unfolds - whether everything goes smoothly or decisions need to be made quickly
                 </p>
               </div>

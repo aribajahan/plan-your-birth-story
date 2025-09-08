@@ -10,14 +10,14 @@ interface HowItWorksSectionProps {
 
 export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectionProps) => {
   return (
-    <SectionContainer backgroundColor={colors.richBlue} condesa={true}>
+    <SectionContainer backgroundColor={colors.faqBlack} condesa={true}>
       
       {/* Clean centered layout */}
       <div className="text-center mb-12">
         <h2 className="text-7xl font-bold leading-none text-white mb-4" style={{ 
           fontFamily: typography.heading.fontFamily
         }}>
-          Two Ways to Build Your Birth Plan
+          Two Ways To Build
         </h2>
         <p className="text-xl text-white/80 font-medium">Choose the approach that feels right for you. Both paths lead to the same place: feeling prepared and confident.</p>
       </div>
