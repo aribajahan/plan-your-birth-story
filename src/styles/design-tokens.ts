@@ -15,7 +15,6 @@ export const colors = {
 
 export const typography = {
   heading: {
-    // Backward compatibility - keep original structure
     fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
     sizes: {
       xl: 'text-6xl lg:text-8xl',
@@ -23,35 +22,12 @@ export const typography = {
       md: 'text-3xl lg:text-4xl',
       sm: 'text-2xl lg:text-3xl'
     },
-    // New enhanced structure
-    serif: {
-      fontFamily: 'Crimson Text, serif',
-      sizes: {
-        xl: 'text-6xl lg:text-8xl',
-        lg: 'text-4xl lg:text-6xl',
-        md: 'text-3xl lg:text-4xl',
-        sm: 'text-2xl lg:text-3xl'
-      },
-      weights: {
-        normal: 'font-normal',
-        semibold: 'font-semibold'
-      }
-    },
-    sans: {
-      fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
-      sizes: {
-        xl: 'text-6xl lg:text-8xl',
-        lg: 'text-4xl lg:text-6xl',
-        md: 'text-3xl lg:text-4xl',
-        sm: 'text-2xl lg:text-3xl'
-      },
-      weights: {
-        light: 'font-light',
-        normal: 'font-normal',
-        medium: 'font-medium',
-        semibold: 'font-semibold',
-        bold: 'font-bold'
-      }
+    weights: {
+      light: 'font-light',
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold'
     }
   },
   body: {

@@ -25,9 +25,9 @@ const HowItWorks = () => {
       >
         <div className="text-center max-w-4xl mx-auto">
           <h1 
-            className={`${typography.heading.serif.sizes.xl} ${typography.heading.serif.weights.semibold} leading-none mb-8`}
+            className={`${typography.heading.sizes.xl} ${typography.heading.weights.bold} leading-none mb-8`}
             style={{ 
-              fontFamily: typography.heading.serif.fontFamily,
+              fontFamily: typography.heading.fontFamily,
               color: colors.deepBlack
             }}
           >
@@ -50,9 +50,9 @@ const HowItWorks = () => {
       >
         <div className="max-w-7xl mx-auto">
           <h2 
-            className={`${typography.heading.serif.sizes.lg} ${typography.heading.serif.weights.semibold} text-center mb-16 text-white`}
+            className={`${typography.heading.sizes.lg} ${typography.heading.weights.bold} text-center mb-16 text-white`}
             style={{ 
-              fontFamily: typography.heading.serif.fontFamily
+              fontFamily: typography.heading.fontFamily
             }}
           >
             Three Simple Steps
@@ -125,9 +125,9 @@ const HowItWorks = () => {
       >
         <div className="max-w-7xl mx-auto">
           <h2 
-            className={`${typography.heading.serif.sizes.lg} ${typography.heading.serif.weights.semibold} text-center mb-16`}
+            className={`${typography.heading.sizes.lg} ${typography.heading.weights.bold} text-center mb-16`}
             style={{ 
-              fontFamily: typography.heading.serif.fontFamily,
+              fontFamily: typography.heading.fontFamily,
               color: colors.deepBlack
             }}
           >
@@ -204,8 +204,8 @@ const HowItWorks = () => {
       >
         <div className="text-center max-w-4xl mx-auto">
           <h2 
-            className={`${typography.heading.serif.sizes.xl} ${typography.heading.serif.weights.semibold} leading-none text-white mb-8`}
-            style={{ fontFamily: typography.heading.serif.fontFamily }}
+            className={`${typography.heading.sizes.xl} ${typography.heading.weights.bold} leading-none text-white mb-8`}
+            style={{ fontFamily: typography.heading.fontFamily }}
           >
             Ready to Get Started?
           </h2>
