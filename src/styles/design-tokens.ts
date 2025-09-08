@@ -7,6 +7,8 @@ export const colors = {
   vibrantCoral: 'hsl(var(--vibrant-coral))',
   richBlue: 'hsl(var(--rich-blue))',
   deepBlack: 'hsl(var(--deep-black))',
+  faqBlack: '#1d1d1d',
+  white: '#ffffff',
 } as const;
 
 export const typography = {

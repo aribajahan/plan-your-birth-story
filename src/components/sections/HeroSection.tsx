@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { SectionContainer } from "@/components/ui/section-container";
+import { colors } from "@/styles/design-tokens";
 
 interface HeroSectionProps {
   onGetStarted: () => void;
@@ -6,10 +8,10 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
   return (
-    <section className="relative py-12 lg:py-16 overflow-hidden bg-cream-base">
+    <SectionContainer backgroundColor={colors.creamBase} fullBleed={true}>
       
       {/* Single Column Centered Layout */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-12 lg:px-32 py-16 lg:py-24 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center">
         
         {/* Wordmark */}
         <div className="mb-12">
@@ -39,6 +41,6 @@ export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
         </Button>
         
       </div>
-    </section>
+    </SectionContainer>
   );
 };

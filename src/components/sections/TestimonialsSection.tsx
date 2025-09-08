@@ -5,61 +5,56 @@ import { colors, typography } from "@/styles/design-tokens";
 
 export const TestimonialsSection = () => {
   return (
-    <SectionContainer backgroundColor={colors.creamBase}>
-      <div 
-        className="rounded-3xl p-16 lg:p-32" 
-        style={{ backgroundColor: colors.boldYellow }}
-      >
+    <SectionContainer backgroundColor={colors.richBlue} fullBleed={true}>
           
-          {/* Asymmetrical testimonials layout */}
-          <div className="space-y-16">
+        {/* Asymmetrical testimonials layout */}
+        <div className="space-y-16">
+          
+          {/* Title and Illustration */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <h2 
+              className={`${typography.heading.sizes.xl} font-bold leading-none`}
+              style={{ 
+                fontFamily: typography.heading.fontFamily,
+                color: colors.white
+              }}
+            >
+              {testimonialsConfig.title}
+            </h2>
             
-            {/* Title and Illustration */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-              <h2 
-                className={`${typography.heading.sizes.xl} font-bold leading-none`}
-                style={{ 
-                  fontFamily: typography.heading.fontFamily,
-                  color: colors.vibrantCoral
-                }}
+            {/* Three Women Illustration */}
+            <div className="flex justify-center lg:justify-end">
+              <img
+                src={testimonialsConfig.illustration.src}
+                alt={testimonialsConfig.illustration.alt}
+                className="w-full h-auto max-w-sm lg:max-w-md"
+              />
+            </div>
+          </div>
+          
+          {/* Testimonials in bold blocks */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {testimonialsData.map((testimonial, index) => (
+              <div 
+                key={index}
+                className="p-12" 
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
               >
-                {testimonialsConfig.title}
-              </h2>
-              
-              {/* Three Women Illustration */}
-              <div className="flex justify-center lg:justify-end">
-                <img
-                  src={testimonialsConfig.illustration.src}
-                  alt={testimonialsConfig.illustration.alt}
-                  className="w-full h-auto max-w-sm lg:max-w-md"
-                />
-              </div>
-            </div>
-            
-            {/* Testimonials in bold blocks */}
-            <div className="grid lg:grid-cols-2 gap-8">
-              {testimonialsData.map((testimonial, index) => (
-                <div 
-                  key={index}
-                  className="p-12 rounded-3xl" 
-                  style={{ backgroundColor: colors.creamBase }}
+                <Quote className="w-12 h-12 mb-6" style={{ color: colors.vibrantCoral }} />
+                <p 
+                  className={`${typography.body.sizes.lg} font-bold leading-relaxed mb-6`}
+                  style={{ color: colors.white }}
                 >
-                  <Quote className="w-12 h-12 mb-6" style={{ color: colors.vibrantCoral }} />
-                  <p 
-                    className={`${typography.body.sizes.lg} font-bold leading-relaxed mb-6`}
-                    style={{ color: colors.deepBlack }}
-                  >
-                    "{testimonial.quote}"
-                  </p>
-                  <p 
-                    className={`${typography.body.sizes.md} font-semibold`}
-                    style={{ color: colors.deepBlack }}
-                  >
-                    {testimonial.author}
-                  </p>
-                </div>
-              ))}
-            </div>
+                  "{testimonial.quote}"
+                </p>
+                <p 
+                  className={`${typography.body.sizes.md} font-semibold`}
+                  style={{ color: colors.white }}
+                >
+                  {testimonial.author}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
     </SectionContainer>
