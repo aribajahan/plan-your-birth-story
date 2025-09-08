@@ -17,7 +17,7 @@ export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectio
         <h2 className="text-7xl font-bold leading-none text-white mb-4" style={{ 
           fontFamily: typography.heading.fontFamily
         }}>
-          Choose Your Path
+          Two Ways to Build Your Birth Plan
         </h2>
         <p className="text-xl text-white/80 font-medium">Choose the approach that feels right for you. Both paths lead to the same place: feeling prepared and confident.</p>
       </div>
