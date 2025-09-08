@@ -25,9 +25,9 @@ const HowItWorks = () => {
       >
         <div className="text-center max-w-4xl mx-auto">
           <h1 
-            className={`${typography.heading.sizes.xl} font-bold leading-none mb-8`}
+            className={`${typography.heading.serif.sizes.xl} ${typography.heading.serif.weights.semibold} leading-none mb-8`}
             style={{ 
-              fontFamily: typography.heading.fontFamily,
+              fontFamily: typography.heading.serif.fontFamily,
               color: colors.deepBlack
             }}
           >
@@ -42,17 +42,17 @@ const HowItWorks = () => {
         </div>
       </SectionContainer>
 
-      {/* The Process Section - Black */}
+      {/* The Process Section - Rich Blue */}
       <SectionContainer 
-        backgroundColor={colors.deepBlack} 
+        backgroundColor={colors.richBlue} 
         condesa={true}
         innerPadding="xl"
       >
         <div className="max-w-7xl mx-auto">
           <h2 
-            className={`${typography.heading.sizes.lg} font-bold text-center mb-16 text-white`}
+            className={`${typography.heading.serif.sizes.lg} ${typography.heading.serif.weights.semibold} text-center mb-16 text-white`}
             style={{ 
-              fontFamily: typography.heading.fontFamily
+              fontFamily: typography.heading.serif.fontFamily
             }}
           >
             Three Simple Steps
@@ -75,21 +75,28 @@ const HowItWorks = () => {
                   description: "Receive a clear document plus communication scripts for your medical team."
                 }
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
+                <div key={index} className="flex items-start gap-6">
                   <div 
-                    className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
-                    style={{ backgroundColor: colors.boldYellow, color: colors.deepBlack }}
+                    className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-transform hover:scale-110 duration-300"
+                    style={{ 
+                      backgroundColor: colors.boldYellow, 
+                      color: colors.deepBlack,
+                      fontSize: '1.25rem',
+                      fontWeight: '700'
+                    }}
                   >
                     {index + 1}
                   </div>
                   <div>
                     <h3 
-                      className="text-xl font-bold mb-2 text-white"
+                      className={`${typography.body.sizes.lg} ${typography.body.weights.bold} mb-3 text-white`}
+                      style={{ fontFamily: typography.body.fontFamily }}
                     >
                       {item.step}
                     </h3>
                     <p 
-                      className="text-base leading-relaxed text-white/90"
+                      className={`${typography.body.sizes.md} ${typography.body.weights.normal} leading-relaxed text-white/90`}
+                      style={{ fontFamily: typography.body.fontFamily }}
                     >
                       {item.description}
                     </p>
@@ -118,9 +125,9 @@ const HowItWorks = () => {
       >
         <div className="max-w-7xl mx-auto">
           <h2 
-            className={`${typography.heading.sizes.lg} font-bold text-center mb-16`}
+            className={`${typography.heading.serif.sizes.lg} ${typography.heading.serif.weights.semibold} text-center mb-16`}
             style={{ 
-              fontFamily: typography.heading.fontFamily,
+              fontFamily: typography.heading.serif.fontFamily,
               color: colors.deepBlack
             }}
           >
@@ -161,16 +168,23 @@ const HowItWorks = () => {
               ].map((section, index) => (
                 <div key={index}>
                   <h3 
-                    className="text-xl font-bold mb-4"
-                    style={{ color: colors.deepBlack }}
+                    className={`${typography.body.sizes.lg} ${typography.body.weights.bold} mb-4`}
+                    style={{ 
+                      color: colors.deepBlack,
+                      fontFamily: typography.body.fontFamily
+                    }}
                   >
                     {section.title}
                   </h3>
                   <ul className="space-y-2">
                     {section.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-3" style={{ color: colors.deepBlack }}>
+                      <li key={itemIndex} className="flex items-start gap-3" 
+                          style={{ 
+                            color: colors.deepBlack,
+                            fontFamily: typography.body.fontFamily
+                          }}>
                         <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: colors.deepBlack }} />
-                        <span>{item}</span>
+                        <span className={`${typography.body.sizes.sm} ${typography.body.weights.normal}`}>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -190,23 +204,27 @@ const HowItWorks = () => {
       >
         <div className="text-center max-w-4xl mx-auto">
           <h2 
-            className={`${typography.heading.sizes.xl} font-bold leading-none text-white mb-8`}
-            style={{ fontFamily: typography.heading.fontFamily }}
+            className={`${typography.heading.serif.sizes.xl} ${typography.heading.serif.weights.semibold} leading-none text-white mb-8`}
+            style={{ fontFamily: typography.heading.serif.fontFamily }}
           >
             Ready to Get Started?
           </h2>
           
-          <p className="text-xl text-white/90 font-medium mb-16 max-w-2xl mx-auto">
+          <p 
+            className={`${typography.body.sizes.lg} ${typography.body.weights.medium} text-white/90 mb-16 max-w-2xl mx-auto`}
+            style={{ fontFamily: typography.body.fontFamily }}
+          >
             Most people finish in about 15 minutes.
           </p>
           
           <div className="flex justify-center">
             <Button 
               onClick={handleGetStarted}
-              className={`${typography.body.sizes.lg} font-bold px-16 py-8 rounded-full hover:scale-105 transition-transform duration-300`}
+              className={`${typography.body.sizes.lg} ${typography.body.weights.bold} px-16 py-8 rounded-full hover:scale-105 transition-transform duration-300`}
               style={{ 
                 backgroundColor: colors.creamBase,
-                color: colors.deepBlack
+                color: colors.deepBlack,
+                fontFamily: typography.body.fontFamily
               }}
             >
               Create My Birth Plan
