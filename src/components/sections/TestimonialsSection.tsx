@@ -33,22 +33,22 @@ export const TestimonialsSection = () => {
           </div>
           
           {/* Testimonials in bold blocks */}
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonialsData.map((testimonial, index) => (
               <div 
                 key={index}
-                className="p-12" 
+                className="p-8" 
                 style={{ backgroundColor: colors.testimonialsCard }}
               >
-                <Quote className="w-12 h-12 mb-6" style={{ color: colors.vibrantCoral }} />
+                <Quote className="w-8 h-8 mb-4" style={{ color: colors.vibrantCoral }} />
                 <p 
-                  className={`${typography.body.sizes.lg} leading-relaxed mb-6`}
+                  className={`${typography.body.sizes.md} leading-relaxed mb-4`}
                   style={{ color: colors.deepBlack }}
                 >
                   "{testimonial.quote}"
                 </p>
                 <p 
-                  className={`${typography.body.sizes.md} font-bold`}
+                  className={`${typography.body.sizes.sm} font-bold`}
                   style={{ color: colors.deepBlack }}
                 >
                   — {testimonial.author}
