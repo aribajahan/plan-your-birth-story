@@ -1,7 +1,7 @@
 export const WhyAshaWorksSection = () => {
   return (
-    <section className="min-h-screen flex items-center bg-cream-base">
-      <div className="w-full px-4 lg:px-8">
+    <section className="py-16 lg:py-24 bg-cream-base">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
         
         {/* Rounded Yellow Container */}
         <div className="rounded-3xl p-8 lg:p-16" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>

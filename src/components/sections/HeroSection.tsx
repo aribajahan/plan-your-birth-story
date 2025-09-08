@@ -6,10 +6,10 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
   return (
-    <section className="relative h-screen overflow-hidden bg-cream-base">
+    <section className="relative py-20 lg:py-28 overflow-hidden bg-cream-base">
       
       {/* Single Column Centered Layout */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-8 lg:px-16 py-20 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center px-8 lg:px-16 text-center">
         
         {/* Wordmark */}
         <div className="mb-12">
@@ -21,8 +21,9 @@ export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
         </div>
         
         {/* New Headline */}
-        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-helvetica font-medium mb-12 leading-relaxed max-w-4xl" style={{ color: 'hsl(var(--vibrant-coral))' }}>
-          You've already mastered pregnancy. Now let's prepare you for birth with confidence.
+        <h1 className="text-3xl lg:text-4xl xl:text-5xl font-helvetica font-light mb-16 leading-tight max-w-5xl tracking-wide" style={{ color: 'hsl(var(--vibrant-coral))' }}>
+          You've already mastered pregnancy.<br />
+          <span className="font-medium">Now let's prepare you for birth with confidence.</span>
         </h1>
         
         {/* CTA Button */}

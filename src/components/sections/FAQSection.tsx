@@ -28,8 +28,8 @@ export const FAQSection = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section className="py-24" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
-      <div className="max-w-6xl mx-auto px-16">
+    <section className="py-16 lg:py-24" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
         
         <h2 className="text-6xl font-bold mb-16 text-center" style={{ 
           fontFamily: 'Crimson Text, serif',
@@ -38,11 +38,11 @@ export const FAQSection = () => {
           Questions?
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => (
-            <div key={index} className="rounded-3xl overflow-hidden" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
+            <div key={index} className="rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" style={{ backgroundColor: 'hsl(var(--cream-base))' }}>
               <button
-                className="w-full px-12 py-8 text-left flex items-center justify-between hover:opacity-80 transition-opacity"
+                className="w-full px-12 py-8 text-left flex items-center justify-between hover:bg-cream-base/50 transition-all duration-300"
                 onClick={() => setOpenFaq(openFaq === index ? null : index)}
               >
                 <h3 className="text-2xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>{faq.question}</h3>
@@ -53,7 +53,7 @@ export const FAQSection = () => {
                 )}
               </button>
               {openFaq === index && (
-                <div className="px-12 pb-8">
+                <div className="px-12 pb-8 animate-accordion-down">
                   <p className="text-xl leading-relaxed" style={{ color: 'hsl(var(--deep-black))' }}>{faq.answer}</p>
                 </div>
               )}

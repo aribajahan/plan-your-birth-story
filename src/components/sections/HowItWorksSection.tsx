@@ -8,11 +8,11 @@ interface HowItWorksSectionProps {
 
 export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectionProps) => {
   return (
-    <section className="min-h-screen flex items-center bg-cream-base">
-      <div className="w-full px-4 lg:px-8">
+    <section className="py-16 lg:py-24 bg-cream-base">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
         
-        {/* Rounded Blue Container - Modern Clean Design */}
-        <div className="rounded-3xl p-8 lg:p-16" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
+        {/* Rounded Blue Container - Modern Clean Design with better shadow */}
+        <div className="rounded-3xl p-8 lg:p-16 shadow-2xl" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
           
           {/* Clean centered layout */}
           <div className="text-center mb-12">
@@ -27,8 +27,8 @@ export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectio
           {/* Two clean cards side by side */}
           <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
-            {/* Chat Approach - Clean minimal card */}
-            <div className="bg-white/95 backdrop-blur-sm p-8 lg:p-12 rounded-2xl hover:bg-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
+            {/* Chat Approach - Enhanced with subtle shadow */}
+            <div className="bg-white/95 backdrop-blur-sm p-8 lg:p-12 rounded-2xl hover:bg-white transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl shadow-lg">
               <div className="text-center space-y-6">
                 <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
                   <MessageCircle className="w-8 h-8 text-white" />
@@ -50,8 +50,8 @@ export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectio
               </div>
             </div>
 
-            {/* Form Approach - Clean minimal card */}
-            <div className="bg-white/95 backdrop-blur-sm p-8 lg:p-12 rounded-2xl hover:bg-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
+            {/* Form Approach - Enhanced with subtle shadow */}
+            <div className="bg-white/95 backdrop-blur-sm p-8 lg:p-12 rounded-2xl hover:bg-white transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl shadow-lg">
               <div className="text-center space-y-6">
                 <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--rich-blue))' }}>
                   <FileText className="w-8 h-8 text-white" />
