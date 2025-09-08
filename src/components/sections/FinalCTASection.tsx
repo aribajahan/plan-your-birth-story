@@ -6,11 +6,11 @@ interface FinalCTASectionProps {
 
 export const FinalCTASection = ({ onGetStarted }: FinalCTASectionProps) => {
   return (
-    <section className="py-16 lg:py-24 bg-cream-base">
+    <section className="py-8 lg:py-12 bg-cream-base">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         
         {/* Rounded Coral Container with editorial shadow */}
-        <div className="rounded-3xl p-8 lg:p-16 text-center shadow-2xl" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
+        <div className="rounded-3xl p-16 lg:p-32 text-center shadow-2xl" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
           
           {/* Bold asymmetrical CTA with enhanced typography */}
           <h2 className="text-7xl lg:text-8xl font-bold leading-none text-white mb-16" style={{ 

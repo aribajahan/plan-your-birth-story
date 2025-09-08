@@ -6,10 +6,10 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden bg-cream-base">
+    <section className="relative py-12 lg:py-16 overflow-hidden bg-cream-base">
       
       {/* Single Column Centered Layout */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-8 lg:px-16 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center px-12 lg:px-32 py-16 lg:py-24 text-center">
         
         {/* Wordmark */}
         <div className="mb-12">

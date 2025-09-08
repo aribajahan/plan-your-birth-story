@@ -1,10 +1,10 @@
 export const WhyAshaWorksSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-cream-base">
+    <section className="py-8 lg:py-12 bg-cream-base">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         
         {/* Rounded Yellow Container */}
-        <div className="rounded-3xl p-8 lg:p-16" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
+        <div className="rounded-3xl p-16 lg:p-32" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             {/* Text Content */}
