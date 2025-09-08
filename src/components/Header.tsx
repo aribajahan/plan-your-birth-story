@@ -36,7 +36,7 @@ export const Header = ({ onGetStarted }: HeaderProps) => {
               className="font-medium hover:text-vibrant-coral transition-colors duration-300"
               style={{ color: 'hsl(var(--deep-black))' }}
             >
-              Asha Birth Plans
+              Asha
             </a>
             <a 
               href="/resources" 
