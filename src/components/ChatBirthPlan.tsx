@@ -363,23 +363,23 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
   const generateRealityCheck = (phase: string, preferences: UserPreferences) => {
     const realityChecks = {
       pain: {
-        natural: {
-          title: "Gentle Reality Check: Pain in Labor",
-          content: "Natural methods are wonderful and can be very effective. Remember that labor pain intensity varies greatly, and it's wise to stay flexible. Many women find that being open to all options - including medical pain relief if needed - actually helps them feel more confident and relaxed."
-        },
-        medical: {
-          title: "Gentle Reality Check: Medical Options",
-          content: "Medical pain relief can be a great choice and doesn't make you 'less strong.' Every birth is different, and the goal is a healthy mom and baby. Having a plan while staying flexible allows you to make the best decisions in the moment."
-        }
+      natural: {
+        title: "Just thought you should know: Pain in Labor",
+        content: "Natural methods are wonderful and can be very effective. Remember that labor pain intensity varies greatly, and it's wise to stay flexible. Many women find that being open to all options - including medical pain relief if needed - actually helps them feel more confident and relaxed."
+      },
+      medical: {
+        title: "Just thought you should know: Medical Options",
+        content: "Medical pain relief can be a great choice and doesn't make you 'less strong.' Every birth is different, and the goal is a healthy mom and baby. Having a plan while staying flexible allows you to make the best decisions in the moment."
+      }
       },
       labor: {
         environment: {
-          title: "Gentle Reality Check: Birth Environment",
+          title: "Just thought you should know: Birth Environment",
           content: "Creating your ideal environment is wonderful, and your care team wants to support your vision. Remember that medical needs might require some adjustments, and that's completely normal. The most important thing is that you and your baby are safe and healthy."
         }
       },
       general: {
-        title: "Gentle Reality Check: Birth Plans",
+        title: "Just thought you should know: Birth Plans",
         content: "Birth plans are beautiful guides that help communicate your hopes and values. They're most helpful when they're flexible - think of them as your preferences rather than strict rules. Your care team is your partner in creating the best possible experience for you and your baby."
       }
     };
@@ -399,7 +399,7 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
     if (!inputMessage.trim() || isLoading) return;
 
     const userMessage: ChatMessage = {
-      id: Date.now().toString(),
+      id: `user-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       role: 'user',
       content: inputMessage.trim(),
       timestamp: new Date(),
@@ -415,7 +415,7 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
       const response = await generateResponse(userMessage.content);
       
       const assistantMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
+        id: `assistant-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
         role: 'assistant',
         content: response,
         timestamp: new Date(),
@@ -424,90 +424,97 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
 
       setMessages(prev => [...prev, assistantMessage]);
 
-      // Add milestone celebrations based on current completion
+      // Add additional messages sequentially to avoid ID conflicts
+      let messageQueue = [];
+      let delay = 1000;
+      
+      // Add milestone message if applicable
       const milestoneMessage = getMilestoneMessage(completion);
-      if (milestoneMessage && Math.random() > 0.7) { // Show milestone messages occasionally
-        setTimeout(() => {
-          const milestoneMsg: ChatMessage = {
-            id: (Date.now() + 1).toString(),
-            role: 'assistant',
-            content: milestoneMessage,
-            timestamp: new Date(),
-            type: 'text'
-          };
-          setMessages(prev => [...prev, milestoneMsg]);
-        }, 1000);
+      if (milestoneMessage && Math.random() > 0.7) {
+        messageQueue.push({
+          id: `milestone-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          role: 'assistant' as const,
+          content: milestoneMessage,
+          timestamp: new Date(),
+          type: 'text' as const,
+          delay: delay
+        });
+        delay += 500;
       }
 
       // Add completion guidance at key thresholds
       if (completion >= 60 && completion < 80) {
         const nextTopic = getNextUndiscussedTopic(discussedTopics);
-        if (nextTopic && Math.random() > 0.8) { // Show guidance occasionally
-          setTimeout(() => {
-            const guidanceMsg: ChatMessage = {
-              id: (Date.now() + 2).toString(),
-              role: 'assistant',
-              content: `Let's dive deeper into ${nextTopic} to make your plan even more comprehensive.`,
-              timestamp: new Date(),
-              type: 'text'
-            };
-            setMessages(prev => [...prev, guidanceMsg]);
-          }, 1500);
+        if (nextTopic && Math.random() > 0.8) {
+          messageQueue.push({
+            id: `guidance-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+            role: 'assistant' as const,
+            content: `Let's dive deeper into ${nextTopic} to make your plan even more comprehensive.`,
+            timestamp: new Date(),
+            type: 'text' as const,
+            delay: delay
+          });
+          delay += 500;
         }
       }
 
       if (completion >= 80) {
-        if (Math.random() > 0.9) { // Show final stretch message occasionally
-          setTimeout(() => {
-            const finalStretchMsg: ChatMessage = {
-              id: (Date.now() + 3).toString(),
-              role: 'assistant',
-              content: "You're in the final stretch! Let's polish the remaining details to complete your personalized birth plan.",
-              timestamp: new Date(),
-              type: 'text'
-            };
-            setMessages(prev => [...prev, finalStretchMsg]);
-          }, 2000);
+        if (Math.random() > 0.9) {
+          messageQueue.push({
+            id: `final-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+            role: 'assistant' as const,
+            content: "You're in the final stretch! Let's polish the remaining details to complete your personalized birth plan.",
+            timestamp: new Date(),
+            type: 'text' as const,
+            delay: delay
+          });
+          delay += 500;
         }
       }
 
       // Generate script preview if user has shared preferences
       if (Object.keys(userPreferences).length > 0 && conversationPhase !== 'introduction') {
-        setTimeout(() => {
-          const scriptPreview = generateScriptPreview(userPreferences, conversationPhase);
-          if (scriptPreview) {
-            const scriptMessage: ChatMessage = {
-              id: (Date.now() + 4).toString(),
-              role: 'assistant',
-              content: "",
-              timestamp: new Date(),
-              type: 'script-preview',
-              scriptPreview
-            };
-            setMessages(prev => [...prev, scriptMessage]);
-          }
-        }, 2500);
+        const scriptPreview = generateScriptPreview(userPreferences, conversationPhase);
+        if (scriptPreview) {
+          messageQueue.push({
+            id: `script-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+            role: 'assistant' as const,
+            content: "",
+            timestamp: new Date(),
+            type: 'script-preview' as const,
+            scriptPreview,
+            delay: delay
+          });
+          delay += 500;
+        }
       }
       
       // Add contextual reality checks
       if (shouldAddRealityCheck(userMessage.content, conversationPhase)) {
-        setTimeout(() => {
-          const realityCheck = generateRealityCheck(conversationPhase, userPreferences);
-          const realityCheckMessage: ChatMessage = {
-            id: (Date.now() + 3).toString(),
-            role: 'assistant',
-            content: "",
-            timestamp: new Date(),
-            type: 'reality-check',
-            realityCheck
-          };
-          setMessages(prev => [...prev, realityCheckMessage]);
-        }, 2500);
+        const realityCheck = generateRealityCheck(conversationPhase, userPreferences);
+        messageQueue.push({
+          id: `reality-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          role: 'assistant' as const,
+          content: "",
+          timestamp: new Date(),
+          type: 'reality-check' as const,
+          realityCheck,
+          delay: delay
+        });
+        delay += 500;
       }
+
+      // Process message queue sequentially
+      messageQueue.forEach((message, index) => {
+        setTimeout(() => {
+          const { delay: messageDelay, ...messageData } = message;
+          setMessages(prev => [...prev, messageData]);
+        }, message.delay);
+      });
     } catch (error) {
       console.error('Error sending message:', error);
       const errorMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
+        id: `error-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
         role: 'assistant',
         content: "I'm having trouble responding right now. Please try again in a moment.",
         timestamp: new Date(),

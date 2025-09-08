@@ -58,22 +58,22 @@ export const generateRealityCheck = (phase: string, preferences: UserPreferences
   const realityChecks = {
     pain: {
       natural: {
-        title: "Gentle Reality Check: Pain in Labor",
+        title: "Just thought you should know: Pain in Labor",
         content: "Natural methods are wonderful and can be very effective. Remember that labor pain intensity varies greatly, and it's wise to stay flexible. Many women find that being open to all options - including medical pain relief if needed - actually helps them feel more confident and relaxed."
       },
       medical: {
-        title: "Gentle Reality Check: Medical Options",
+        title: "Just thought you should know: Medical Options",
         content: "Medical pain relief can be a great choice and doesn't make you 'less strong.' Every birth is different, and the goal is a healthy mom and baby. Having a plan while staying flexible allows you to make the best decisions in the moment."
       }
     },
     labor: {
       environment: {
-        title: "Gentle Reality Check: Birth Environment",
+        title: "Just thought you should know: Birth Environment",
         content: "Creating your ideal environment is wonderful, and your care team wants to support your vision. Remember that medical needs might require some adjustments, and that's completely normal. The most important thing is that you and your baby are safe and healthy."
       }
     },
     general: {
-      title: "Gentle Reality Check: Birth Plans",
+      title: "Just thought you should know: Birth Plans",
       content: "Birth plans are beautiful guides that help communicate your hopes and values. They're most helpful when they're flexible - think of them as your preferences rather than strict rules. Your care team is your partner in creating the best possible experience for you and your baby."
     }
   };
