@@ -42,18 +42,17 @@ const HowItWorks = () => {
         </div>
       </SectionContainer>
 
-      {/* The Process Section - Yellow */}
+      {/* The Process Section - Black */}
       <SectionContainer 
-        backgroundColor={colors.boldYellow} 
+        backgroundColor={colors.deepBlack} 
         condesa={true}
         innerPadding="xl"
       >
         <div className="max-w-7xl mx-auto">
           <h2 
-            className={`${typography.heading.sizes.lg} font-bold text-center mb-16`}
+            className={`${typography.heading.sizes.lg} font-bold text-center mb-16 text-white`}
             style={{ 
-              fontFamily: typography.heading.fontFamily,
-              color: colors.deepBlack
+              fontFamily: typography.heading.fontFamily
             }}
           >
             Three Simple Steps
@@ -79,20 +78,18 @@ const HowItWorks = () => {
                 <div key={index} className="flex items-start gap-4">
                   <div 
                     className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
-                    style={{ backgroundColor: colors.deepBlack, color: colors.boldYellow }}
+                    style={{ backgroundColor: colors.boldYellow, color: colors.deepBlack }}
                   >
                     {index + 1}
                   </div>
                   <div>
                     <h3 
-                      className="text-xl font-bold mb-2"
-                      style={{ color: colors.deepBlack }}
+                      className="text-xl font-bold mb-2 text-white"
                     >
                       {item.step}
                     </h3>
                     <p 
-                      className="text-base leading-relaxed"
-                      style={{ color: colors.deepBlack }}
+                      className="text-base leading-relaxed text-white/90"
                     >
                       {item.description}
                     </p>
@@ -113,36 +110,31 @@ const HowItWorks = () => {
         </div>
       </SectionContainer>
 
-      {/* What You Get Section - Blue */}
+      {/* What You Get Section - Yellow */}
       <SectionContainer 
-        backgroundColor={colors.richBlue} 
+        backgroundColor={colors.boldYellow} 
         condesa={true}
         innerPadding="xl"
       >
         <div className="max-w-7xl mx-auto">
           <h2 
-            className={`${typography.heading.sizes.lg} font-bold text-center mb-16 text-white`}
-            style={{ fontFamily: typography.heading.fontFamily }}
+            className={`${typography.heading.sizes.lg} font-bold text-center mb-16`}
+            style={{ 
+              fontFamily: typography.heading.fontFamily,
+              color: colors.deepBlack
+            }}
           >
-            What You Actually Receive
+            What You Receive
           </h2>
           
           <div className="grid lg:grid-cols-5 gap-12 items-center">
             {/* Left side - Illustration space (40% on desktop) */}
             <div className="lg:col-span-2 flex items-center justify-center">
-              <div 
-                className="w-full h-80 rounded-2xl flex items-center justify-center border-2 border-dashed border-white/30"
-                style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-              >
-                <div className="text-center p-8">
-                  <FileText className="w-12 h-12 mx-auto mb-4 text-white" />
-                  <p className="text-sm font-medium text-white">
-                    Sample document preview
-                    <br />
-                    or illustration
-                  </p>
-                </div>
-              </div>
+              <img 
+                src="/lovable-uploads/e2df5fce-3c29-4fe0-bc43-7042e67188f0.png" 
+                alt="Pregnant woman consulting with healthcare provider illustration" 
+                className="w-full max-w-md h-auto rounded-2xl"
+              />
             </div>
 
             {/* Right side - Content (60% on desktop) */}
@@ -168,13 +160,16 @@ const HowItWorks = () => {
                 }
               ].map((section, index) => (
                 <div key={index}>
-                  <h3 className="text-xl font-bold mb-4 text-white">
+                  <h3 
+                    className="text-xl font-bold mb-4"
+                    style={{ color: colors.deepBlack }}
+                  >
                     {section.title}
                   </h3>
                   <ul className="space-y-2">
                     {section.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-3 text-white/90">
-                        <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      <li key={itemIndex} className="flex items-start gap-3" style={{ color: colors.deepBlack }}>
+                        <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: colors.deepBlack }} />
                         <span>{item}</span>
                       </li>
                     ))}
