@@ -101,7 +101,7 @@ const HowItWorks = () => {
             {/* Right side - Illustration space (40% on desktop) */}
             <div className="lg:col-span-2 flex items-center justify-center">
               <img 
-                src="/lovable-uploads/f08a2f44-fca5-4195-b619-30ad0204d382.png" 
+                src="/lovable-uploads/097fa9d6-f8fc-4de1-ba76-9d36bace2c9b.png" 
                 alt="Woman working on laptop at desk illustration" 
                 className="w-full max-w-md h-auto rounded-2xl"
               />
