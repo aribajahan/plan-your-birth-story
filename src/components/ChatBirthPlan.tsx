@@ -418,20 +418,9 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
 
       setMessages(prev => [...prev, assistantMessage]);
 
-      // Track completion changes for milestone celebrations
-      const oldCompletion = completion;
-      const { completion: newCompletion, capturedPrefs: newCapturedPrefs } = useBirthPlanProgress(userPreferences, discussedTopics);
-      const newDiscussed = { ...discussedTopics };
-      
-      // Add milestone celebrations and completion guidance
-      const milestoneMessage = getMilestoneMessage(newCompletion);
-      if (milestoneMessage && (
-        (newCompletion >= 25 && oldCompletion < 25) ||
-        (newCompletion >= 50 && oldCompletion < 50) ||
-        (newCompletion >= 75 && oldCompletion < 75) ||
-        (newCompletion >= 90 && oldCompletion < 90) ||
-        (newCompletion >= 100 && oldCompletion < 100)
-      )) {
+      // Add milestone celebrations based on current completion
+      const milestoneMessage = getMilestoneMessage(completion);
+      if (milestoneMessage && Math.random() > 0.7) { // Show milestone messages occasionally
         setTimeout(() => {
           const milestoneMsg: ChatMessage = {
             id: (Date.now() + 1).toString(),
@@ -445,9 +434,9 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
       }
 
       // Add completion guidance at key thresholds
-      if (newCompletion >= 60 && newCompletion < 80 && oldCompletion < 60) {
-        const nextTopic = getNextUndiscussedTopic(newDiscussed);
-        if (nextTopic) {
+      if (completion >= 60 && completion < 80) {
+        const nextTopic = getNextUndiscussedTopic(discussedTopics);
+        if (nextTopic && Math.random() > 0.8) { // Show guidance occasionally
           setTimeout(() => {
             const guidanceMsg: ChatMessage = {
               id: (Date.now() + 2).toString(),
@@ -461,17 +450,19 @@ Reply in 2–3 short sentences, friendly and non-clinical, no medical advice. If
         }
       }
 
-      if (newCompletion >= 80 && oldCompletion < 80) {
-        setTimeout(() => {
-          const finalStretchMsg: ChatMessage = {
-            id: (Date.now() + 3).toString(),
-            role: 'assistant',
-            content: "You're in the final stretch! Let's polish the remaining details to complete your personalized birth plan.",
-            timestamp: new Date(),
-            type: 'text'
-          };
-          setMessages(prev => [...prev, finalStretchMsg]);
-        }, 2000);
+      if (completion >= 80) {
+        if (Math.random() > 0.9) { // Show final stretch message occasionally
+          setTimeout(() => {
+            const finalStretchMsg: ChatMessage = {
+              id: (Date.now() + 3).toString(),
+              role: 'assistant',
+              content: "You're in the final stretch! Let's polish the remaining details to complete your personalized birth plan.",
+              timestamp: new Date(),
+              type: 'text'
+            };
+            setMessages(prev => [...prev, finalStretchMsg]);
+          }, 2000);
+        }
       }
 
       // Generate script preview if user has shared preferences
