@@ -10,13 +10,18 @@ export const FinalCTASection = ({ onGetStarted }: CTAProps) => {
         
         {/* Bold asymmetrical CTA with enhanced typography */}
         <h2 
-          className={`${typography.heading.sizes.xl} font-bold leading-none text-white mb-16`}
+          className={`${typography.heading.sizes.xl} font-bold leading-none text-white mb-8`}
           style={{ 
             fontFamily: typography.heading.fontFamily
           }}
         >
-          Ready?
+          Feel Prepared for Whatever Comes
         </h2>
+        
+        {/* Subtext */}
+        <p className="text-lg text-white/90 font-medium mb-16 max-w-2xl mx-auto font-helvetica">
+          You've been taking great care of yourself and your baby. Now let's make sure you feel ready for birth.
+        </p>
         
         <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
           <Button 
@@ -27,14 +32,8 @@ export const FinalCTASection = ({ onGetStarted }: CTAProps) => {
               color: colors.deepBlack
             }}
           >
-            Start Your Birth Plan
+            Create My Birth Plan
           </Button>
-          
-          <div 
-            className={`${typography.body.sizes.lg} text-white font-bold font-helvetica`}
-          >
-            It's Free
-          </div>
         </div>
       </div>
     </SectionContainer>

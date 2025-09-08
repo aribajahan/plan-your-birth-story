@@ -42,17 +42,25 @@ export const TestimonialsSection = () => {
               >
                 <Quote className="w-12 h-12 mb-6" style={{ color: colors.vibrantCoral }} />
                 <p 
-                  className={`${typography.body.sizes.lg} font-bold leading-relaxed mb-6`}
+                  className={`${typography.body.sizes.lg} leading-relaxed mb-6`}
                   style={{ color: colors.deepBlack }}
                 >
                   "{testimonial.quote}"
                 </p>
                 <p 
-                  className={`${typography.body.sizes.md} font-semibold`}
+                  className={`${typography.body.sizes.md} font-bold`}
                   style={{ color: colors.deepBlack }}
                 >
-                  {testimonial.author}
+                  — {testimonial.author}
                 </p>
+                {testimonial.location && (
+                  <p 
+                    className={`${typography.body.sizes.sm} mt-2`}
+                    style={{ color: colors.deepBlack, opacity: 0.7 }}
+                  >
+                    {testimonial.location}
+                  </p>
+                )}
               </div>
             ))}
           </div>
