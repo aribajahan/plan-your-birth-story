@@ -11,7 +11,7 @@ export const FooterSection = () => {
             <div className="lg:col-span-1 space-y-4">
               <div className="flex items-center gap-3">
                 <img 
-                  src="/lovable-uploads/3eb8d8c6-278d-427a-b9a0-12eb2b7a5f45.png" 
+                  src="/lovable-uploads/889e82d7-b67f-4854-8b53-a04f49ab944c.png" 
                   alt="Asha" 
                   className="h-8 w-auto"
                 />
