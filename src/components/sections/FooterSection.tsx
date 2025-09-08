@@ -15,6 +15,7 @@ export const FooterSection = () => {
                   alt="Asha" 
                   className="h-8 w-auto"
                 />
+                <span className="text-2xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>Asha</span>
               </div>
               <p className="text-sm" style={{ color: 'hsl(var(--deep-black))' }}>
                 Birth planning made simple
