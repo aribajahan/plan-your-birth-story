@@ -10,10 +10,11 @@ export const FooterSection = () => {
             {/* Brand & Tagline */}
             <div className="lg:col-span-1 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'hsl(var(--vibrant-coral))' }}>
-                  <Heart className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-2xl font-bold" style={{ color: 'hsl(var(--deep-black))' }}>Asha</span>
+                <img 
+                  src="/lovable-uploads/3eb8d8c6-278d-427a-b9a0-12eb2b7a5f45.png" 
+                  alt="Asha" 
+                  className="h-8 w-auto"
+                />
               </div>
               <p className="text-sm" style={{ color: 'hsl(var(--deep-black))' }}>
                 Birth planning made simple
