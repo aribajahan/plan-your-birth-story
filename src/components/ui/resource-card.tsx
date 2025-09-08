@@ -10,6 +10,7 @@ interface ResourceCardProps {
   icon?: React.ReactNode;
   variant?: 'default' | 'emergency';
   className?: string;
+  darkMode?: boolean;
 }
 
 export const ResourceCard = ({ 
@@ -18,7 +19,8 @@ export const ResourceCard = ({
   href, 
   icon, 
   variant = 'default',
-  className 
+  className,
+  darkMode = false
 }: ResourceCardProps) => {
   const isExternal = href && href.startsWith('http');
   
@@ -42,7 +44,7 @@ export const ResourceCard = ({
             <CardTitle 
               className={cn(
                 "text-lg leading-tight",
-                variant === 'emergency' ? "text-white" : "text-foreground"
+                variant === 'emergency' || darkMode ? "text-white" : "text-foreground"
               )}
               style={{ fontFamily: typography.heading.fontFamily }}
             >
@@ -50,7 +52,7 @@ export const ResourceCard = ({
               {isExternal && (
                 <ExternalLink className={cn(
                   "inline-block ml-2 w-4 h-4",
-                  variant === 'emergency' ? "text-white/70" : "text-muted-foreground"
+                  variant === 'emergency' || darkMode ? "text-white" : "text-muted-foreground"
                 )} />
               )}
             </CardTitle>
@@ -61,7 +63,7 @@ export const ResourceCard = ({
         <CardDescription 
           className={cn(
             "text-sm leading-relaxed",
-            variant === 'emergency' ? "text-white/80" : "text-muted-foreground"
+            variant === 'emergency' || darkMode ? "text-white" : "text-muted-foreground"
           )}
           style={{ fontFamily: typography.body.fontFamily }}
         >

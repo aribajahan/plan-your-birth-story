@@ -155,6 +155,7 @@ const Resources = () => {
                 icon={<UserCheck className="w-5 h-5 text-white" />}
                 variant="default"
                 className="bg-white/10 backdrop-blur-sm border border-white/20"
+                darkMode={true}
               />
               <ResourceCard
                 title="Interview Questions"
@@ -162,6 +163,7 @@ const Resources = () => {
                 icon={<MessageCircle className="w-5 h-5 text-white" />}
                 variant="default"
                 className="bg-white/10 backdrop-blur-sm border border-white/20"
+                darkMode={true}
               />
               <ResourceCard
                 title="Doula Roles"
@@ -169,6 +171,7 @@ const Resources = () => {
                 icon={<Heart className="w-5 h-5 text-white" />}
                 variant="default"
                 className="bg-white/10 backdrop-blur-sm border border-white/20"
+                darkMode={true}
               />
             </div>
           </div>
@@ -188,6 +191,7 @@ const Resources = () => {
                 icon={<GraduationCap className="w-5 h-5 text-white" />}
                 variant="default"
                 className="bg-white/10 backdrop-blur-sm border border-white/20"
+                darkMode={true}
               />
               <ResourceCard
                 title="Bradley Method"
@@ -196,6 +200,7 @@ const Resources = () => {
                 icon={<Users className="w-5 h-5 text-white" />}
                 variant="default"
                 className="bg-white/10 backdrop-blur-sm border border-white/20"
+                darkMode={true}
               />
               <ResourceCard
                 title="Class Options"
@@ -203,6 +208,7 @@ const Resources = () => {
                 icon={<BookOpen className="w-5 h-5 text-white" />}
                 variant="default"
                 className="bg-white/10 backdrop-blur-sm border border-white/20"
+                darkMode={true}
               />
             </div>
           </div>
@@ -222,6 +228,7 @@ const Resources = () => {
                 icon={<Stethoscope className="w-5 h-5 text-white" />}
                 variant="default"
                 className="bg-white/10 backdrop-blur-sm border border-white/20"
+                darkMode={true}
               />
               <ResourceCard
                 title="Provider Questions"
@@ -229,6 +236,7 @@ const Resources = () => {
                 icon={<MessageCircle className="w-5 h-5 text-white" />}
                 variant="default"
                 className="bg-white/10 backdrop-blur-sm border border-white/20"
+                darkMode={true}
               />
               <ResourceCard
                 title="Switching Providers"
@@ -236,6 +244,7 @@ const Resources = () => {
                 icon={<AlertTriangle className="w-5 h-5 text-white" />}
                 variant="default"
                 className="bg-white/10 backdrop-blur-sm border border-white/20"
+                darkMode={true}
               />
             </div>
           </div>
@@ -299,6 +308,7 @@ const Resources = () => {
                   icon={<Users className="w-5 h-5 text-white" />}
                   variant="default"
                   className="bg-white/10 backdrop-blur-sm border border-white/20"
+                  darkMode={true}
                 />
                 <ResourceCard
                   title="Maternal Mental Health NOW"
@@ -307,6 +317,7 @@ const Resources = () => {
                   icon={<Shield className="w-5 h-5 text-white" />}
                   variant="default"
                   className="bg-white/10 backdrop-blur-sm border border-white/20"
+                  darkMode={true}
                 />
                 <ResourceCard
                   title="When to Seek Help"
@@ -314,6 +325,7 @@ const Resources = () => {
                   icon={<AlertTriangle className="w-5 h-5 text-white" />}
                   variant="default"
                   className="bg-white/10 backdrop-blur-sm border border-white/20"
+                  darkMode={true}
                 />
               </div>
             </div>
@@ -333,6 +345,7 @@ const Resources = () => {
                   icon={<Heart className="w-5 h-5 text-white" />}
                   variant="default"
                   className="bg-white/10 backdrop-blur-sm border border-white/20"
+                  darkMode={true}
                 />
                 <ResourceCard
                   title="Solace for Mothers"
@@ -341,6 +354,7 @@ const Resources = () => {
                   icon={<Users className="w-5 h-5 text-white" />}
                   variant="default"
                   className="bg-white/10 backdrop-blur-sm border border-white/20"
+                  darkMode={true}
                 />
                 <ResourceCard
                   title="Family Equality Council"
@@ -349,6 +363,7 @@ const Resources = () => {
                   icon={<Shield className="w-5 h-5 text-white" />}
                   variant="default"
                   className="bg-white/10 backdrop-blur-sm border border-white/20"
+                  darkMode={true}
                 />
                 <ResourceCard
                   title="Community Groups"
@@ -356,6 +371,7 @@ const Resources = () => {
                   icon={<MessageCircle className="w-5 h-5 text-white" />}
                   variant="default"
                   className="bg-white/10 backdrop-blur-sm border border-white/20"
+                  darkMode={true}
                 />
               </div>
             </div>
