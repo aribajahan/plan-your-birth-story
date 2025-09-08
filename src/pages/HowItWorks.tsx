@@ -20,9 +20,8 @@ const HowItWorks = () => {
       {/* Hero Section - Cream */}
       <SectionContainer 
         backgroundColor={colors.creamBase} 
-        fullBleed={true}
+        condesa={true}
         innerPadding="xl"
-        className="pt-24"
       >
         <div className="text-center max-w-4xl mx-auto">
           <h1 
@@ -46,7 +45,7 @@ const HowItWorks = () => {
       {/* The Process Section - Yellow */}
       <SectionContainer 
         backgroundColor={colors.boldYellow} 
-        fullBleed={true}
+        condesa={true}
         innerPadding="xl"
       >
         <div className="max-w-7xl mx-auto">
@@ -112,28 +111,11 @@ const HowItWorks = () => {
 
             {/* Right side - Illustration space (40% on desktop) */}
             <div className="lg:col-span-2 flex items-center justify-center">
-              <div 
-                className="w-full h-80 rounded-2xl flex items-center justify-center border-2 border-dashed"
-                style={{ 
-                  borderColor: colors.deepBlack,
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <div className="text-center p-8">
-                  <FileText 
-                    className="w-12 h-12 mx-auto mb-4"
-                    style={{ color: colors.deepBlack }}
-                  />
-                  <p 
-                    className="text-sm font-medium"
-                    style={{ color: colors.deepBlack }}
-                  >
-                    Your custom illustration here
-                    <br />
-                    Process/steps themed
-                  </p>
-                </div>
-              </div>
+              <img 
+                src="/lovable-uploads/277d7049-7e3e-43f7-9207-63a1c6a6c4b2.png" 
+                alt="Healthcare provider consulting with pregnant woman illustration" 
+                className="w-full max-w-md h-auto rounded-2xl"
+              />
             </div>
           </div>
         </div>
@@ -142,7 +124,7 @@ const HowItWorks = () => {
       {/* What You Get Section - Blue */}
       <SectionContainer 
         backgroundColor={colors.richBlue} 
-        fullBleed={true}
+        condesa={true}
         innerPadding="xl"
       >
         <div className="max-w-7xl mx-auto">
@@ -221,7 +203,7 @@ const HowItWorks = () => {
       {/* Sample Plan Preview Section - Cream */}
       <SectionContainer 
         backgroundColor={colors.creamBase} 
-        fullBleed={true}
+        condesa={true}
         innerPadding="xl"
       >
         <div className="max-w-6xl mx-auto text-center">
@@ -286,7 +268,7 @@ const HowItWorks = () => {
       {/* Ready to Start CTA Section - Coral */}
       <SectionContainer 
         backgroundColor={colors.vibrantCoral} 
-        fullBleed={true}
+        condesa={true}
         innerPadding="xl"
       >
         <div className="text-center max-w-4xl mx-auto">
