@@ -1,7 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BirthPlanData } from "@/components/BirthPlanWizard";
-import { Download, Mail, Edit } from "lucide-react";
+import { Download, Mail, Printer, Save } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { generateBirthPlanPDF, transformToPDFData } from "@/utils/pdfGenerator";
+import { BirthPlanService } from "@/services/birth-plan-service";
+import { supabase } from "@/integrations/supabase/client";
 
 interface SummaryStepProps {
   data: BirthPlanData;
@@ -9,14 +14,84 @@ interface SummaryStepProps {
 }
 
 export const SummaryStep = ({ data }: SummaryStepProps) => {
-  const handleDownloadPDF = () => {
-    // TODO: Implement PDF generation
-    console.log("Downloading PDF...", data);
+  const [isLoading, setIsLoading] = useState(false);
+  const [emailAddress, setEmailAddress] = useState("");
+  const [showEmailInput, setShowEmailInput] = useState(false);
+
+  const handleDownloadPDF = async () => {
+    try {
+      setIsLoading(true);
+      
+      // Transform birth plan data to PDF format
+      const liveBirthPlan = BirthPlanService.transformToLiveBirthPlan(data);
+      const pdfData = transformToPDFData(liveBirthPlan);
+      
+      // Generate and download PDF
+      generateBirthPlanPDF(pdfData);
+      
+      // Save to database and mark as exported
+      const savedPlan = await BirthPlanService.saveBirthPlan(data);
+      await BirthPlanService.markAsExported(savedPlan.id, 'pdf');
+      
+      toast.success("Birth plan PDF downloaded successfully!");
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+      toast.error("Failed to generate PDF. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleEmailPlan = () => {
-    // TODO: Implement email functionality
-    console.log("Emailing birth plan...", data);
+  const handleEmailPlan = async () => {
+    if (!emailAddress.trim()) {
+      toast.error("Please enter an email address");
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      
+      // Save birth plan first
+      const savedPlan = await BirthPlanService.saveBirthPlan(data);
+      
+      // Send email via edge function
+      const { data: emailResult, error } = await supabase.functions.invoke('send-birth-plan', {
+        body: {
+          email: emailAddress.trim(),
+          birthPlanData: data,
+          birthPlanId: savedPlan.id
+        }
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      // Mark as exported
+      await BirthPlanService.markAsExported(savedPlan.id, 'email');
+      
+      toast.success(`Birth plan sent to ${emailAddress}!`);
+      setEmailAddress("");
+      setShowEmailInput(false);
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast.error("Failed to send email. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSavePlan = async () => {
+    try {
+      setIsLoading(true);
+      await BirthPlanService.saveBirthPlan(data);
+      toast.success("Birth plan saved successfully!");
+    } catch (error) {
+      console.error("Error saving birth plan:", error);
+      toast.error("Failed to save birth plan. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handlePrint = () => {
@@ -37,19 +112,64 @@ export const SummaryStep = ({ data }: SummaryStepProps) => {
 
       {/* Action Buttons */}
       <div className="flex flex-wrap gap-4 justify-center mb-8">
-        <Button onClick={handleDownloadPDF} className="gradient-primary text-white shadow-gentle">
+        <Button 
+          onClick={handleDownloadPDF} 
+          disabled={isLoading}
+          className="gradient-primary text-white shadow-gentle"
+        >
           <Download className="w-4 h-4 mr-2" />
-          Download PDF
+          {isLoading ? "Generating..." : "Download PDF"}
         </Button>
-        <Button onClick={handleEmailPlan} variant="outline" className="shadow-gentle">
+        
+        <Button 
+          onClick={() => setShowEmailInput(!showEmailInput)} 
+          variant="outline" 
+          className="shadow-gentle"
+        >
           <Mail className="w-4 h-4 mr-2" />
-          Email to Me
+          Email Plan
         </Button>
+        
+        <Button 
+          onClick={handleSavePlan} 
+          disabled={isLoading}
+          variant="outline" 
+          className="shadow-gentle"
+        >
+          <Save className="w-4 h-4 mr-2" />
+          Save Plan
+        </Button>
+        
         <Button onClick={handlePrint} variant="outline" className="shadow-gentle">
-          <Edit className="w-4 h-4 mr-2" />
+          <Printer className="w-4 h-4 mr-2" />
           Print
         </Button>
       </div>
+
+      {/* Email Input */}
+      {showEmailInput && (
+        <div className="max-w-md mx-auto mb-8 p-4 bg-background border border-border rounded-lg shadow-gentle">
+          <label className="block text-sm font-medium text-foreground mb-2">
+            Email Address
+          </label>
+          <div className="flex gap-2">
+            <input
+              type="email"
+              value={emailAddress}
+              onChange={(e) => setEmailAddress(e.target.value)}
+              placeholder="your@email.com"
+              className="flex-1 px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <Button 
+              onClick={handleEmailPlan} 
+              disabled={isLoading || !emailAddress.trim()}
+              className="gradient-primary text-white"
+            >
+              {isLoading ? "Sending..." : "Send"}
+            </Button>
+          </div>
+        </div>
+      )}
 
       {/* Birth Plan Summary */}
       <div className="max-w-4xl mx-auto print:max-w-none print:mx-0">
