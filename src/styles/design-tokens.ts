@@ -15,7 +15,7 @@ export const colors = {
 
 export const typography = {
   heading: {
-    fontFamily: 'Crimson Text, serif',
+    fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
     sizes: {
       xl: 'text-6xl lg:text-8xl',
       lg: 'text-4xl lg:text-6xl',
