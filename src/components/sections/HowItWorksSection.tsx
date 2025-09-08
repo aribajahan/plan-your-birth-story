@@ -57,7 +57,7 @@ export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectio
         {/* Form Approach - Enhanced with subtle shadow */}
         <div className="bg-white/95 backdrop-blur-sm p-8 lg:p-12 rounded-2xl hover:bg-white transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl shadow-lg">
           <div className="text-center space-y-6">
-            <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: colors.richBlue }}>
+            <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: colors.vibrantCoral }}>
               <FileText className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-3xl font-bold" style={{ color: colors.deepBlack }}>Fill Out Forms</h3>
@@ -68,7 +68,7 @@ export const HowItWorksSection = ({ onStartChat, onStartForm }: HowItWorksSectio
               onClick={onStartForm}
               className="w-full text-lg font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105"
               style={{ 
-                backgroundColor: colors.richBlue,
+                backgroundColor: colors.vibrantCoral,
                 color: 'white'
               }}
             >
