@@ -9,6 +9,8 @@ export const colors = {
   deepBlack: 'hsl(var(--deep-black))',
   faqBlack: '#1d1d1d',
   white: '#ffffff',
+  testimonialsBackground: '#e9e9e2',
+  testimonialsCard: '#f6f5ee',
 } as const;
 
 export const typography = {

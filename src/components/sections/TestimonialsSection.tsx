@@ -5,7 +5,7 @@ import { colors, typography } from "@/styles/design-tokens";
 
 export const TestimonialsSection = () => {
   return (
-    <SectionContainer backgroundColor={colors.creamBase} condesa={true}>
+    <SectionContainer backgroundColor={colors.testimonialsBackground} condesa={true}>
           
         {/* Asymmetrical testimonials layout */}
         <div className="space-y-16">
@@ -38,7 +38,7 @@ export const TestimonialsSection = () => {
               <div 
                 key={index}
                 className="p-12" 
-                style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}
+                style={{ backgroundColor: colors.testimonialsCard }}
               >
                 <Quote className="w-12 h-12 mb-6" style={{ color: colors.vibrantCoral }} />
                 <p 
