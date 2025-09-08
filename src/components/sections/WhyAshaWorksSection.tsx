@@ -1,22 +1,31 @@
+import { SectionContainer } from "@/components/ui/section-container";
+import { colors, typography } from "@/styles/design-tokens";
+
 export const WhyAshaWorksSection = () => {
   return (
-    <section className="py-8 lg:py-12 bg-cream-base">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8">
-        
-        {/* Rounded Yellow Container */}
-        <div className="rounded-3xl p-16 lg:p-32" style={{ backgroundColor: 'hsl(var(--bold-yellow))' }}>
+    <SectionContainer backgroundColor={colors.creamBase}>
+      <div 
+        className="rounded-3xl p-16 lg:p-32" 
+        style={{ backgroundColor: colors.boldYellow }}
+      >
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             {/* Text Content */}
             <div>
-              <h2 className="section-headline leading-none mb-8" style={{ 
-                fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
-                color: 'hsl(var(--deep-black))'
-              }}>
+              <h2 
+                className="section-headline leading-none mb-8" 
+                style={{ 
+                  fontFamily: typography.body.fontFamily,
+                  color: colors.deepBlack
+                }}
+              >
                 Why Asha
               </h2>
               
-              <div className="space-y-6 text-xl lg:text-2xl font-helvetica font-medium" style={{ color: 'hsl(var(--deep-black))' }}>
+              <div 
+                className={`space-y-6 ${typography.body.sizes.lg} font-helvetica font-medium`}
+                style={{ color: colors.deepBlack }}
+              >
                 <p className="font-bold">Guided questions that help</p>
                 <p className="font-bold">Reality checks that prepare</p>
                 <p className="font-bold">Professional output that works</p>
@@ -34,8 +43,6 @@ export const WhyAshaWorksSection = () => {
             
           </div>
         </div>
-        
-      </div>
-    </section>
+    </SectionContainer>
   );
 };

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BirthPlanWizard } from "@/components/BirthPlanWizard";
 import { ChatBirthPlan } from "@/components/ChatBirthPlan";
 import { Header } from "@/components/Header";
@@ -9,38 +8,39 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
 import { FooterSection } from "@/components/sections/FooterSection";
+import { useAppMode } from "@/hooks/useAppMode";
 
 const Index = () => {
-  const [mode, setMode] = useState<'home' | 'chat' | 'form'>('home');
+  const { mode, goToHome, goToChat, goToForm } = useAppMode();
 
   console.log('Index component rendering, mode:', mode);
 
   if (mode === 'chat') {
-    return <ChatBirthPlan onBack={() => setMode('home')} onSwitchToForm={() => setMode('form')} />;
+    return <ChatBirthPlan onBack={goToHome} onSwitchToForm={goToForm} />;
   }
 
   if (mode === 'form') {
-    return <BirthPlanWizard onBack={() => setMode('home')} onSwitchToChat={() => setMode('chat')} />;
+    return <BirthPlanWizard onBack={goToHome} onSwitchToChat={goToChat} />;
   }
 
   return (
     <div className="min-h-screen overflow-hidden relative">
-      <Header onGetStarted={() => setMode('chat')} />
+      <Header onGetStarted={goToChat} />
       
-      <HeroSection onGetStarted={() => setMode('chat')} />
+      <HeroSection onGetStarted={goToChat} />
       
       <WhyAshaWorksSection />
       
       <HowItWorksSection 
-        onStartChat={() => setMode('chat')}
-        onStartForm={() => setMode('form')}
+        onStartChat={goToChat}
+        onStartForm={goToForm}
       />
       
       <TestimonialsSection />
       
       <FAQSection />
       
-      <FinalCTASection onGetStarted={() => setMode('chat')} />
+      <FinalCTASection onGetStarted={goToChat} />
       
       <FooterSection />
     </div>
